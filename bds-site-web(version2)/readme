@@ -1,0 +1,6 @@
+entre dans le fichier sitewebdsContext.cs ,
+tu modifies la configuration de la connexion de la base de données à la gine 67 
+ensuite tu réinstalles les packages dans les dépendances 
+entre dans outils, tu cliques de package manager 
+ajoute une migration avec la commande add-migration "nom de la migration"
+ensuite tape la commande update-database 
