@@ -4,3 +4,9 @@ ensuite tu réinstalles les packages dans les dépendances
 entre dans outils, tu cliques de package manager 
 ajoute une migration avec la commande add-migration "nom de la migration"
 ensuite tape la commande update-database 
+######## ajout des packages (version 7.0.5)#########
+Microsoft.AspNetCore.Identity.EntityFrameworkcore
+Microsoft.EntityFrameworkCore
+MySql.EntityFrameworkCore
+Microsoft.EntityFrameworkCore.Tools
+Microsoft.EntityFrameworkCore.Design
