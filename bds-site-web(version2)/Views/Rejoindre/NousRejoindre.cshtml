@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Bds_site_web</title>
+    <!--<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />-->
+   <!--- <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />-->
+    <link rel="stylesheet" href="~/css/NousRejoindre.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Bds_site_web.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <main class="container">
+        
+        <div class="main-container">
+            <div class="left-main">
+                
+            </div>
+            <div class="middle-main">
+                <div class="form_Contact">
+                   
+               
+                    <form>
+                        <div class="name-group">
+                            <div class="form_lastname"> <label>Prenom</label><input class="input-button" type="text" required /></div>
+                            <div class="form_firstname"><label>Nom</label><input type="text" required class="input-button" /></div>
+                        </div>
+                        <div class="name-group">
+                            <div class="form_email"><label>Email</label><input type="email" required class="input-button" /></div>
+                            <div class="form_number"><label>Telephone</label><input type="tel" required class="input-button" /></div>
+                        </div>
+                        <div class="form_civilite"><label>civilite</label><input type="text" required class="input-button" /></div>
+                        <div class="message-group">
+                            <div class="form_objetMessage"><label>objet message</label><input type="text" required class="input-button" /></div>
+                            <div class="form_descriptionMessage"><textarea>message</textarea></div>
+                        </div>
+                        <div class="cv-file"><input type="file" required class="input-button" /></div>
+                        <div class="form_submit"> <button class="submit-button">Envoyer</button></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+   
+</body>
+</html>
