@@ -6,7 +6,7 @@
     <title>@ViewData["Title"] - Bds_site_web</title>
     <!--<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />-->
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/Acceuil.css" asp-append-version="true" />
+    <!----<link rel="stylesheet" href="~/css/Acceuil.css" asp-append-version="true" />-->
     <link rel="stylesheet" href="~/Bds_site_web.styles.css" asp-append-version="true" />
 </head>
 <body>
@@ -16,7 +16,7 @@
         <a class="link-header">Nos Projets </a>
         <a class="link-header"> Nos Formations  </a>
         <a class="link-header">Nos Equipes </a>
-        <a class="link-header">Nous Rejoindre </a>
+        <a class="link-header" asp-controller="Rejoindre" asp-action="NousRejoindre">Nous Rejoindre </a>
         <a class="link-header">Mediathèque</a>
         <a class="link-header">Annonces</a>
         <a class="link-header" href="#footer">Nous Contacter</a>
