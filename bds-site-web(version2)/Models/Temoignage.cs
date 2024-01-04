@@ -7,9 +7,9 @@ public partial class Temoignage
 {
     public string IdTemoignage { get; set; } = null!;
 
-    public string NomTemoignage { get; set; } = null!;
+    public string NomTemoignage { get; set; } 
 
-    public string DescriptionTemoignage { get; set; } = null!;
+    public string DescriptionTemoignage { get; set; } 
 
     public string? RoleTemoignage { get; set; }
 

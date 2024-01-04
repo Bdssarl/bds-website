@@ -3,6 +3,7 @@ using System;
 using Bds_site_web.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace bds_site_web_version2_.Migrations
 {
     [DbContext(typeof(SiteWebBdsDbContext))]
-    partial class SiteWebBdsDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231231152710_AddSomeAttributesOnUser")]
+    partial class AddSomeAttributesOnUser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -180,11 +183,23 @@ namespace bds_site_web_version2_.Migrations
                     b.Property<string>("DescriptionMessage")
                         .HasColumnType("longtext");
 
+                    b.Property<string>("MessageDemandeStage")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
                     b.Property<string>("NomCvDemandeStage")
                         .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("ObjetMessage")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Periode")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("TypeEmploi")
                         .IsRequired()
                         .HasColumnType("longtext");
 
@@ -736,6 +751,12 @@ namespace bds_site_web_version2_.Migrations
                         .HasColumnType("varchar(255)")
                         .HasColumnName("domaine_stage");
 
+                    b.Property<string>("TypeStage")
+                        .IsRequired()
+                        .HasMaxLength(45)
+                        .HasColumnType("varchar(45)")
+                        .HasColumnName("type_stage");
+
                     b.HasKey("IdStage")
                         .HasName("PRIMARY");
 
@@ -1083,40 +1104,6 @@ namespace bds_site_web_version2_.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("bds_site_web_version2_.Models.StageTypeStage", b =>
-                {
-                    b.Property<string>("StagesIdStage")
-                        .HasColumnType("varchar(25)");
-
-                    b.Property<string>("TypeStagesIdTypeStage")
-                        .HasColumnType("varchar(25)");
-
-                    b.HasKey("StagesIdStage", "TypeStagesIdTypeStage");
-
-                    b.HasIndex("TypeStagesIdTypeStage");
-
-                    b.ToTable("StageTypeStages");
-                });
-
-            modelBuilder.Entity("bds_site_web_version2_.Models.TypeStage", b =>
-                {
-                    b.Property<string>("IdTypeStage")
-                        .HasMaxLength(25)
-                        .HasColumnType("varchar(25)")
-                        .HasColumnName("id_TypeStage");
-
-                    b.Property<string>("LibelleTypeStage")
-                        .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("varchar(255)")
-                        .HasColumnName("Libelelle_TypeStage");
-
-                    b.HasKey("IdTypeStage")
-                        .HasName("PRIMARY");
-
-                    b.ToTable("TypeStage", (string)null);
-                });
-
             modelBuilder.Entity("Bds_site_web.Models.Consulter", b =>
                 {
                     b.HasOne("Bds_site_web.Models.Ebook", null)
@@ -1281,21 +1268,6 @@ namespace bds_site_web_version2_.Migrations
                     b.HasOne("Bds_site_web.Models.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("bds_site_web_version2_.Models.StageTypeStage", b =>
-                {
-                    b.HasOne("Bds_site_web.Models.Stage", null)
-                        .WithMany()
-                        .HasForeignKey("StagesIdStage")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("bds_site_web_version2_.Models.TypeStage", null)
-                        .WithMany()
-                        .HasForeignKey("TypeStagesIdTypeStage")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

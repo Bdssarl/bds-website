@@ -3,6 +3,7 @@ using System;
 using Bds_site_web.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace bds_site_web_version2_.Migrations
 {
     [DbContext(typeof(SiteWebBdsDbContext))]
-    partial class SiteWebBdsDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240104120143_removeFieldFromTemoignage")]
+    partial class removeFieldFromTemoignage
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

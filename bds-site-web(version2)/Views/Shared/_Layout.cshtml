@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@model bds_site_web_version2_.Models.MessageUser
+
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -16,7 +19,7 @@
         <a class="link-header">Nos Projets </a>
         <a class="link-header"> Nos Formations  </a>
         <a class="link-header">Nos Equipes </a>
-        <a class="link-header" asp-controller="Rejoindre" asp-action="NousRejoindre">Nous Rejoindre </a>
+        <a class="link-header" asp-controller="Rejoindre" asp-action="Rejoindre">Nous Rejoindre </a>
         <a class="link-header">Mediathèque</a>
         <a class="link-header">Annonces</a>
         <a class="link-header" href="#footer">Nous Contacter</a>
@@ -55,27 +58,28 @@
              </div>
          </div>
         <div class="form_Contact">
-            <form>
+            <form asp-controller="Message" asp-action="Message"method="post">
                <div class="name-group">
-                <div class="form_lastname"> <label>Prenom</label><input class="input-button" type="text" required/></div>
-                <div class="form_firstname"><label>Nom</label><input type="text" required class="input-button"/></div>
+                    <div class="form_lastname"> <label asp-for="LastName">Prenom</label><input class="input-button" type="text" required asp-for="LastName" /></div>
+                    <div class="form_firstname"><label asp-for="FirstName">Nom</label><input type="text" required class="input-button" asp-for="FirstName" /></div>
                 </div>
                 <div class="name-group">
-                    <div class="form_email"><label>Email</label><input type="email" required class="input-button"  /></div>
-                    <div class="form_number"><label>Telephone</label><input type="tel" required class="input-button" /></div>
+                    <div class="form_email"><label asp-for="Email">Email</label><input type="email" required class="input-button" asp-for="Email" /></div>
+                    <div class="form_number"><label asp-for="PhoneNumber">Telephone</label><input type="tel" required class="input-button" asp-for="PhoneNumber" /></div>
                 </div>
-                <div class="form_civilite"><label>civilite</label><input type="text" required class="input-button" /></div>
+                <div class="form_civilite"><label asp-for="civilite">civilite</label><input type="text" required class="input-button" asp-for="civilite" /></div>
                 <div class="message-group">
-                    <div class="form_objetMessage"><label>objet message</label><input type="text" required class="input-button" /></div>
-                <div class="form_descriptionMessage"><textarea>message</textarea></div>
+                    <div class="form_objetMessage"><label asp-for="ObjetMesage">objet message</label><input type="text" required class="input-button" asp-for="ObjetMesage" /></div>
+                    <div class="form_descriptionMessage"><textarea asp-for="DescriptionMessage">message</textarea></div>
                 </div>
             <div class="form_submit"> <button class="submit-button">Envoyer</button></div>
             </form>
+            <div> @ViewBag.Message</div>
         </div>
         <div class="map">
            google map
         </div>
-        <div class="copyright">&copy; 2023 - BdsSarl</div>
+        <div class="copyright">&copy; 2024 - BdsSarl</div>
 
 
     </footer>

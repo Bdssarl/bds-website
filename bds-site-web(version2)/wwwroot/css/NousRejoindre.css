@@ -13,6 +13,7 @@
     column-gap: 2px;
     padding-left:3px;
     
+    
 }
 .navBar{
     border:none;
@@ -39,7 +40,7 @@
     box-shadow:4px 4px #dcdcdc;
 }
 .message-form {
-    border: 1px solid black;
+    
     height: 100px;
     width: 500px;
     margin: auto;
@@ -106,10 +107,25 @@
 .input-button {
     border: 1px solid rgb(118, 118, 118);
     height: 60px;
-    outline-color: forestgreen;
+    outline-color: orange;
     border-radius: 3px;
 }
 .select {
-    height: 60px;
-    
+ display:flex;
+ justify-content:flex-end;
+ align-items:center;
+ right:-60px;
+}
+label{
+    font-family:Candara;
+}
+.link-select {
+    border: 1px dashed rgb(118, 118, 118);
+    border-radius: 3px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
+    font-family: Candara;
+    margin-right: 15px;
+    padding: 7px 20px 7px 20px;
 }

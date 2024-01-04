@@ -11,6 +11,7 @@ namespace Bds_site_web.Controllers
             ViewData["Title"] = "Acceuil";
             return View();
         }
+        
 
       
     }

@@ -8,32 +8,32 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Emploi</title>
+    <title>Stage</title>
     <!--<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />-->
-   <!--- <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />-->
+    <!--- <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />-->
     <link rel="stylesheet" href="~/css/NousRejoindre.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Bds_site_web.styles.css" asp-append-version="true" />
 </head>
 <body>
-                <div class="form_Contact">
-        <form asp-controller="Rejoindre" asp-action="NousRejoindre" method="post" enctype="multipart/form-data">
-                        <div class="name-group">
+    <div class="form_Contact">
+        <form asp-controller="Rejoindre" asp-action="NousRejoindre" method="post">
+            <div class="name-group">
                 <div class="form_lastname"> <label asp-for="LastName">Prenom</label><input class="input-button" type="text" required asp-for="LastName" /></div>
                 <div class="form_firstname"><label asp-for="FirstName">Nom</label><input type="text" required class="input-button" asp-for="FirstName" /></div>
-                        </div>
-                        <div class="name-group">
-                <div class="form_email"><label asp-for="Email">Email</label><input type="email" required class="input-button" asp-for="Email"/></div>
-                            <div class="form_number"><label >Telephone</label><input type="tel" required class="input-button" /></div>
-                        </div>
+            </div>
+            <div class="name-group">
+                <div class="form_email"><label asp-for="Email">Email</label><input type="email" required class="input-button" asp-for="Email" /></div>
+                <div class="form_number"><label>Telephone</label><input type="tel" required class="input-button" /></div>
+            </div>
             <div class="form_civilite"><label asp-for="civilite">civilite</label><input type="text" required class="input-button" asp-for="civilite" /></div>
-                        <div class="message-group">
+            <div class="message-group">
                 <div class="form_objetMessage"><label asp-for="ObjetMessage">objet message</label><input type="text" required class="input-button" asp-for="ObjetMessage" /></div>
                 <div class="form_descriptionMessage"><textarea asp-for="DescriptionMessage">message</textarea></div>
-                        </div>
+            </div>
             <div class="cv-file"><input type="file" required class="input-button" asp-for="formFile" /></div>
-                        <div class="form_submit"> <button class="submit-button">Envoyer</button></div>
-                    </form>
-                    <div> @ViewBag.Id</div>
-                </div>
+            <div class="form_submit"> <button class="submit-button">Envoyer</button></div>
+        </form>
+        <div> @ViewBag.Id</div>
+    </div>
 </body>
 </html>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.Extensions.Hosting;
+using bds_site_web_version2_.Models;
 
 namespace Bds_site_web.Models
 {
@@ -63,6 +64,8 @@ namespace Bds_site_web.Models
     public virtual DbSet<Metier> Metiers { get; set; }
     public virtual DbSet<UserNewsletter> UserNewsletters { get; set; }
     public virtual DbSet<UserToNewsLetter> UserToNewsLetters { get; set; }
+    public virtual DbSet<TypeStage> TypeStages { get; set; }
+    public virtual DbSet<StageTypeStage> StageTypeStages { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
@@ -444,10 +447,26 @@ namespace Bds_site_web.Models
             entity.Property(e => e.DomaineStage)
                 .HasMaxLength(255)
                 .HasColumnName("domaine_stage");
-            entity.Property(e => e.TypeStage)
-                .HasMaxLength(45)
-                .HasColumnName("type_stage");
+           
         });
+            modelBuilder.Entity<TypeStage>(entity =>
+            {
+                entity.HasKey(e => e.IdTypeStage).HasName("PRIMARY");
+
+                entity.ToTable("TypeStage");
+
+                entity.Property(e => e.IdTypeStage)
+                    .HasMaxLength(25)
+                    .HasColumnName("id_TypeStage");
+                entity.Property(e => e.LibelleTypeStage)
+                    .HasMaxLength(255)
+                    .HasColumnName("Libelelle_TypeStage");
+
+            });
+            modelBuilder.Entity<Stage>()
+   .HasMany(e => e.TypeStages)
+   .WithMany(e => e.Stages)
+   .UsingEntity<StageTypeStage>();
             modelBuilder.Entity<User>()
  .HasMany(e => e.Ebooks)
  .WithMany(e => e.Users)
