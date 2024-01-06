@@ -9,12 +9,15 @@ namespace bds_site_web_version2_.Models
     [BindRequired]
     public class UserStage
     {
+        [StringLength(10,ErrorMessage ="la taille ne doit pas dépasser 10 caractères ")]
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
         public string civilite { get; set; }
         public string PhoneNumber { get; set; }
         public string ObjetMessage { get; set; }
+        public string TypeStage { get; set; }
+        public string DomaineStage { get; set; }
         [Required]
         [StringLength(1000)]
         public string DescriptionMessage { get; set; }

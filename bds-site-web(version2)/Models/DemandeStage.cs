@@ -6,7 +6,7 @@ namespace Bds_site_web.Models;
 public partial class DemandeStage
 {
 
-    
+
     public string ObjetMessage { get; set; } = null!;
 
     public string? DescriptionMessage { get; set; }
@@ -17,5 +17,7 @@ public partial class DemandeStage
 
     public string CheminCvDemandeStage { get; set; } = null!;
 
-    public virtual Stage IdStageNavigation { get; set; } = null!;
+   
+    public virtual ICollection<User> Users { get; set; } = new List<User>();
+    public virtual ICollection<Stage> Stages { get; set; } = new List<Stage>();
 }

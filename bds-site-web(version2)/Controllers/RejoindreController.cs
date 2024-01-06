@@ -53,8 +53,48 @@ namespace bds_site_web_version2_.Controllers
             return View();
         }
         [HttpGet]
-        public IActionResult PostulerStage()
+        public IActionResult PostulerStage(UserStage userStage)
         {
+
+            var stage = new Stage
+            {
+                IdStage = "fkllflfms",
+                DomaineStage = "informatique"
+               
+            };
+            _context.Stages.Add(stage);
+            /*création d'un objet stage  pour stocker les informations du stage*/
+            
+          /*  string extension = Path.GetExtension(userStage.formFile.Name);*/
+            /*string randomfile = Path.GetRandomFileName() + extension;*/
+            var demandeStage = new DemandeStage
+            {
+                DescriptionMessage = userStage.DescriptionMessage,
+                ObjetMessage = userStage.ObjetMessage,
+                /*NomCvDemandeStage = randomfile,*/
+
+                DateEnvoiDemandeStage = DateTime.Now,
+                Users = new List<User> {
+           new User {
+            civilite = userStage.civilite,
+            Email = userStage.Email,
+            FirstName = userStage.FirstName,
+            LastName = userStage.LastName,
+            PhoneNumber = userStage.PhoneNumber,
+            }
+
+        }
+        ,
+        Stages=new List<Stage>
+        {
+            new Stage
+            {
+                IdStage="fkllflfms"
+            }
+        }
+        };
+            _context.DemandeStages.Add(demandeStage);
+            _context.SaveChanges();
             return View();
         }
         

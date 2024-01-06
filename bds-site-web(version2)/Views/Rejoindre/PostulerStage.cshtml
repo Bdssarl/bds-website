@@ -16,7 +16,7 @@
 </head>
 <body>
     <div class="form_Contact">
-        <form asp-controller="Rejoindre" asp-action="NousRejoindre" method="post">
+        <form asp-controller="Rejoindre" asp-action="PostulerStage" method="post" enctype="multipart/form-data">
             <div class="name-group">
                 <div class="form_lastname"> <label asp-for="LastName">Prenom</label><input class="input-button" type="text" required asp-for="LastName" /></div>
                 <div class="form_firstname"><label asp-for="FirstName">Nom</label><input type="text" required class="input-button" asp-for="FirstName" /></div>
@@ -25,15 +25,17 @@
                 <div class="form_email"><label asp-for="Email">Email</label><input type="email" required class="input-button" asp-for="Email" /></div>
                 <div class="form_number"><label>Telephone</label><input type="tel" required class="input-button" /></div>
             </div>
-            <div class="form_civilite"><label asp-for="civilite">civilite</label><input type="text" required class="input-button" asp-for="civilite" /></div>
+            <div class="form_civilite"><label asp-for="civilite">civilite</label><select class="input-button" asp-for="civilite"><option>Monsieur </option><option>Madame </option></select></div>
+            <div class="form_civilite"><label asp-for="TypeStage">type Stage</label><select class="input-button" asp-for="TypeStage"><option>Académique</option><option>Professionnel </option></select></div>
+            <div class="form_civilite"><label asp-for="DomaineStage">Domaine Stage</label><select class="input-button" asp-for="DomaineStage"><option>informatique</option><option>Marketing </option></select></div>
             <div class="message-group">
                 <div class="form_objetMessage"><label asp-for="ObjetMessage">objet message</label><input type="text" required class="input-button" asp-for="ObjetMessage" /></div>
-                <div class="form_descriptionMessage"><textarea asp-for="DescriptionMessage">message</textarea></div>
+                <div class="form_descriptionMessage"><textarea asp-for="DescriptionMessage" cols=""rows="10">message</textarea></div>
             </div>
             <div class="cv-file"><input type="file" required class="input-button" asp-for="formFile" /></div>
             <div class="form_submit"> <button class="submit-button">Envoyer</button></div>
         </form>
-        <div> @ViewBag.Id</div>
+  
     </div>
 </body>
 </html>
