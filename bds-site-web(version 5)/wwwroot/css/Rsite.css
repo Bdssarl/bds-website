@@ -1,0 +1,129 @@
+﻿.header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    border: none;
+    border-radius: 4px;
+    padding: 30px 8px 30px 8px;
+    z-index: 10;
+    background-color: rgba(20, 37, 65, 1);
+    position: fixed;
+    top: 0px;
+    left: 4px;
+    right: 4px;
+    box-shadow: 2px 2px #dcdcdc;
+    border-bottom: 4px solid;
+    border-bottom-color: orange;
+}
+
+body {
+    background-color: aliceblue;
+    font-family: Candara;
+}
+
+.link-header {
+    border: none;
+    color: #dcdcdc;
+    padding: 8px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
+    font-family: Candara;
+}
+
+.footer {
+    padding: 20px;
+    color: white;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-bottom: -1100px;
+    background-color: rgba(20, 37, 65, 1);
+    box-shadow: 2px 2px #dcdcdc;
+}
+
+.form_Contact {
+    padding: 10px;
+}
+
+.bar_Contact {
+    display: flex;
+}
+
+.bar_localisation {
+    display: flex;
+}
+
+.adress_localisation {
+    margin-right: 30px;
+}
+
+.adress {
+    padding: 10px;
+}
+
+.map {
+}
+
+.form_lastname, .form_firstname, .form_civilite, .form_email, .form_number, .form_objetMessage, .form_descriptionMessage {
+    display: grid;
+}
+
+.name-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 5px;
+}
+
+.form_civilite {
+    width: 100%;
+}
+
+.message-group {
+    display: grid;
+    row-gap: 10px;
+    margin-bottom: 5px;
+}
+
+.submit-button {
+    width: 100%;
+    font-family: Candara;
+    background-color: rgba(52, 168, 83, 1);
+    color: white;
+    font-size: 26px;
+    border: none;
+    height: 20px;
+    height: 40px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.main {
+    margin-top: 95px;
+    border: 1px solid black;
+    background-color: white;
+    color: black;
+    height: 850px;
+   margin-bottom:50px;
+   padding:5px;
+}
+
+.adress_Contact {
+    margin-right: 30px;
+}
+
+.input-button {
+    border: none;
+    height: 40px;
+    outline-color: deepskyblue;
+    border-radius: 3px;
+}
+
+button {
+    font-family: Candara;
+    background-color: rgba(52, 168, 83, 1);
+    color: white;
+    font-size: 16px;
+    border: none;
+    height: 20px;
+}
