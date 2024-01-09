@@ -1,0 +1,56 @@
+﻿
+    <!DOCTYPE html >
+    <html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>@ViewData["Title"] - Bds_site_web</title>
+        <!--<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />-->
+       <!--- <link rel="stylesheet" href="~/css/Rsite.css" asp-append-version="true" />-->
+        <link rel="stylesheet" href="~/css/Administration.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/Bds_site_web.styles.css" asp-append-version="true" />
+    </head>
+    <body>
+        <header class="header"> 
+            <div class="logo">
+
+            </div>
+            <div class="title">
+                Panneau d'administration
+            </div>
+        </header>
+        <!----<div class="Admin-Container">-->
+        <div class="side-bar"> 
+                <a class="nav-link" asp-controller="Statistiques" asp-action="Statistiques">Statistiques</a>
+                <a class="nav-link"> Actualités</a>
+                <a class="nav-link">Emplois</a>
+                <a class="nav-link">Stages</a>
+                <a class="nav-link">Metiers</a>
+                <a class="nav-link">Projets</a>
+                <a class="nav-link">Formations</a>
+                <a class="nav-link">Partenaires</a>
+                <a class="nav-link">Temoignages</a>
+                <a class="nav-link">Images</a>
+                <a class="nav-link">Videos</a>
+                <a class="nav-link">Ebooks</a>
+                <a class="nav-link">NewsLetters</a>
+                <a class="nav-link"> Utilisateurs</a>
+                </div>
+       
+
+        <div class="main"role="main">
+        @RenderBody()
+            
+        </div>
+      
+
+
+
+
+
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        @await RenderSectionAsync("Scripts", required: false)
+    </body>
+</html>
