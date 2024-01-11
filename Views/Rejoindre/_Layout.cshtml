@@ -1,0 +1,111 @@
+﻿
+    
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>@ViewData["Title"] - Bds_site_web</title>
+        <!--<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />-->
+        <link rel="stylesheet" href="~/css/Rsite.css" asp-append-version="true" />
+       <link rel="stylesheet" href="~/css/NousRejoindre.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/Bds_site_web.styles.css" asp-append-version="true" />
+    </head>
+    <body>
+        <header class="header" role="navigation">
+            <a class="link-header" asp-controller="Acceuil" asp-action="Acceuil"> Acceuil </a>
+            <a class="link-header" asp-controller="QuiSommeNous" asp-action="QuiSommeNous"> Qui Sommes Nous ? </a>
+            <a class="link-header">Nos Projets </a>
+            <a class="link-header"> Nos Formations  </a>
+            <a class="link-header">Nos Equipes </a>
+            <a class="link-header" asp-controller="Rejoindre" asp-action="Rejoindre">Nous Rejoindre </a>
+            <a class="link-header">Mediathèque</a>
+            <a class="link-header">Annonces</a>
+            <a class="link-header" href="#footer">Nous Contacter</a>
+
+        </header>
+        
+
+
+        <main class="main"role="main">
+
+            <div class="container">
+                 <div class="select">
+                    <a asp-controller="Rejoindre" asp-action="NousRejoindre" class="link-select">
+                            Emploi</a>
+                    <a asp-controller="Rejoindre" asp-action="PostulerStage" class="link-select">
+                    Stage
+                </a>
+                </div>
+                </div>
+                <div class="main-container">
+                <div class="left-main">
+                </div>
+                 <div class="middle-main">
+
+                        @RenderBody()
+                    </div>
+               
+            </div>
+            </div>
+            </div>
+         
+        </main>
+
+
+
+
+
+
+
+        <footer class="footer" id="footer">
+            <div class="adress">
+                <div class="bar_Contact">
+                    <div class="adress_Contact">Contact:</div><div class="adress_tel"> 685565444</div>
+                </div>
+                <div class=bar_localisation>
+                    <div class="adress_localisation">Localisation </div>
+                    <div class="adress_localisation_value"> Descente avenue germaine </div>
+                </div>
+                <div class="time_open">
+
+                    <h3>Nos heures d'ouverture</h3>
+                    <p> Nous sommes ouverts de:</p>
+                    <p> Lundi-Vendredi (9h-17h)</p>
+                    <p>Samedi (9h-16h)</p>
+                    <div class="social-link"></div>
+                </div>
+            </div>
+            <div class="form_Contact">
+                <form>
+                    <div class="name-group">
+                        <div class="form_lastname"> <label>Prenom</label><input class="input-button" type="text" required /></div>
+                        <div class="form_firstname"><label>Nom</label><input type="text" required class="input-button" /></div>
+                    </div>
+                    <div class="name-group">
+                        <div class="form_email"><label>Email</label><input type="email" required class="input-button" /></div>
+                        <div class="form_number"><label>Telephone</label><input type="tel" required class="input-button" /></div>
+                    </div>
+                    <div class="form_civilite"><label>civilite</label><input type="text" required class="input-button" /></div>
+                    <div class="message-group">
+                        <div class="form_objetMessage"><label>objet message</label><input type="text" required class="input-button" /></div>
+                        <div class="form_descriptionMessage"><textarea>message</textarea></div>
+                    </div>
+                    <div class="form_submit"> <button class="submit-button">Envoyer</button></div>
+                </form>
+            </div>
+            <div class="map">
+                google map
+            </div>
+            <div class="copyright">&copy; 2024 - BdsSarl</div>
+
+
+        </footer>
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        @await RenderSectionAsync("Scripts", required: false)
+    </body>
+</html>
+
+            

@@ -1,0 +1,132 @@
+﻿
+.container {
+    width: 90%;
+    border: none;
+    padding: 60px;
+    display: grid;
+    row-gap: 5px;
+    border-radius: 4px;
+}
+.main-container {
+    display: grid;
+    grid-template-columns: 500px 1fr;
+    column-gap: 2px;
+    padding-left:3px;
+    height:50%;
+    
+}
+.navBar{
+    border:none;
+    margin-right:45px;
+    margin-left:356px;
+    display:grid;
+    grid-template-columns:0.5fr;
+    text-align:center;
+    padding:2px;
+    column-gap:2px;
+}
+.navBar-button{
+    border:none;
+    padding:30px;
+    
+}
+.left-main{
+    border:1px solid black;
+    margin-right:100px;
+}
+.middle-main {
+    border: 1px solid rgb(118, 118, 118);
+    border-radius:8px;
+    box-shadow:4px 4px #dcdcdc;
+    height:100%;
+}
+.message-form {
+    
+    height: 100px;
+    width: 500px;
+    margin: auto;
+    box-sizing: border-box;
+    margin-right: 45px;
+    margin-left: 360px;
+}
+.form_Contact {
+    padding: 10px;
+}
+
+.bar_Contact {
+    display: flex;
+}
+
+.bar_localisation {
+    display: flex;
+}
+
+.adress_localisation {
+    margin-right: 30px;
+}
+
+.adress {
+    padding: 10px;
+}
+
+.map {
+}
+
+.form_lastname,.cv-file,.form_firstname, .form_civilite, .form_email, .form_number, .form_objetMessage, .form_descriptionMessage {
+    display: grid;
+}
+
+.name-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 5px;
+}
+
+.form_civilite {
+    width: 100%;
+}
+
+.message-group {
+    display: grid;
+    row-gap: 10px;
+    margin-bottom: 5px;
+}
+
+.submit-button {
+    width: 100%;
+    font-family: Candara;
+    background-color: rgba(52, 168, 83, 1);
+    color: white;
+    font-size: 26px;
+    border: none;
+    height: 20px;
+    height: 40px;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-top:20px;
+}
+.input-button {
+    border: 1px solid rgb(118, 118, 118);
+    height: 40px;
+    outline-color: orange;
+    border-radius: 3px;
+}
+.select {
+ display:flex;
+ justify-content:flex-end;
+ align-items:center;
+ right:-60px;
+}
+label{
+    font-family:Candara;
+}
+.link-select {
+    border: 1px dashed rgb(118, 118, 118);
+    border-radius: 3px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
+    font-family: Candara;
+    margin-right: 15px;
+    padding: 7px 20px 7px 20px;
+}

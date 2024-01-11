@@ -1,0 +1,204 @@
+﻿
+.banner{
+   border:1px solid black;
+   margin-left:300px;
+   margin-right:300px;
+   margin-top:40px;
+   height:300px;
+   display:flex;
+  align-items:center;
+  justify-content:center;
+   padding-left:8px;
+}
+.img-container {
+    width: 500px;
+    height: 100%;
+    border: 1px solid red;
+}
+.img-banner {
+    
+   width:100%;
+   height:100%;
+}
+.arrow {
+    height: 45px;
+    border-radius: 35px;
+    width: 45px;
+    font-size: 15px;
+    border: none;
+    color: black;
+    background-color: #dcdcdc; 
+}
+.arrow-left {
+    margin-right: 15px;
+}
+.arrow-rigth {
+    margin-left: 15px;
+}
+.metier{
+   display:flex;
+   flex-direction:column;
+   border:1px solid black;
+   margin-bottom:10px;
+   margin-top:10px;
+   padding:5px;
+
+
+}
+.title {
+    background-color: rgba(20, 37, 65, 1);
+    color: white;
+    text-align: center;
+    border: none;
+    padding-left: 100px;
+    padding-right: 100px;
+    
+}
+.container-title {
+    margin:auto;
+    margin-bottom:10px;
+    border:1px dashed black;
+}
+.img-container {
+    border: 1px solid black;
+   
+}
+.container-metier {
+    padding: 25px;
+    border: 1px solid black;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    height: 300px;
+    margin-top: 15px;
+}
+.img-1, .img-2, .img-3 {
+   
+    border:1px solid #ff6a00;
+}
+.metier-1,.metier-2,.metier-3{
+    border:solid 1px red;
+    width:90%;
+    height:90%;
+    display:grid;
+    grid-template-rows:4fr 1fr 1fr;
+    padding:5px;
+}
+.description-1, .description-2, .description-3 {
+    border: solid 1px blue;
+    
+}
+.voir-plus-1, .voir-plus-2, .voir-plus-3 {
+    border: 1px solid green;
+    }
+.videos {
+    border: 1px solid black;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 8px;
+}
+
+.video-container {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    border:1px solid red;
+    height:50%;
+    width:90%;
+
+}
+.video-1, .video-2, .video-3 {
+    
+    border:1px solid blue;
+}
+.nouvelles {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    padding: 10px;
+}
+.container-nouvelles {
+    padding: 25px;
+    border: 1px solid black;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    height: 300px;
+    margin-top: 15px;
+    grid-column-gap:5px;
+}
+.Actualites{
+    border:1px solid black;
+    padding:15px;
+}
+.Actualite-1, .Actualite-2, .Actualite-3 {
+    width: 100%;
+    height: 100%;
+    border:1px dashed green;
+   
+}
+.Actualites-container {
+    border: 1px solid blue;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    width: 95%;
+    height: 95%;
+    
+}
+.Temoignages {
+    border: 1px solid black;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 8px;
+}
+.Temoignages-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid red;
+    height: 50%;
+    width: 90%;
+}
+.Temoignage-1, .Temoignage-2 {
+    border: 1px solid blue;
+}
+.nos-chiffres-et-partenaires{
+    display:grid;
+   grid-template-columns:518px 1fr;
+   border:1px solid green;
+   height:170px;
+   padding:5px;
+   grid-column-gap:3px;
+}
+.chiffres{
+    border:1px solid black;
+    padding:5px;
+}
+.Annee-experience, .Projet-Realises, .NPartenaires {
+    width: 100%;
+    height: 30%;
+    border: 1px dashed red;
+}
+.partenaires{
+    border:1px solid black;
+}
+.partenaire-1, .partenaire-2, .partenaire-3, .partenaire-4{
+    border:1px solid orange;
+}
+.container-partenaire {
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    
+}
+.partenaires {
+    border: 1px solid black;
+    width: 85%;
+    height: 85%;
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr 1fr;
+    grid-column-gap:5px;
+}
