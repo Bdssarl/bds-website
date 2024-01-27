@@ -1,19 +1,22 @@
 ﻿
-using Bds_site_web.Models;
-using bds_site_web_version2_.Models;
+using bds_site_web_version7_.Models;
+using bds_site_web_version7_.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
-namespace bds_site_web_version2_.Controllers
+namespace bds_site_web_version7_.Controllers
 {
     public class RejoindreController : Controller
     {
 
-        public SiteWebBdsDbContext _context { get; set; }
+        public  SiteWebBdsDbContext _context { get; set; }
+        public  IFileUpload _fileUpload { get; set; }
         
-        public RejoindreController(SiteWebBdsDbContext context)
+        public RejoindreController(SiteWebBdsDbContext context,IFileUpload fileUpload)
         {
             _context = context;
+            _fileUpload = fileUpload;
             
 
         }
@@ -54,17 +57,43 @@ namespace bds_site_web_version2_.Controllers
             return View();
         }
         [HttpGet]
+        public IActionResult PostulerStage()
+        {
+            return View();
+        }
+        [HttpPost]
         public IActionResult PostulerStage(UserStage userStage)
         {
 
-            var user = new User();
-            user.civilite = userStage.civilite;
-            user.Email = userStage.Email;
-            user.FirstName = userStage.FirstName;
-            user.LastName = userStage.LastName;
-            user.PhoneNumber = userStage.PhoneNumber;
-            _context.Users.Add(user);
-            _context.SaveChanges();
+          /*  var user = new User
+            {
+                Id="candit1",
+                civilite = userStage.civilite,
+                Email = userStage.Email,
+                FirstName = userStage.FirstName,
+                LastName = userStage.LastName,
+                PhoneNumber = userStage.PhoneNumber
+            };
+            var stage = new Stage
+            {
+                Id = "uupopopopiiio"
+            };
+            var demandeStage = new DemandeStage
+            {
+               Users.
+                Stages = new List<Stage>
+                {
+                    stage
+                },
+                
+                DateEnvoiDemandeStage = DateTime.Now,
+                ObjetMessage = userStage.ObjetMessage,
+                DescriptionMessage = userStage.DescriptionMessage,
+                NomCvDemandeStage = _fileUpload.uploadfile(userStage.formFile, "stage"),
+            };
+           
+            _context.DemandeStages.Add(demandeStage);
+            _context.SaveChanges();*/
 
 
             return View();

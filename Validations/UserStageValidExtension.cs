@@ -1,7 +1,7 @@
-﻿using bds_site_web_version2_.Models;
+﻿using bds_site_web_version7_.Models;
 using System.ComponentModel.DataAnnotations;
 
-namespace bds_site_web_version2_.Validations
+namespace bds_site_web_version7_.Validations
 {
     public class UserStageValidExtension:ValidationAttribute
     {

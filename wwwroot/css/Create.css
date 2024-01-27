@@ -1,0 +1,111 @@
+﻿/****      Metiers               ****/
+.container {
+    border: 1px solid rgb(118, 118, 118);
+    display: grid;
+    grid-template-rows: 100px 1fr;
+    grid-row-gap: 5px;
+    margin: auto;
+    width: 500px;
+    height: 400px;
+    padding: 4px;
+    border-radius: 8px;
+}
+.container-projet {
+    border: 1px solid rgb(118, 118, 118);
+    display: grid;
+    grid-template-rows: 100px 1fr;
+    grid-row-gap: 5px;
+    margin: auto;
+    width: 500px;
+    height: 600px;
+    padding: 4px;
+    border-radius: 8px;
+}
+.container-title {
+    border: 1px solid rgb(118, 118, 118);
+    border-radius: 8px;
+    box-shadow: 4px 4px #dcdcdc;
+    text-align: center;
+    font-size: 16px;
+    font-family: Candara;
+    color: dimgray;
+}
+    .container-title > h1 {
+        font-size: 18px;
+        text-align: center;
+    }
+    .form {
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        grid-row-gap: 10px;
+    }
+.form_TitleMetier, .form_DescriptionMetier, .cv-file {
+    display: grid;
+}
+.input-button {
+    border: 1px solid rgb(118, 118, 118);
+    height: 40px;
+    outline-color: orange;
+    border-radius: 3px;
+}
+.submit-button {
+    font-family: Candara;
+    background-color: rgba(52, 168, 83, 1);
+    color: white;
+    font-size: 16px;
+    border: none;
+    font-weight: bold;
+    height:50px;
+    width:100%;
+    border-radius:4px;
+}
+
+/***** images ******/
+.form_typeImage {
+    display: grid;
+}
+/******* partenaire ********/
+.form_Name_Partenaire {
+    display: grid;
+}
+.form_Temoignage {
+    display: grid;
+}
+.form_DescriptionTemoignage {
+    display: grid;
+}
+
+/***Projet_A_venir***/
+.form_DureeProjetAVenir, .form_NomProjetAVenir,
+.form_ObjectifProjetAVenir,
+.form_DateDebutProjetAVenir,
+.form_DateFinProjetAVenir {
+    display: grid;
+}
+/*****Projet en cours******/
+.form_DureeProjetEnCours,.form_NomProjetEnCours,.form_ResumeProjetEncours,
+.form_DateDebutProjetEncours,
+.form_DateFinProjetEncours{
+    display: grid;
+}
+.form_ObjectifProjetRealise, .form_NomProjetRealise, .form_ResumeProjetRealise,
+.form_DateDebutProjetRealise, .form_DureeProjetRealise,
+.form_DateFinProjetRealise, .form_ResultatRealise, .form_DomaineStage, .form_TypeStage, .form_LibelleTypeStage {
+    display: grid;
+}
+.container-projet-realise {
+    border: 1px solid rgb(118, 118, 118);
+    display: grid;
+    grid-template-rows: 60px 1fr;
+    grid-row-gap: 1px;
+    margin: auto;
+    width: 500px;
+    height: 800px;
+    padding:2px;
+    border-radius: 8px;
+}
+.form-projet-realise{
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-row-gap:2px;
+}

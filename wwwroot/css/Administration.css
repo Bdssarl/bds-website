@@ -1,6 +1,6 @@
 ﻿.header {
     display: grid;
-    grid-template-columns:200px 1fr;
+    grid-template-columns: 1fr 1fr;
     align-items: center;
     justify-content: center;
     border: none;
@@ -13,17 +13,39 @@
     left: 2px;
     right: 2px;
     box-shadow: 2px 2px #dcdcdc;
-    border-bottom: 4px solid white;;
-    color:white;
-    }
-   
+    border-bottom: 4px solid #f3a7a7;
+    color: white;
+}
+.slogan {
+    color: white;
+    font-family: Candara;
+    font-size: 16px;
+    margin-left:36px;
+    
+}
+
+.header >.logo {
+    height: 70px;
+    display: flex;
+    flex: 1 1;
+    align-items: center;
+    justify-content: flex-start;
+    color: white;
+    
+}
+.img {
+    width: 70px;
+    height: 70px;
+    border-radius: 35px;
+}
 
 .title {
     color: white;
     display:flex;
     align-items:center;
-    justify-content:center;
-    font-size:22px;
+    justify-content:flex-start;
+    font-size:20px;
+    font-family:Candara;
 }
 .side-bar {
     left: 2px;
@@ -33,20 +55,22 @@
     flex-direction: column;
     justify-content:space-between;
     z-index: 9;
-    top: 100px;
+    top: 138px;
     background-color: rgba(20, 37, 65, 1);
     box-shadow: 2px 2px #dcdcdc;
     padding-right:15px;
     border-radius:4px;
+
 }
 .main {
-    top:101px;
+    top: 141px;
     border: 1px solid black;
-    left:110px;
-    position:fixed;
-    bottom:16px;
-    right:4px;
-    background-color:#dcdcdc;
+    left: 110px;
+    position: fixed;
+    bottom: 16px;
+    right: 4px;
+    overflow: auto;
+    padding: 5px;
 }
 .Admin-Container {
     
@@ -59,4 +83,18 @@
     font-size: 12px;
     font-weight: bold;
     font-family: Candara;
+}
+.Messages{
+    border:1px solid red;
+    margin:auto;
+    display:grid;
+    grid-template-rows:200px 1fr;
+    height:50%;
+}
+.Messages > h1{
+    border:1px solid red;
+}
+.Messages >.body{
+    border:1px solid black;
+
 }

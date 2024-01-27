@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Bds_site_web.Models;
+namespace bds_site_web_version7_.Models;
 
 public partial class Video
 {
@@ -18,4 +18,6 @@ public partial class Video
     public string CheminVideo { get; set; } = null!;
 
     public DateTime DateCreationVideo { get; set; }
+    [NotMapped]
+    public IFormFile formFile { get; set; }
 }

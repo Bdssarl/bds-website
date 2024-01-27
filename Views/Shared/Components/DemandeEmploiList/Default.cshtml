@@ -1,0 +1,17 @@
+﻿@using bds_site_web_version7_.Models;
+@model IEnumerable<Metier>
+@foreach(var item in Model ){
+    <div class="metier-1">
+
+        
+            <img src="~/Images/Metier/@item.NameImageMetier"/>
+       
+         <div class="titre-metier">@item.TitleMetier</div>
+        <div class="description-1">
+            @item.DescriptionMetier
+        </div>
+        <div class="voir-plus-1">
+            <a>voire plus</a>
+        </div>
+    </div>
+}

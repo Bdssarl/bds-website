@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using Bds_site_web.Models;
 
-namespace Bds_site_web.Models;
+namespace bds_site_web_version7_.Models;
 
 public partial class Ebook
 {

@@ -1,0 +1,16 @@
+﻿@using bds_site_web_version7_.Models;
+@model IEnumerable<ProjetRealise>
+@foreach (var item in Model)
+{
+    <div class="item">
+
+        <img src="~/Images/Projet/@item.ChemImageProjetRealise" />
+
+        <div class="element"><u>intitulé projet:</u>intitulé projet:@item.Intitule_Projet</div>
+
+        <div class="element"><u>donneur ordre:</u>@item.Donneur_Ordre</div>
+        <div class="element"><u>durée:</u>@item.Duree</div>
+        <div class="element"><u>Année:</u>@item.Annee</div>
+        <div class="element"><u>Tache Exécutée:</u>@item.TacheExecute</div>
+    </div>
+}

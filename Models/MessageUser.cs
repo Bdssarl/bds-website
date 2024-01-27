@@ -1,7 +1,7 @@
-﻿using bds_site_web_version2_.Validations;
+﻿using bds_site_web_version7_.Validations;
 using System.ComponentModel.DataAnnotations;
 
-namespace bds_site_web_version2_.Models
+namespace bds_site_web_version7_.Models
 {
     public class MessageUser
     {

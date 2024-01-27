@@ -1,0 +1,63 @@
+﻿@using bds_site_web_version7_.Models;
+@{
+    ViewData["Title"] = "formation terminée";
+
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] </title>
+    <!--<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />-->
+    <!--- <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />-->
+    <link rel="stylesheet" href="~/css/formationTermine.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Bds_site_web.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="formation">
+        <div class="description-formation">
+           <div class="slogan-formation">
+                Le cabinet BDS Sarl soutien la quête de performance avec un programme de formation modulaire 
+                ou à la carte adapté aux besoins du marché de l’emploi. La formation est axée sur la pratique
+                professionnelle et est dispensée selon l’approche Learning by doing. C’est pourquoi nos programmes
+                de formations
+                aident l’apprenant à progresser pour atteindre les compétences métiers dont il a besoin
+           </div>
+           <div class="contenu-formation">
+                L’ingénierie de la formation est une réalité qui se conçoit autour d’une pédagogie spécifique avec le Cabinet BDS Sarl. Nous travaillons sur le parcours de formation lui-même de manière à garantir le transfert de compétence. Nos formations permettent :<br/>
+                <li>L’acquisition des compétences par l’essai et la pratique pendant la formation</li>
+                <li>La participation du participant à l’élaboration des contenus</li>
+                <li>Le développement d’activités ludiques et des interactions entre participants</li>
+                <li>L’accompagnement des participants dans un modèle de coaching/mentoring.</li>
+                <li>Le suivi et l’évaluation des compétences</li>
+                La formation est assurée par une équipe de formateurs dévouée, passionnée, proactive pour qui la progressi
+                on et le succès du bénéficiaire se classent au sommet des priorités. Aussi, des programmes et cours en ligne
+                , en laboratoire, en entreprise ou sous formule hybride sont planifiés pour assurer
+                la flexibilité de l’offre et faciliter l’accès à la connaissance. Enfin, nous proposons une offre de 
+                cours en modernisation perpétuelle qui promet au bénéficiaire un avenir professionnel à la hauteur de se
+                s ambitions. Nos solutions de coaching visent l’accompagnement et la prise en main des acquis de la formation.
+                En fin de compte, que ce soit pour sortir d’une impasse professionnelle ou pour obtenir une promotion,
+                la formation continue ouvre les portes du marché de l’emploi. BDS Sarl s’engage dès lors à aider le bénéficiaire 
+                à intégrer de nouvelles compétences pratiques et recherchées. C’est pourquoi, en étant centrées sur le r
+                ehaussement des savoir-faire, les formations de BDS Sarl se branchent sur les pratiques de travail en e
+                ntreprises pour transmettre au bénéficiaire des compétences utiles et en demande. Pareillement, qu’il s’a
+                gisse des cours en ligne, en laboratoire, en entreprise ou en formule hybride, nos programmes et nos cour
+                s de formation sont donnés par des formateurs possédant une grande expérience professionnelle et pédagogique
+                . Elles sont axées sur l’emploi et la valorisation des talents et s’adressent à toute personne désireuse d’améliore
+                r son potentiel d’employabilité. C’est pourquoi nos formations sont développées dans un modèle de validation des acq
+                uis avec l’appui des partenaires internationaux de référence tels que CEGEP GARNEAU, l’International Consulting Canada (ICC) au
+                Canada et l’École supérieure de gestion et de commerce international (ESGCI) de Paris en France
+
+           </div>
+        </div>
+        <div class="list-formation">
+        @await Component.InvokeAsync("FormationList")
+           
+          </div>
+    </div>
+   
+</body>
+</html>
+

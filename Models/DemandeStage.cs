@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Bds_site_web.Models;
+namespace bds_site_web_version7_.Models;
 
 public partial class DemandeStage
 {
@@ -15,9 +15,6 @@ public partial class DemandeStage
 
     public string NomCvDemandeStage { get; set; } = null!;
 
-    public string CheminCvDemandeStage { get; set; } = null!;
-
-   
     public virtual ICollection<User> Users { get; set; } = new List<User>();
     public virtual ICollection<Stage> Stages { get; set; } = new List<Stage>();
 }

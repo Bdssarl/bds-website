@@ -13,7 +13,8 @@
     <body>
         <header class="header"> 
             <div class="logo">
-
+                <img src="~/Icons/logo.jfif" class="img" alt="logo" />
+                <div class="slogan">Business|Developpement|service</div>
             </div>
             <div class="title">
                 Panneau d'administration
@@ -23,18 +24,20 @@
         <div class="side-bar"> 
                 <a class="nav-link" asp-controller="Statistiques" asp-action="Statistiques">Statistiques</a>
                 <a class="nav-link"> Actualités</a>
-                <a class="nav-link">Emplois</a>
+        <a class="nav-link" asp-controller="Emploi" asp-action="Create">Emplois</a>
                 <a class="nav-link">Stages</a>
-                <a class="nav-link">Metiers</a>
-                <a class="nav-link">Projets</a>
-                <a class="nav-link">Formations</a>
-                <a class="nav-link">Partenaires</a>
-                <a class="nav-link">Temoignages</a>
-                <a class="nav-link">Images</a>
-                <a class="nav-link">Videos</a>
-                <a class="nav-link">Ebooks</a>
-                <a class="nav-link">NewsLetters</a>
-                <a class="nav-link">Nos chiffres</a>
+                 <a class="nav-link" asp-controller="Metiers" asp-action="Create">Metiers</a>
+                 <a class="nav-link" asp-controller="ProjetAVenir" asp-action="Create">Projets-AVenir</a>
+                 <a class="nav-link" asp-controller="ProjetEnCour" asp-action="Create">Projets-En-Cours</a>
+                 <a class="nav-link" asp-controller="ProjetRealise" asp-action="Create">Projets-Realises</a>
+        <a class="nav-link" asp-controller="FormationTermine" asp-action="Create">FormationTerminé</a>
+                <a class="nav-link"asp-controller="Partenaire" asp-action="Create"> Partenaires </a>
+                 <a class="nav-link" asp-controller="Temoignages" asp-action="Create">Temoignages</a>
+                <a class="nav-link" asp-controller="Images" asp-action="Create">Images</a>
+                <a class="nav-link" asp-controller="Videos" asp-action="Create">Videos</a>
+                <a class="nav-link"asp-controller="Stages" asp-action="Create">Stages</a>
+                <a class="nav-link" asp-controller="TypeStage"asp-action="Create">Type de stage</a>
+        <a class="nav-link" asp-controller="Chiffre" asp-action="Create">Nos chiffres</a>
                 <a class="nav-link"> Utilisateurs</a>
                 </div>
        

@@ -16,7 +16,6 @@
     border-bottom: 4px solid;
     border-bottom-color: orange;
 }
-
 body {
     background-color: aliceblue;
     font-family: Candara;
@@ -31,7 +30,9 @@ body {
     font-weight: bold;
     font-family: Candara;
 }
-
+.main-main{
+    margin-top:18px;
+}
 .footer {
     padding: 20px;
     color: white;
@@ -99,14 +100,15 @@ body {
 }
 
 .main {
-    margin-top: 95px;
-    border: 1px solid black;
+    margin-top: 137px;
     background-color: white;
     color: black;
     height: 850px;
    margin-bottom:50px;
-   padding:5px;
+   display:grid;
+   grid-template-rows:100px 1fr;
 }
+
 
 .adress_Contact {
     margin-right: 30px;
@@ -127,3 +129,18 @@ button {
     border: none;
     height: 20px;
 }
+@media(max-width:540px) {
+    .main{
+        width:473px;
+        
+    }
+    .main-main{
+        
+        
+    }
+    .form_Contact{
+        
+        width:466px;
+    }
+    
+    }

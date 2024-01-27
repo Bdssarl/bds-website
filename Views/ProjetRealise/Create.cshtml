@@ -1,0 +1,39 @@
+﻿@{
+    Layout = "~/Views/Administration/_Layout.cshtml";
+}
+@model bds_site_web_version7_.Models.ProjetRealise
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Bds_site_web</title>
+    <!--<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />-->
+    <!--- <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />-->
+    <link rel="stylesheet" href="~/css/Create.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Bds_site_web.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="container-projet-realise">
+        <div class="container-title">
+            <h1>Enregistrer un Projet Réalisé </h1>
+            @ViewBag.Message
+        </div>
+
+        <form class="form-projet-realise" asp-controller="ProjetRealise" asp-action="Create" method="post" enctype="multipart/form-data">
+            <div class="form_DateDebutProjetRealise"><label asp-for="Id">Id</label><input type="text" required class="input-button" asp-for="Id" readonly /></div>
+            <div class="form_DateDebutProjetRealise"><label asp-for="Intitule_Projet">Intitule du Projet</label><input type="text" required class="input-button" asp-for="Intitule_Projet" /></div>
+            <div class="form_DateFinProjetAVenir"><label asp-for="Donneur_Ordre">Donneur Ordre</label><input type="text" required class="input-button" asp-for="Donneur_Ordre" /></div>
+            <div class="form_DateFinProjetAVenir"><label asp-for=" TacheExecute"> TacheExecute</label><input type="text" required class="input-button" asp-for="TacheExecute" /></div>
+            <div class="form_DateFinProjetAVenir"><label asp-for="Duree"> Durée </label><input type="text" required class="input-button" asp-for="Duree" /></div>
+       
+            <div class="form_DateFinProjetAVenir"><label asp-for="Annee"> Annee </label><input type="text" required class="input-button" asp-for="Annee" /></div>
+
+            <div class="cv-file"><input type="file" required class="input-button" asp-for="FormFile"/></div>
+
+            <div class="form_submit"> <button class="submit-button">Enregistrer</button></div>
+        </form>
+    </div>
+</body>
+</html>
+

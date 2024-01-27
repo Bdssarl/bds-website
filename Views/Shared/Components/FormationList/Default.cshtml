@@ -1,0 +1,16 @@
+﻿@using bds_site_web_version7_.Models;
+@model IEnumerable<FormationTermine>
+
+    @foreach (var item in Model)
+    {
+        <div class="item">
+            <img src="~/Images/Formation/@item.CheminImage"/>
+            <div class="element"><u>Intitulé de la formation</u>@item.IntituleFormation</div>
+            <div class="element"><u>Objectif visé</u>@item.ObjectifVise</div>
+            <div class="element"><u>Compétence Acquise</u>@item.CompetenceAcquise</div>
+            <div class="element"><u>Participants</u>@item.Participants</div>
+            <div class="element"><u>Partenaire technique</u>@item.PartenaireTechnique</div>
+            <div class="element"><u>Periode</u>@item.Periode</div>
+            <div class="element"><u>Annee</u>@item.Annee</div>
+        </div>
+    }

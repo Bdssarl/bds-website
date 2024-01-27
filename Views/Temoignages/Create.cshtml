@@ -1,0 +1,35 @@
+﻿@{
+    Layout = "~/Views/Administration/_Layout.cshtml";
+}
+@model bds_site_web_version7_.Models.Temoignage
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Bds_site_web</title>
+    <!--<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />-->
+    <!--- <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />-->
+    <link rel="stylesheet" href="~/css/Create.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Bds_site_web.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="container">
+        <div class="container-title">
+            <h1>Enregistrer un temoignage </h1>
+        </div>
+
+        <form class="form" asp-controller="Temoignages" asp-action="Create" method="post" enctype="multipart/form-data">
+
+            <div class="form_Temoignage"> <label asp-for="NomTemoignage">Nom Temoignage</label><input class="input-button" type="text" required asp-for="NomTemoignage" /></div>
+            <div class="form_DescriptionTemoignage"><label asp-for="DescriptionTemoignage">Description</label><input type="text" required class="input-button" asp-for="DescriptionTemoignage" /></div>
+
+            <div class="cv-file"><input type="file" required class="input-button" asp-for="formfile" /></div>
+
+            <div class="form_submit"> <button class="submit-button">Enregistrer</button></div>
+
+        </form>
+
+    </div>
+</body>
+</html>

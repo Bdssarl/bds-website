@@ -1,0 +1,42 @@
+﻿@{
+    Layout = "~/Views/Administration/_Layout.cshtml";
+    
+}
+@model bds_site_web_version7_.Models.FormationTermine
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Bds_site_web</title>
+    <!--<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />-->
+    <!--- <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />-->
+    <link rel="stylesheet" href="~/css/Create.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Bds_site_web.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="container-projet-realise">
+        <div class="container-title">
+            <h1>Enregistrer une Formation Terminée </h1>
+        </div>
+
+        <form class="form-projet-realise" asp-controller="FormationTermine" asp-action="Create" method="post" enctype="multipart/form-data">
+            <div class="form_DateDebutProjetRealise"><label asp-for="Id">Id</label><input type="text" required class="input-button" asp-for="Id" readonly/></div>
+            <div class="form_DateDebutProjetRealise"><label asp-for="IntituleFormation">Intitule formation</label><input type="text" required class="input-button" asp-for="IntituleFormation" /></div>
+            <div class="form_DateFinProjetAVenir"><label asp-for="ObjectifVise">Objectif</label><input type="text" required class="input-button" asp-for="ObjectifVise" /></div>
+            <div class="form_DateDebutProjetRealise"><label asp-for="CompetenceAcquise">Compétence Acquise</label><input type="text" required class="input-button" asp-for="CompetenceAcquise" /></div>
+            <div class="form_DateDebutProjetRealise"><label asp-for="Participants">Participants</label><input type="text" required class="input-button" asp-for="Participants " /></div>
+            <div class="form_DateFinProjetAVenir"><label asp-for="PartenaireTechnique"> Partenaire Technique  </label><input type="text" required class="input-button" asp-for="PartenaireTechnique" /></div>
+            <div class="form_DateFinProjetAVenir"><label asp-for="Periode"> Periode </label><input type="text" required class="input-button" asp-for="Periode"/></div>
+            <div class="form_DateFinProjetAVenir"><label asp-for="Annee"> Annee </label><input type="text" required class="input-button" asp-for="Annee" /></div>
+           
+            <div class="cv-file"><input type="file" required class="input-button" asp-for="FormFile"/></div>
+
+            <div class="form_submit"> <button class="submit-button">Enregistrer</button></div>
+        </form>
+
+    </div>
+</body>
+</html>
+

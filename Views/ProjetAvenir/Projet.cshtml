@@ -1,0 +1,34 @@
+﻿@using bds_site_web_version7_.Models;
+@{
+    Layout = "~/Views/Projets/_Layout.cshtml";
+    
+}
+@{
+    ViewData["Title"]= "Projet A venir";
+}
+@model IEnumerable<ProjetAVenir>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <!--<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />-->
+    <!--- <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />-->
+    <link rel="stylesheet" href="~/css/Projets.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Bds_site_web.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <!----<div class="container">-->
+        <div class="intro-list-projet">
+            Des projets initiés par le Cabinet BDS Sarl sont en cours de finalisation et devraient démarrer au cours du 1er semestre 2024.
+            Ce sont des projets à haute valeur ajoutée qui sont planifiées et financés sur fonds propres par le Cabinet BDS Sarl
+        </div>
+        <div class="list-projet-A">
+        @await Component.InvokeAsync("ProjetAvenirList")
+        </div>
+    <!--</div>-->
+    
+    
+</body>
+</html>

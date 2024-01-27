@@ -7,7 +7,7 @@ using MySql.EntityFrameworkCore.Metadata;
 namespace bds_site_web_version7_.Migrations
 {
     /// <inheritdoc />
-    public partial class initialCreate : Migration
+    public partial class initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -22,7 +22,8 @@ namespace bds_site_web_version7_.Migrations
                     id_Actualite = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: false),
                     libelle_actualite = table.Column<string>(type: "varchar(25)", maxLength: 25, nullable: false),
                     description_actualite = table.Column<string>(type: "varchar(25)", maxLength: 25, nullable: false),
-                    chemin_media_actualite = table.Column<string>(type: "varchar(25)", maxLength: 25, nullable: false)
+                    chemin_media_actualite = table.Column<string>(type: "varchar(25)", maxLength: 25, nullable: false),
+                    dateCreation = table.Column<DateTime>(type: "datetime(6)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -61,6 +62,21 @@ namespace bds_site_web_version7_.Migrations
                 .Annotation("MySQL:Charset", "utf8mb4");
 
             migrationBuilder.CreateTable(
+                name: "chiffre",
+                columns: table => new
+                {
+                    Id_chiffre = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: false),
+                    AnneeExperience = table.Column<string>(type: "varchar(25)", maxLength: 25, nullable: false),
+                    NombreProjetsRealises = table.Column<string>(type: "varchar(25)", maxLength: 25, nullable: false),
+                    NombreEntreprisePartenaires = table.Column<string>(type: "longtext", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PRIMARY", x => x.Id_chiffre);
+                })
+                .Annotation("MySQL:Charset", "utf8mb4");
+
+            migrationBuilder.CreateTable(
                 name: "ebook",
                 columns: table => new
                 {
@@ -78,15 +94,18 @@ namespace bds_site_web_version7_.Migrations
                 .Annotation("MySQL:Charset", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "formation",
+                name: "formationTermine",
                 columns: table => new
                 {
                     id_formation = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: false),
-                    nom_formation = table.Column<string>(type: "varchar(45)", maxLength: 45, nullable: false),
-                    description_formation = table.Column<string>(type: "varchar(45)", maxLength: 45, nullable: false),
-                    debut_formation = table.Column<DateTime>(type: "date", nullable: false),
-                    fin_formation = table.Column<DateTime>(type: "date", nullable: false),
-                    statut_formation = table.Column<string>(type: "varchar(10)", maxLength: 10, nullable: true)
+                    IntituleFormation = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: false),
+                    ObjectifVise = table.Column<string>(type: "longtext", nullable: false),
+                    CompetenceAcquise = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: false),
+                    participant = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: false),
+                    partenaireTechnique = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: false),
+                    Periode = table.Column<string>(type: "varchar(25)", maxLength: 25, nullable: false),
+                    Annee = table.Column<string>(type: "varchar(4)", maxLength: 4, nullable: false),
+                    CheminImage = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -100,13 +119,13 @@ namespace bds_site_web_version7_.Migrations
                 {
                     id_Image = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: false),
                     nom_image = table.Column<string>(type: "varchar(25)", maxLength: 25, nullable: false),
-                    taille_image = table.Column<string>(type: "varchar(25)", maxLength: 25, nullable: false),
+                    taille_image = table.Column<string>(type: "varchar(25)", maxLength: 25, nullable: false, defaultValue: "256"),
                     type_image = table.Column<string>(type: "varchar(10)", maxLength: 10, nullable: false),
-                    extension_image = table.Column<string>(type: "varchar(25)", maxLength: 25, nullable: false),
-                    chemin_image = table.Column<string>(type: "varchar(25)", maxLength: 25, nullable: false),
+                    extension_image = table.Column<string>(type: "varchar(25)", maxLength: 25, nullable: false, defaultValue: "jpg"),
+                    chemin_image = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: false),
                     date_creation = table.Column<DateTime>(type: "date", nullable: false),
-                    hauteur_image = table.Column<string>(type: "varchar(10)", maxLength: 10, nullable: false),
-                    largeur_image = table.Column<string>(type: "varchar(10)", maxLength: 10, nullable: false)
+                    hauteur_image = table.Column<string>(type: "varchar(10)", maxLength: 10, nullable: false, defaultValue: "455"),
+                    largeur_image = table.Column<string>(type: "varchar(10)", maxLength: 10, nullable: false, defaultValue: "255")
                 },
                 constraints: table =>
                 {
@@ -119,10 +138,9 @@ namespace bds_site_web_version7_.Migrations
                 columns: table => new
                 {
                     Id_Metier = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: false),
-                    Name_Image_Metier = table.Column<string>(type: "varchar(25)", maxLength: 25, nullable: false),
-                    Chemin_Image_Metier = table.Column<string>(type: "varchar(25)", maxLength: 25, nullable: false),
-                    Title_Metier = table.Column<string>(type: "varchar(25)", maxLength: 25, nullable: false),
-                    Decription_Metier = table.Column<string>(type: "varchar(25)", maxLength: 25, nullable: false)
+                    Name_Image_Metier = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: false),
+                    Title_Metier = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: false),
+                    Decription_Metier = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -164,13 +182,8 @@ namespace bds_site_web_version7_.Migrations
                 columns: table => new
                 {
                     id_projet_A_venir = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: false),
-                    nom_projet_A_venir = table.Column<string>(type: "varchar(25)", maxLength: 25, nullable: false),
-                    duree_projet_A_venir = table.Column<string>(type: "varchar(10)", maxLength: 10, nullable: false),
-                    objectif_projet_A_venir = table.Column<string>(type: "varchar(20)", maxLength: 20, nullable: false),
-                    date_debut_projet_A_venir = table.Column<DateTime>(type: "date", nullable: false),
-                    date_fin_projet_A_venir = table.Column<DateTime>(type: "date", nullable: false),
-                    nom_image_projet_A_venir = table.Column<string>(type: "varchar(25)", maxLength: 25, nullable: false),
-                    chemin_image_projet_A_venir = table.Column<string>(type: "varchar(25)", maxLength: 25, nullable: false)
+                    Idee = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: false),
+                    CheminImage = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -203,14 +216,14 @@ namespace bds_site_web_version7_.Migrations
                 columns: table => new
                 {
                     id_projet_realise = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: false),
-                    nom_projet_realise = table.Column<string>(type: "varchar(25)", maxLength: 25, nullable: false),
-                    duree_projet_realise = table.Column<string>(type: "varchar(10)", maxLength: 10, nullable: false),
-                    date_debut_projet_realise = table.Column<DateTime>(type: "date", nullable: false),
-                    date_fin_projet_realise = table.Column<DateTime>(type: "date", nullable: false),
-                    objectif_resultat_realise = table.Column<string>(type: "varchar(20)", maxLength: 20, nullable: false),
-                    resultat_projet_realise = table.Column<string>(type: "varchar(20)", maxLength: 20, nullable: false),
-                    nom_image_projet_realise = table.Column<string>(type: "varchar(25)", maxLength: 25, nullable: false),
-                    chemin_image_projet_realise = table.Column<string>(type: "varchar(25)", maxLength: 25, nullable: false)
+                    Intitule_Projet = table.Column<string>(type: "varchar(25)", maxLength: 25, nullable: false),
+                    Donneur_Ordre = table.Column<string>(type: "longtext", nullable: false),
+                    IntituleMission = table.Column<string>(name: "Intitule Mission", type: "longtext", nullable: false),
+                    periode = table.Column<string>(type: "longtext", nullable: false),
+                    Duree = table.Column<string>(type: "longtext", nullable: false),
+                    TacheExecute = table.Column<string>(type: "longtext", nullable: false),
+                    Annee = table.Column<string>(type: "longtext", nullable: false),
+                    cheminImage = table.Column<string>(type: "longtext", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -227,19 +240,6 @@ namespace bds_site_web_version7_.Migrations
                 },
                 constraints: table =>
                 {
-                })
-                .Annotation("MySQL:Charset", "utf8mb4");
-
-            migrationBuilder.CreateTable(
-                name: "stage",
-                columns: table => new
-                {
-                    id_Stage = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: false),
-                    domaine_stage = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PRIMARY", x => x.id_Stage);
                 })
                 .Annotation("MySQL:Charset", "utf8mb4");
 
@@ -324,26 +324,21 @@ namespace bds_site_web_version7_.Migrations
                 .Annotation("MySQL:Charset", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "StageTypeStages",
+                name: "stage",
                 columns: table => new
                 {
-                    StagesId = table.Column<string>(type: "varchar(255)", nullable: false),
-                    TypeStagesId = table.Column<string>(type: "varchar(255)", nullable: false)
+                    id_Stage = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: false),
+                    domaine_stage = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: true),
+                    IdTypeStage = table.Column<string>(type: "varchar(255)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_StageTypeStages", x => new { x.StagesId, x.TypeStagesId });
+                    table.PrimaryKey("PRIMARY", x => x.id_Stage);
                     table.ForeignKey(
-                        name: "FK_StageTypeStages_TypeStage_TypeStagesId",
-                        column: x => x.TypeStagesId,
+                        name: "FK_stage_TypeStage_IdTypeStage",
+                        column: x => x.IdTypeStage,
                         principalTable: "TypeStage",
                         principalColumn: "id_TypeStage",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_StageTypeStages_stage_StagesId",
-                        column: x => x.StagesId,
-                        principalTable: "stage",
-                        principalColumn: "id_Stage",
                         onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySQL:Charset", "utf8mb4");
@@ -513,8 +508,7 @@ namespace bds_site_web_version7_.Migrations
                     ObjetMessage = table.Column<string>(type: "longtext", nullable: false),
                     DescriptionMessage = table.Column<string>(type: "longtext", nullable: true),
                     DateEnvoiDemandeStage = table.Column<DateTime>(type: "datetime(6)", nullable: true),
-                    NomCvDemandeStage = table.Column<string>(type: "longtext", nullable: false),
-                    CheminCvDemandeStage = table.Column<string>(type: "longtext", nullable: false)
+                    NomCvDemandeStage = table.Column<string>(type: "longtext", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -675,10 +669,8 @@ namespace bds_site_web_version7_.Migrations
                     UsersId = table.Column<string>(type: "varchar(255)", nullable: false),
                     DateEnvoiDemandeEmploi = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     NomCvDemandeEmploi = table.Column<string>(type: "longtext", nullable: false),
-                    CheminCvDemandeEmploi = table.Column<string>(type: "longtext", nullable: false),
-                    MessageDemandeEmploi = table.Column<string>(type: "longtext", nullable: false),
                     ObjetMessageEmploi = table.Column<string>(type: "longtext", nullable: false),
-                    DescriptionMessageEmploi = table.Column<string>(type: "longtext", nullable: true)
+                    MessageDemandeEmploi = table.Column<string>(type: "longtext", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -801,9 +793,9 @@ namespace bds_site_web_version7_.Migrations
                 column: "UsersId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_StageTypeStages_TypeStagesId",
-                table: "StageTypeStages",
-                column: "TypeStagesId");
+                name: "IX_stage_IdTypeStage",
+                table: "stage",
+                column: "IdTypeStage");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Telechargers_EbooksId",
@@ -890,6 +882,9 @@ namespace bds_site_web_version7_.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "chiffre");
+
+            migrationBuilder.DropTable(
                 name: "Consulters");
 
             migrationBuilder.DropTable(
@@ -899,7 +894,7 @@ namespace bds_site_web_version7_.Migrations
                 name: "DemandeStageUser");
 
             migrationBuilder.DropTable(
-                name: "formation");
+                name: "formationTermine");
 
             migrationBuilder.DropTable(
                 name: "image_");
@@ -929,9 +924,6 @@ namespace bds_site_web_version7_.Migrations
                 name: "recommandation");
 
             migrationBuilder.DropTable(
-                name: "StageTypeStages");
-
-            migrationBuilder.DropTable(
                 name: "Telechargers");
 
             migrationBuilder.DropTable(
@@ -953,9 +945,6 @@ namespace bds_site_web_version7_.Migrations
                 name: "annonce_recrutement");
 
             migrationBuilder.DropTable(
-                name: "TypeStage");
-
-            migrationBuilder.DropTable(
                 name: "ebook");
 
             migrationBuilder.DropTable(
@@ -966,6 +955,9 @@ namespace bds_site_web_version7_.Migrations
 
             migrationBuilder.DropTable(
                 name: "stage");
+
+            migrationBuilder.DropTable(
+                name: "TypeStage");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");

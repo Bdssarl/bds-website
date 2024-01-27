@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace Bds_site_web.Controllers
+namespace bds_site_web_version7_.Controllers
 {
     public class HomeController : Controller
     {

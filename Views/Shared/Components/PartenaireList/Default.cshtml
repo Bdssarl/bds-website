@@ -1,0 +1,14 @@
+﻿@using bds_site_web_version7_.Models;
+@model IEnumerable<Partenaire>
+<div class="partenaires">
+@foreach(var item in Model ){
+    
+        <div class="partenaire-1">
+            <img src="~/Images/Partennaires/@item.CheminImageTemoignage"/>
+            <div>
+                @item.NomPartenaire
+            </div>
+        </div>
+  
+}
+</div>

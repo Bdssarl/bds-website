@@ -1,9 +1,9 @@
-﻿using bds_site_web_version2_.Validations;
+﻿using bds_site_web_version7_.Validations;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace bds_site_web_version2_.Models
+namespace bds_site_web_version7_.Models
 {
     [NotMapped]
     [BindRequired]

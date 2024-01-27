@@ -9,11 +9,13 @@
     <link rel="stylesheet" href="~/Bds_site_web.styles.css" asp-append-version="true" />
 </head>
 <body>
-   
     <div class="banner">
+        <img src="~/Images/Banniere/" alt="banniere" />
+    </div>
+   <!---- <div class="scroll-img">
 
        <div class="arrow-left">
-           <button class="arrow">-</button>
+           <button class="arrow"><img src="~/Icons/chevron_left.svg"/></button>
        </div>
 
        <div class="img-container">
@@ -21,28 +23,16 @@
         </div>
 
         <div class="arrow-rigth">
-            <button class="arrow">+</button>
+            <button class="arrow"><img src="~/Icons/chevron_right.svg" /></button>
         </div>
-    </div>
+    </div>-->
     <div class="metier">
-       <div class="container-title"><div class="title"><h1> Nos Metiers</h1></div></div>
+       <div class="container-title"><div class="title"><h1> Nos metiers</h1></div></div>
        <div class="container-metier">
 
-           <div class="metier-1">
+            @await Component.InvokeAsync("MetierList")
 
-                <div class="img-1">
-                    image 1
-                    </div>
-
-                <div class="description-1">
-                    description
-                </div>
-                <div class="voir-plus-1">
-                    voire plus
-                    </div>
-           </div>
-
-            <div class="metier-2">
+           <!--- <div class="metier-2">
 
                 <div class="img-2"> 
                     image 2
@@ -64,17 +54,17 @@
                 </div>
                 <div class="voir-plus-1"> 
                     voire plus</div>
-            </div>
+            </div>-->
         </div>
     </div>
     <div class="nouvelles">
-        <div class="container-title"><div class="title"><h1> Nos Nouvelles</h1></div></div>
+        <div class="container-title"><div class="title"><h1> Actualités</h1></div></div>
         <div class="container-nouvelles">
         <div class="videos">
             <!--<div class="container-title-video"><div class="title-video"><h1>videos</h1></div></div>-->
               
             <div class="arrow-left">
-                <button class="arrow">-</button>
+                    <button class="arrow"><img src="~/Icons/chevron_left.svg"/></button>
             </div>
             <div class="video-container">
                 <div class="video-1"></div>
@@ -82,7 +72,7 @@
                <!--- <div class="video-3"></div>-->
             </div>
             <div class="arrow-rigth">
-                <button class="arrow">+</button>
+                    <button class="arrow"><img src="~/Icons/chevron_right.svg" /></button>
             </div>
 
           </div>
@@ -98,7 +88,7 @@
          <div class="Temoignages">
             <!---<div class="container-title-Temoignages"><div class="title-Temoignages"><h1>Temoignages</h1></div></div>-->
                 <div class="arrow-left">
-                    <button class="arrow">-</button>
+                    <button class="arrow"><img src="~/Icons/chevron_left.svg"/></button>
                 </div>
             <div class="Temoignages-container">
                 <div class="Temoignage-1"></div>
@@ -107,32 +97,47 @@
                 <div class="Temoignage-4"></div>-->
          </div>
                 <div class="arrow-rigth">
-                    <button class="arrow">+</button>
+                    <button class="arrow"><img src="~/Icons/chevron_right.svg" /></button>
                 </div>
        </div>
        </div>
     </div>
     <div class="nos-chiffres-et-partenaires">
-        <div class="chiffres"> 
-            <div class="Annee-experience"></div>
-            <div class="Projet-Realises"></div>
-            <div class="NPartenaires"></div>
-        </div>
+        @await Component.InvokeAsync("ChiffreList")
         <div class="container-partenaire">
-        <div class="arrow-left">
-            <button class="arrow">-</button>
-        </div>
-
-        <div class="partenaires">
-            <div class="partenaire-1"></div>
-            <div class="partenaire-2"></div>
-            <div class="partenaire-3"></div>
-            <div class="partenaire-4"></div>
-        </div>
-        <div class="arrow-right">
-            <button class="arrow">+</button>
-        </div>
+        <!--<div class="arrow-left">
+                <button class="arrow"><img src="~/Icons/chevron_left.svg"/></button>
+        </div>-->
+        <div class="confiance">Ils nous font confiance ... </div>
+            @await Component.InvokeAsync("PartenaireList")
+       
+        <!----<div class="arrow-right">
+                <button class="arrow"><img src="~/Icons/chevron_right.svg"/></button>
+        </div>-->
      </div>
      </div>
+     <script type="text/javascript">
+       /* affichage  de la bannière */ 
+        let banner = document.querySelector(".banner>img");
+        async function fetchData() {
+            let response = await fetch('https://localhost:7150/Banner'); // replace 'url' with your API endpoint
+            let data = await response.json(); // This line waits for the promise to resolve and gives you the actual data.
+            return data;
+        }
+        fetchData().then(data=>data[0].cheminImage)
+                   .then(image=>
+                       
+                banner.src=banner.src+image);
+                /*affichage des chiffres
+                let chiffre=document.querySelector(".chiffres");
+                async fetchChiffre(){
+            let response = await fetch('https://localhost:7150/chiffres'); // replace 'url' with your API endpoint
+            let data = await response.json(); // This line waits for the promise to resolve and gives you the actual data.
+            return data;
+                }
+                ferchData().then(data=>
+                data.forEach())*/
+                
+     </script>
      </body>
   </html>
