@@ -17,7 +17,7 @@ namespace bds_site_web_version7_.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Message([FromBody] MessageUser messageUser)
+        public IActionResult Message( MessageUser messageUser)
         {
             var user = new User
             {
@@ -43,7 +43,7 @@ namespace bds_site_web_version7_.Controllers
             var responseObj = new { message = "Données reçues avec succès" };
 
            
-            return Json(responseObj);
+            return View ();
         }
     }
 }

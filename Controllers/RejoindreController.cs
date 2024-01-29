@@ -1,7 +1,9 @@
 ﻿
 using bds_site_web_version7_.Models;
 using bds_site_web_version7_.Services;
+using bds_site_web_version7_.Validations;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -26,29 +28,34 @@ namespace bds_site_web_version7_.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult NousRejoindre(UserStage userStage)
+        public IActionResult NousRejoindre(UserEmploi userEmploi)
         {
-            /* création d'un objet user pour stocker les informations d'un user */
-
-            var user = new User();
-            user.civilite = userStage.civilite;
-            user.Email = userStage.Email;
-            user.FirstName = userStage.FirstName;
-            user.LastName = userStage.LastName;
-            user.PhoneNumber = userStage.PhoneNumber;
+            var user = new User
+            {
+                Id = "candit7", 
+                civilite = userEmploi.civilite,
+                Email = userEmploi.Email,
+                FirstName = userEmploi.FirstName,
+                LastName = userEmploi.LastName,
+                PhoneNumber = userEmploi.PhoneNumber
+            };
             _context.Users.Add(user);
+            var emploi = _context.Emplois.Include(e => e.TypeEmploi).Where(e => e.DomaineEmploi == userEmploi.DomaineEmploi && e.TypeEmploi == userEmploi.TypeEmploi).First();
+            var demandeEmploi = new DemandeEmploi
+            {
+
+                UserId = user.Id,
+                EmploiId = emploi.Id,
+                DateEnvoiDemandeEmploi = DateTime.Now,
+                 ObjetMessageEmploi = userEmploi.ObjetMessage,
+                MessageDemandeEmploi = userEmploi.DescriptionMessage,
+                NomCvDemandeEmploi = _fileUpload.uploadfile(userEmploi.formFile, "emploi")
+            }
+            ;
+            _context.DemandeEmplois.Add(demandeEmploi);
             _context.SaveChanges();
-            /*création d'un objet stage  pour stocker les informations du stage*/
-            var demandeStage = new DemandeStage();
-            string extension = Path.GetExtension(userStage.formFile.Name);
-            string randomfile = Path.GetRandomFileName() + extension;
 
-            demandeStage.DescriptionMessage = userStage.DescriptionMessage;
-            demandeStage.ObjetMessage = userStage.ObjetMessage;
-            demandeStage.NomCvDemandeStage = randomfile;
 
-            demandeStage.DateEnvoiDemandeStage = DateTime.Now;
-            ViewBag.Message = "utilisateur ajouté avec succès";
 
             return View();
         }
@@ -65,7 +72,7 @@ namespace bds_site_web_version7_.Controllers
         public IActionResult PostulerStage(UserStage userStage)
         {
 
-          /*  var user = new User
+            var user = new User
             {
                 Id="candit1",
                 civilite = userStage.civilite,
@@ -74,27 +81,22 @@ namespace bds_site_web_version7_.Controllers
                 LastName = userStage.LastName,
                 PhoneNumber = userStage.PhoneNumber
             };
-            var stage = new Stage
-            {
-                Id = "uupopopopiiio"
-            };
+
+            _context.Users.Add(user);
+            var stage = _context.Stages.Include(e => e.typestage).Where(e => e.DomaineStage == userStage.DomaineStage && e.typestage.LibelleTypeStage == userStage.TypeStage).First();
+
             var demandeStage = new DemandeStage
             {
-               Users.
-                Stages = new List<Stage>
-                {
-                    stage
-                },
-                
+                StageId = stage.Id,
+                UserId = user.Id,
                 DateEnvoiDemandeStage = DateTime.Now,
                 ObjetMessage = userStage.ObjetMessage,
                 DescriptionMessage = userStage.DescriptionMessage,
-                NomCvDemandeStage = _fileUpload.uploadfile(userStage.formFile, "stage"),
-            };
-           
+                NomCvDemandeStage = _fileUpload.uploadfile(userStage.formFile, "stage")
+            }
+            ;
             _context.DemandeStages.Add(demandeStage);
-            _context.SaveChanges();*/
-
+            _context.SaveChanges();
 
             return View();
         }

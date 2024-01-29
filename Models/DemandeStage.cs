@@ -14,7 +14,6 @@ public partial class DemandeStage
     public DateTime? DateEnvoiDemandeStage { get; set; }
 
     public string NomCvDemandeStage { get; set; } = null!;
-
-    public virtual ICollection<User> Users { get; set; } = new List<User>();
-    public virtual ICollection<Stage> Stages { get; set; } = new List<Stage>();
+    public string UserId { get; set; }
+    public string StageId { get; set; }
 }

@@ -471,7 +471,39 @@ namespace bds_site_web_version7_.Models
    .HasMany(e => e.Stages)
    .WithOne(e => e.typestage)
    .HasForeignKey(e=>e.IdTypeStage);
-   
+            modelBuilder.Entity<Emploi>(entity =>
+            {
+                entity.HasKey(e => e.Id).HasName("PRIMARY");
+
+                entity.ToTable("Emploi");
+
+                entity.Property(e => e.Id)
+                    .HasMaxLength(255)
+                    .HasColumnName("id_Emploi");
+                entity.Property(e => e.DomaineEmploi)
+                    .HasMaxLength(255)
+                    .HasColumnName("domaine_Emploi");
+
+            });
+            modelBuilder.Entity<TypeEmploi>(entity =>
+            {
+                entity.HasKey(e => e.Id).HasName("PRIMARY");
+
+                entity.ToTable("TypeEmploi");
+
+                entity.Property(e => e.Id)
+                    .HasMaxLength(255)
+                    .HasColumnName("id_TypeEmploi");
+                entity.Property(e => e.LibelleTypeEmploi)
+                    .HasMaxLength(255)
+                    .HasColumnName("Libelelle_TypeEmploi");
+
+            });
+            modelBuilder.Entity<TypeEmploi>()
+  .HasMany(e => e.Emplois)
+  .WithOne(e => e.typeEmploi)
+  .HasForeignKey(e => e.IdTypeEmploi);
+
             modelBuilder.Entity<User>()
  .HasMany(e => e.Ebooks)
  .WithMany(e => e.Users)

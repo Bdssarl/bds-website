@@ -7,7 +7,7 @@ using MySql.EntityFrameworkCore.Metadata;
 namespace bds_site_web_version7_.Migrations
 {
     /// <inheritdoc />
-    public partial class initial : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -58,6 +58,35 @@ namespace bds_site_web_version7_.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetRoles", x => x.Id);
+                })
+                .Annotation("MySQL:Charset", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "AspNetUsers",
+                columns: table => new
+                {
+                    Id = table.Column<string>(type: "varchar(255)", nullable: false),
+                    civilite = table.Column<string>(type: "longtext", nullable: false),
+                    FirstName = table.Column<string>(type: "longtext", nullable: false),
+                    LastName = table.Column<string>(type: "longtext", nullable: false),
+                    UserName = table.Column<string>(type: "varchar(256)", maxLength: 256, nullable: true),
+                    NormalizedUserName = table.Column<string>(type: "varchar(256)", maxLength: 256, nullable: true),
+                    Email = table.Column<string>(type: "varchar(256)", maxLength: 256, nullable: true),
+                    NormalizedEmail = table.Column<string>(type: "varchar(256)", maxLength: 256, nullable: true),
+                    EmailConfirmed = table.Column<bool>(type: "tinyint(1)", nullable: false),
+                    PasswordHash = table.Column<string>(type: "longtext", nullable: true),
+                    SecurityStamp = table.Column<string>(type: "longtext", nullable: true),
+                    ConcurrencyStamp = table.Column<string>(type: "longtext", nullable: true),
+                    PhoneNumber = table.Column<string>(type: "longtext", nullable: true),
+                    PhoneNumberConfirmed = table.Column<bool>(type: "tinyint(1)", nullable: false),
+                    TwoFactorEnabled = table.Column<bool>(type: "tinyint(1)", nullable: false),
+                    LockoutEnd = table.Column<DateTimeOffset>(type: "datetime(6)", nullable: true),
+                    LockoutEnabled = table.Column<bool>(type: "tinyint(1)", nullable: false),
+                    AccessFailedCount = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AspNetUsers", x => x.Id);
                 })
                 .Annotation("MySQL:Charset", "utf8mb4");
 
@@ -203,7 +232,7 @@ namespace bds_site_web_version7_.Migrations
                     date_debut_projet_En_cours = table.Column<DateTime>(type: "date", nullable: false),
                     date_fin_projet_En_cours = table.Column<DateTime>(type: "date", nullable: false),
                     nom_image_projet_En_cours = table.Column<string>(type: "varchar(25)", maxLength: 25, nullable: false),
-                    chemin_image_projet_En_cours = table.Column<string>(type: "varchar(25)", maxLength: 25, nullable: false)
+                    chemin_image_projet_En_cours = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -216,14 +245,12 @@ namespace bds_site_web_version7_.Migrations
                 columns: table => new
                 {
                     id_projet_realise = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: false),
-                    Intitule_Projet = table.Column<string>(type: "varchar(25)", maxLength: 25, nullable: false),
-                    Donneur_Ordre = table.Column<string>(type: "longtext", nullable: false),
-                    IntituleMission = table.Column<string>(name: "Intitule Mission", type: "longtext", nullable: false),
-                    periode = table.Column<string>(type: "longtext", nullable: false),
-                    Duree = table.Column<string>(type: "longtext", nullable: false),
-                    TacheExecute = table.Column<string>(type: "longtext", nullable: false),
-                    Annee = table.Column<string>(type: "longtext", nullable: false),
-                    cheminImage = table.Column<string>(type: "longtext", nullable: false)
+                    Intitule_Projet = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: false),
+                    Donneur_Ordre = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: false),
+                    Duree = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: false),
+                    TacheExecute = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: false),
+                    Annee = table.Column<string>(type: "varchar(4)", maxLength: 4, nullable: false),
+                    cheminImage = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -256,6 +283,19 @@ namespace bds_site_web_version7_.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PRIMARY", x => x.id_temoignage);
+                })
+                .Annotation("MySQL:Charset", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "TypeEmploi",
+                columns: table => new
+                {
+                    id_TypeEmploi = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: false),
+                    Libelelle_TypeEmploi = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PRIMARY", x => x.id_TypeEmploi);
                 })
                 .Annotation("MySQL:Charset", "utf8mb4");
 
@@ -324,51 +364,6 @@ namespace bds_site_web_version7_.Migrations
                 .Annotation("MySQL:Charset", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "stage",
-                columns: table => new
-                {
-                    id_Stage = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: false),
-                    domaine_stage = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: true),
-                    IdTypeStage = table.Column<string>(type: "varchar(255)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PRIMARY", x => x.id_Stage);
-                    table.ForeignKey(
-                        name: "FK_stage_TypeStage_IdTypeStage",
-                        column: x => x.IdTypeStage,
-                        principalTable: "TypeStage",
-                        principalColumn: "id_TypeStage",
-                        onDelete: ReferentialAction.Cascade);
-                })
-                .Annotation("MySQL:Charset", "utf8mb4");
-
-            migrationBuilder.CreateTable(
-                name: "UserToNewsLetters",
-                columns: table => new
-                {
-                    NewslettersId = table.Column<string>(type: "varchar(255)", nullable: false),
-                    UserNewslettersEmailUser = table.Column<string>(type: "varchar(25)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_UserToNewsLetters", x => new { x.NewslettersId, x.UserNewslettersEmailUser });
-                    table.ForeignKey(
-                        name: "FK_UserToNewsLetters_UserNewsletter_UserNewslettersEmailUser",
-                        column: x => x.UserNewslettersEmailUser,
-                        principalTable: "UserNewsletter",
-                        principalColumn: "Email_User",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_UserToNewsLetters_newsletter_NewslettersId",
-                        column: x => x.NewslettersId,
-                        principalTable: "newsletter",
-                        principalColumn: "id_newsletter",
-                        onDelete: ReferentialAction.Cascade);
-                })
-                .Annotation("MySQL:Charset", "utf8mb4");
-
-            migrationBuilder.CreateTable(
                 name: "AspNetUserClaims",
                 columns: table => new
                 {
@@ -381,6 +376,12 @@ namespace bds_site_web_version7_.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUserClaims", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_AspNetUserClaims_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySQL:Charset", "utf8mb4");
 
@@ -396,6 +397,12 @@ namespace bds_site_web_version7_.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUserLogins", x => new { x.LoginProvider, x.ProviderKey });
+                    table.ForeignKey(
+                        name: "FK_AspNetUserLogins_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySQL:Charset", "utf8mb4");
 
@@ -415,37 +422,12 @@ namespace bds_site_web_version7_.Migrations
                         principalTable: "AspNetRoles",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
-                })
-                .Annotation("MySQL:Charset", "utf8mb4");
-
-            migrationBuilder.CreateTable(
-                name: "AspNetUsers",
-                columns: table => new
-                {
-                    Id = table.Column<string>(type: "varchar(255)", nullable: false),
-                    civilite = table.Column<string>(type: "longtext", nullable: false),
-                    FirstName = table.Column<string>(type: "longtext", nullable: false),
-                    LastName = table.Column<string>(type: "longtext", nullable: false),
-                    DemandeEmploiEmploisId = table.Column<string>(type: "varchar(255)", nullable: true),
-                    DemandeEmploiUsersId = table.Column<string>(type: "varchar(255)", nullable: true),
-                    UserName = table.Column<string>(type: "varchar(256)", maxLength: 256, nullable: true),
-                    NormalizedUserName = table.Column<string>(type: "varchar(256)", maxLength: 256, nullable: true),
-                    Email = table.Column<string>(type: "varchar(256)", maxLength: 256, nullable: true),
-                    NormalizedEmail = table.Column<string>(type: "varchar(256)", maxLength: 256, nullable: true),
-                    EmailConfirmed = table.Column<bool>(type: "tinyint(1)", nullable: false),
-                    PasswordHash = table.Column<string>(type: "longtext", nullable: true),
-                    SecurityStamp = table.Column<string>(type: "longtext", nullable: true),
-                    ConcurrencyStamp = table.Column<string>(type: "longtext", nullable: true),
-                    PhoneNumber = table.Column<string>(type: "longtext", nullable: true),
-                    PhoneNumberConfirmed = table.Column<bool>(type: "tinyint(1)", nullable: false),
-                    TwoFactorEnabled = table.Column<bool>(type: "tinyint(1)", nullable: false),
-                    LockoutEnd = table.Column<DateTimeOffset>(type: "datetime(6)", nullable: true),
-                    LockoutEnabled = table.Column<bool>(type: "tinyint(1)", nullable: false),
-                    AccessFailedCount = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_AspNetUserRoles_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySQL:Charset", "utf8mb4");
 
@@ -466,64 +448,6 @@ namespace bds_site_web_version7_.Migrations
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                })
-                .Annotation("MySQL:Charset", "utf8mb4");
-
-            migrationBuilder.CreateTable(
-                name: "Consulters",
-                columns: table => new
-                {
-                    Id = table.Column<string>(type: "varchar(255)", nullable: false),
-                    IdConsulter = table.Column<string>(type: "longtext", nullable: false),
-                    DateConsulter = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    IdUser = table.Column<string>(type: "longtext", nullable: false),
-                    EbooksId = table.Column<string>(type: "varchar(255)", nullable: false),
-                    UsersId = table.Column<string>(type: "varchar(255)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Consulters", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Consulters_AspNetUsers_UsersId",
-                        column: x => x.UsersId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Consulters_ebook_EbooksId",
-                        column: x => x.EbooksId,
-                        principalTable: "ebook",
-                        principalColumn: "id_Ebook",
-                        onDelete: ReferentialAction.Cascade);
-                })
-                .Annotation("MySQL:Charset", "utf8mb4");
-
-            migrationBuilder.CreateTable(
-                name: "DemandeStages",
-                columns: table => new
-                {
-                    StagesId = table.Column<string>(type: "varchar(255)", nullable: false),
-                    UsersId = table.Column<string>(type: "varchar(255)", nullable: false),
-                    ObjetMessage = table.Column<string>(type: "longtext", nullable: false),
-                    DescriptionMessage = table.Column<string>(type: "longtext", nullable: true),
-                    DateEnvoiDemandeStage = table.Column<DateTime>(type: "datetime(6)", nullable: true),
-                    NomCvDemandeStage = table.Column<string>(type: "longtext", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_DemandeStages", x => new { x.StagesId, x.UsersId });
-                    table.ForeignKey(
-                        name: "FK_DemandeStages_AspNetUsers_UsersId",
-                        column: x => x.UsersId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_DemandeStages_stage_StagesId",
-                        column: x => x.StagesId,
-                        principalTable: "stage",
-                        principalColumn: "id_Stage",
                         onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySQL:Charset", "utf8mb4");
@@ -580,6 +504,35 @@ namespace bds_site_web_version7_.Migrations
                 .Annotation("MySQL:Charset", "utf8mb4");
 
             migrationBuilder.CreateTable(
+                name: "Consulters",
+                columns: table => new
+                {
+                    Id = table.Column<string>(type: "varchar(255)", nullable: false),
+                    IdConsulter = table.Column<string>(type: "longtext", nullable: false),
+                    DateConsulter = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    IdUser = table.Column<string>(type: "longtext", nullable: false),
+                    EbooksId = table.Column<string>(type: "varchar(255)", nullable: false),
+                    UsersId = table.Column<string>(type: "varchar(255)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Consulters", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Consulters_AspNetUsers_UsersId",
+                        column: x => x.UsersId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Consulters_ebook_EbooksId",
+                        column: x => x.EbooksId,
+                        principalTable: "ebook",
+                        principalColumn: "id_Ebook",
+                        onDelete: ReferentialAction.Cascade);
+                })
+                .Annotation("MySQL:Charset", "utf8mb4");
+
+            migrationBuilder.CreateTable(
                 name: "Telechargers",
                 columns: table => new
                 {
@@ -610,53 +563,67 @@ namespace bds_site_web_version7_.Migrations
                 .Annotation("MySQL:Charset", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "DemandeStageStage",
+                name: "Emploi",
                 columns: table => new
                 {
-                    StagesId = table.Column<string>(type: "varchar(255)", nullable: false),
-                    DemandeStagesStagesId = table.Column<string>(type: "varchar(255)", nullable: false),
-                    DemandeStagesUsersId = table.Column<string>(type: "varchar(255)", nullable: false)
+                    id_Emploi = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: false),
+                    domaine_Emploi = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: true),
+                    type_emploi = table.Column<string>(type: "varchar(45)", maxLength: 45, nullable: false),
+                    IdTypeEmploi = table.Column<string>(type: "varchar(255)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_DemandeStageStage", x => new { x.StagesId, x.DemandeStagesStagesId, x.DemandeStagesUsersId });
+                    table.PrimaryKey("PRIMARY", x => x.id_Emploi);
                     table.ForeignKey(
-                        name: "FK_DemandeStageStage_DemandeStages_DemandeStagesStagesId_Demand~",
-                        columns: x => new { x.DemandeStagesStagesId, x.DemandeStagesUsersId },
-                        principalTable: "DemandeStages",
-                        principalColumns: new[] { "StagesId", "UsersId" },
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_DemandeStageStage_stage_StagesId",
-                        column: x => x.StagesId,
-                        principalTable: "stage",
-                        principalColumn: "id_Stage",
+                        name: "FK_Emploi_TypeEmploi_IdTypeEmploi",
+                        column: x => x.IdTypeEmploi,
+                        principalTable: "TypeEmploi",
+                        principalColumn: "id_TypeEmploi",
                         onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySQL:Charset", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "DemandeStageUser",
+                name: "stage",
                 columns: table => new
                 {
-                    UsersId = table.Column<string>(type: "varchar(255)", nullable: false),
-                    DemandeStagesStagesId = table.Column<string>(type: "varchar(255)", nullable: false),
-                    DemandeStagesUsersId = table.Column<string>(type: "varchar(255)", nullable: false)
+                    id_Stage = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: false),
+                    domaine_stage = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: true),
+                    IdTypeStage = table.Column<string>(type: "varchar(255)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_DemandeStageUser", x => new { x.UsersId, x.DemandeStagesStagesId, x.DemandeStagesUsersId });
+                    table.PrimaryKey("PRIMARY", x => x.id_Stage);
                     table.ForeignKey(
-                        name: "FK_DemandeStageUser_AspNetUsers_UsersId",
-                        column: x => x.UsersId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
+                        name: "FK_stage_TypeStage_IdTypeStage",
+                        column: x => x.IdTypeStage,
+                        principalTable: "TypeStage",
+                        principalColumn: "id_TypeStage",
+                        onDelete: ReferentialAction.Cascade);
+                })
+                .Annotation("MySQL:Charset", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "UserToNewsLetters",
+                columns: table => new
+                {
+                    NewslettersId = table.Column<string>(type: "varchar(255)", nullable: false),
+                    UserNewslettersEmailUser = table.Column<string>(type: "varchar(25)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UserToNewsLetters", x => new { x.NewslettersId, x.UserNewslettersEmailUser });
+                    table.ForeignKey(
+                        name: "FK_UserToNewsLetters_UserNewsletter_UserNewslettersEmailUser",
+                        column: x => x.UserNewslettersEmailUser,
+                        principalTable: "UserNewsletter",
+                        principalColumn: "Email_User",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_DemandeStageUser_DemandeStages_DemandeStagesStagesId_Demande~",
-                        columns: x => new { x.DemandeStagesStagesId, x.DemandeStagesUsersId },
-                        principalTable: "DemandeStages",
-                        principalColumns: new[] { "StagesId", "UsersId" },
+                        name: "FK_UserToNewsLetters_newsletter_NewslettersId",
+                        column: x => x.NewslettersId,
+                        principalTable: "newsletter",
+                        principalColumn: "id_newsletter",
                         onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySQL:Charset", "utf8mb4");
@@ -665,8 +632,8 @@ namespace bds_site_web_version7_.Migrations
                 name: "DemandeEmplois",
                 columns: table => new
                 {
-                    EmploisId = table.Column<string>(type: "varchar(255)", nullable: false),
-                    UsersId = table.Column<string>(type: "varchar(255)", nullable: false),
+                    UserId = table.Column<string>(type: "varchar(255)", nullable: false),
+                    EmploiId = table.Column<string>(type: "varchar(255)", nullable: false),
                     DateEnvoiDemandeEmploi = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     NomCvDemandeEmploi = table.Column<string>(type: "longtext", nullable: false),
                     ObjetMessageEmploi = table.Column<string>(type: "longtext", nullable: false),
@@ -674,34 +641,48 @@ namespace bds_site_web_version7_.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_DemandeEmplois", x => new { x.EmploisId, x.UsersId });
+                    table.PrimaryKey("PK_DemandeEmplois", x => new { x.EmploiId, x.UserId });
                     table.ForeignKey(
-                        name: "FK_DemandeEmplois_AspNetUsers_UsersId",
-                        column: x => x.UsersId,
+                        name: "FK_DemandeEmplois_AspNetUsers_UserId",
+                        column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_DemandeEmplois_Emploi_EmploiId",
+                        column: x => x.EmploiId,
+                        principalTable: "Emploi",
+                        principalColumn: "id_Emploi",
                         onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySQL:Charset", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "emploi",
+                name: "DemandeStages",
                 columns: table => new
                 {
-                    id_Emploi = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: false),
-                    type_emploi = table.Column<string>(type: "varchar(45)", maxLength: 45, nullable: false),
-                    domaine_emploi = table.Column<string>(type: "varchar(20)", maxLength: 20, nullable: true),
-                    DemandeEmploiEmploisId = table.Column<string>(type: "varchar(255)", nullable: true),
-                    DemandeEmploiUsersId = table.Column<string>(type: "varchar(255)", nullable: true)
+                    UserId = table.Column<string>(type: "varchar(255)", nullable: false),
+                    StageId = table.Column<string>(type: "varchar(255)", nullable: false),
+                    ObjetMessage = table.Column<string>(type: "longtext", nullable: false),
+                    DescriptionMessage = table.Column<string>(type: "longtext", nullable: true),
+                    DateEnvoiDemandeStage = table.Column<DateTime>(type: "datetime(6)", nullable: true),
+                    NomCvDemandeStage = table.Column<string>(type: "longtext", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PRIMARY", x => x.id_Emploi);
+                    table.PrimaryKey("PK_DemandeStages", x => new { x.StageId, x.UserId });
                     table.ForeignKey(
-                        name: "FK_emploi_DemandeEmplois_DemandeEmploiEmploisId_DemandeEmploiUs~",
-                        columns: x => new { x.DemandeEmploiEmploisId, x.DemandeEmploiUsersId },
-                        principalTable: "DemandeEmplois",
-                        principalColumns: new[] { "EmploisId", "UsersId" });
+                        name: "FK_DemandeStages_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_DemandeStages_stage_StageId",
+                        column: x => x.StageId,
+                        principalTable: "stage",
+                        principalColumn: "id_Stage",
+                        onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySQL:Charset", "utf8mb4");
 
@@ -737,11 +718,6 @@ namespace bds_site_web_version7_.Migrations
                 column: "NormalizedEmail");
 
             migrationBuilder.CreateIndex(
-                name: "IX_AspNetUsers_DemandeEmploiEmploisId_DemandeEmploiUsersId",
-                table: "AspNetUsers",
-                columns: new[] { "DemandeEmploiEmploisId", "DemandeEmploiUsersId" });
-
-            migrationBuilder.CreateIndex(
                 name: "UserNameIndex",
                 table: "AspNetUsers",
                 column: "NormalizedUserName",
@@ -758,29 +734,19 @@ namespace bds_site_web_version7_.Migrations
                 column: "UsersId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_DemandeEmplois_UsersId",
+                name: "IX_DemandeEmplois_UserId",
                 table: "DemandeEmplois",
-                column: "UsersId");
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_DemandeStages_UsersId",
+                name: "IX_DemandeStages_UserId",
                 table: "DemandeStages",
-                column: "UsersId");
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_DemandeStageStage_DemandeStagesStagesId_DemandeStagesUsersId",
-                table: "DemandeStageStage",
-                columns: new[] { "DemandeStagesStagesId", "DemandeStagesUsersId" });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_DemandeStageUser_DemandeStagesStagesId_DemandeStagesUsersId",
-                table: "DemandeStageUser",
-                columns: new[] { "DemandeStagesStagesId", "DemandeStagesUsersId" });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_emploi_DemandeEmploiEmploisId_DemandeEmploiUsersId",
-                table: "emploi",
-                columns: new[] { "DemandeEmploiEmploisId", "DemandeEmploiUsersId" });
+                name: "IX_Emploi_IdTypeEmploi",
+                table: "Emploi",
+                column: "IdTypeEmploi");
 
             migrationBuilder.CreateIndex(
                 name: "IX_message_IdUser",
@@ -811,58 +777,11 @@ namespace bds_site_web_version7_.Migrations
                 name: "IX_UserToNewsLetters_UserNewslettersEmailUser",
                 table: "UserToNewsLetters",
                 column: "UserNewslettersEmailUser");
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_AspNetUserClaims_AspNetUsers_UserId",
-                table: "AspNetUserClaims",
-                column: "UserId",
-                principalTable: "AspNetUsers",
-                principalColumn: "Id",
-                onDelete: ReferentialAction.Cascade);
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_AspNetUserLogins_AspNetUsers_UserId",
-                table: "AspNetUserLogins",
-                column: "UserId",
-                principalTable: "AspNetUsers",
-                principalColumn: "Id",
-                onDelete: ReferentialAction.Cascade);
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_AspNetUserRoles_AspNetUsers_UserId",
-                table: "AspNetUserRoles",
-                column: "UserId",
-                principalTable: "AspNetUsers",
-                principalColumn: "Id",
-                onDelete: ReferentialAction.Cascade);
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_AspNetUsers_DemandeEmplois_DemandeEmploiEmploisId_DemandeEmp~",
-                table: "AspNetUsers",
-                columns: new[] { "DemandeEmploiEmploisId", "DemandeEmploiUsersId" },
-                principalTable: "DemandeEmplois",
-                principalColumns: new[] { "EmploisId", "UsersId" });
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_DemandeEmplois_emploi_EmploisId",
-                table: "DemandeEmplois",
-                column: "EmploisId",
-                principalTable: "emploi",
-                principalColumn: "id_Emploi",
-                onDelete: ReferentialAction.Cascade);
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropForeignKey(
-                name: "FK_DemandeEmplois_AspNetUsers_UsersId",
-                table: "DemandeEmplois");
-
-            migrationBuilder.DropForeignKey(
-                name: "FK_emploi_DemandeEmplois_DemandeEmploiEmploisId_DemandeEmploiUs~",
-                table: "emploi");
-
             migrationBuilder.DropTable(
                 name: "actualite");
 
@@ -888,10 +807,10 @@ namespace bds_site_web_version7_.Migrations
                 name: "Consulters");
 
             migrationBuilder.DropTable(
-                name: "DemandeStageStage");
+                name: "DemandeEmplois");
 
             migrationBuilder.DropTable(
-                name: "DemandeStageUser");
+                name: "DemandeStages");
 
             migrationBuilder.DropTable(
                 name: "formationTermine");
@@ -939,10 +858,16 @@ namespace bds_site_web_version7_.Migrations
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
-                name: "DemandeStages");
+                name: "Emploi");
+
+            migrationBuilder.DropTable(
+                name: "stage");
 
             migrationBuilder.DropTable(
                 name: "annonce_recrutement");
+
+            migrationBuilder.DropTable(
+                name: "AspNetUsers");
 
             migrationBuilder.DropTable(
                 name: "ebook");
@@ -954,19 +879,10 @@ namespace bds_site_web_version7_.Migrations
                 name: "newsletter");
 
             migrationBuilder.DropTable(
-                name: "stage");
+                name: "TypeEmploi");
 
             migrationBuilder.DropTable(
                 name: "TypeStage");
-
-            migrationBuilder.DropTable(
-                name: "AspNetUsers");
-
-            migrationBuilder.DropTable(
-                name: "DemandeEmplois");
-
-            migrationBuilder.DropTable(
-                name: "emploi");
         }
     }
 }

@@ -17,6 +17,5 @@ namespace bds_site_web_version7_.Models
         public virtual ICollection<Emploi> Emplois { get; set; } = new List<Emploi>();
         public virtual ICollection<AnnonceRecrutement> AnnonceRecrutements { get; set; } = new List<AnnonceRecrutement>();
         public virtual ICollection<Stage> Stages { get; set; } = new List<Stage>();
-        public virtual ICollection<DemandeStage> DemandeStages { get; set; } = new List<DemandeStage>();
     }
 }

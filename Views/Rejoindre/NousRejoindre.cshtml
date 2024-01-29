@@ -1,7 +1,7 @@
 ﻿@{
     Layout = "~/Views/Rejoindre/_Layout.cshtml";
 }
-@model bds_site_web_version7_.Models.UserStage
+@model bds_site_web_version7_.Models.UserEmploi
 
 <!DOCTYPE html>
 <html lang="en">
@@ -26,7 +26,8 @@
                             <div class="form_number"><label >Telephone</label><input type="tel" required class="input-button" /></div>
                         </div>
             <div class="form_civilite"><label asp-for="civilite">civilite</label><select class="input-button" asp-for="civilite"><option>Monsieur </option><option>Madame </option></select></div>
-
+            <div class="form_civilite"><label asp-for="TypeEmploi">type d'emploi'</label><select class="input-button" asp-for="TypeEmploi"><option>Plein </option><option>Partiel </option></select></div>
+            <div class="form_civilite"><label asp-for="DomaineEmploi">Domaine Emploi</label><select class="input-button" asp-for="DomaineEmploi"><option>Marketing</option><option>Communication </option></select></div>
                         <div class="message-group">
                 <div class="form_objetMessage"><label asp-for="ObjetMessage">objet message</label><input type="text" required class="input-button" asp-for="ObjetMessage" placeholder="ex:solicitation d'une consultation" /></div>
                 <div class="form_descriptionMessage"><textarea maxlength="1000"asp-for="DescriptionMessage" rows="20" placeholder="description (1000 caractères)">message</textarea></div>

@@ -1,7 +1,7 @@
 ﻿@{
     Layout = "~/Views/Administration/_Layout.cshtml";
 }
-@model bds_site_web_version7_.Models.TypeStage
+@model bds_site_web_version7_.Models.TypeEmploi
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,14 +16,13 @@
 <body>
     <div class="container">
         <div class="container-title">
-            <h1>Enregistrer un type de  stage </h1>
-            @ViewBag.Message
+            <h1>Enregistrer un type d'emploi </h1>
         </div>
 
-        <form class="form" asp-controller="TypeStage" asp-action="Create" method="post" enctype="multipart/form-data">
+        <form class="form" asp-controller="TypeEmploi" asp-action="Create" method="post" enctype="multipart/form-data">
 
-            <div class="form_LibelleTypeStage"> <label asp-for="LibelleTypeStage">Libelle du type de  Stage</label><input class="input-button" type="text" required asp-for="LibelleTypeStage" /></div>
-            <div class="form_LibelleTypeStage"> <label asp-for="DomaineStage">Domaine Stage</label><input class="input-button" type="text" required asp-for="DomaineStage" /></div>
+            <div class="form_LibelleTypeStage"> <label asp-for="LibelleTypeEmploi">Libelle du type de  Stage</label><input class="input-button" type="text" required asp-for="LibelleTypeEmploi" /></div>
+            <div class="form_LibelleTypeStage"> <label asp-for="DomaineEmploi">Domaine Stage</label><input class="input-button" type="text" required asp-for="DomaineEmploi" /></div>
             <div class="form_submit"> <button class="submit-button">Enregistrer</button></div>
         </form>
 

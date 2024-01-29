@@ -9,9 +9,13 @@ public partial class Emploi
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public string Id { get; set; } = null!;
 
-    public string TypeEmploi { get; set; } = null!;
 
     public string? DomaineEmploi { get; set; }
+    [NotMapped]
+    public string TypeEmploi { get; set; } = null!;
+    public string IdTypeEmploi { get; set; } = null!;
+    public virtual TypeEmploi typeEmploi { get; set; } = null!;
 
     public virtual ICollection<User> Users { get; set; } = new List<User>();
+    
 }

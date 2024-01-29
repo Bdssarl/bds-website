@@ -19,42 +19,6 @@ namespace bds_site_web_version7_.Migrations
                 .HasAnnotation("ProductVersion", "7.0.12")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
-            modelBuilder.Entity("DemandeStageStage", b =>
-                {
-                    b.Property<string>("StagesId")
-                        .HasColumnType("varchar(255)");
-
-                    b.Property<string>("DemandeStagesStagesId")
-                        .HasColumnType("varchar(255)");
-
-                    b.Property<string>("DemandeStagesUsersId")
-                        .HasColumnType("varchar(255)");
-
-                    b.HasKey("StagesId", "DemandeStagesStagesId", "DemandeStagesUsersId");
-
-                    b.HasIndex("DemandeStagesStagesId", "DemandeStagesUsersId");
-
-                    b.ToTable("DemandeStageStage");
-                });
-
-            modelBuilder.Entity("DemandeStageUser", b =>
-                {
-                    b.Property<string>("UsersId")
-                        .HasColumnType("varchar(255)");
-
-                    b.Property<string>("DemandeStagesStagesId")
-                        .HasColumnType("varchar(255)");
-
-                    b.Property<string>("DemandeStagesUsersId")
-                        .HasColumnType("varchar(255)");
-
-                    b.HasKey("UsersId", "DemandeStagesStagesId", "DemandeStagesUsersId");
-
-                    b.HasIndex("DemandeStagesStagesId", "DemandeStagesUsersId");
-
-                    b.ToTable("DemandeStageUser");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
@@ -314,10 +278,10 @@ namespace bds_site_web_version7_.Migrations
 
             modelBuilder.Entity("bds_site_web_version7_.Models.DemandeEmploi", b =>
                 {
-                    b.Property<string>("EmploisId")
+                    b.Property<string>("EmploiId")
                         .HasColumnType("varchar(255)");
 
-                    b.Property<string>("UsersId")
+                    b.Property<string>("UserId")
                         .HasColumnType("varchar(255)");
 
                     b.Property<DateTime>("DateEnvoiDemandeEmploi")
@@ -335,19 +299,19 @@ namespace bds_site_web_version7_.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.HasKey("EmploisId", "UsersId");
+                    b.HasKey("EmploiId", "UserId");
 
-                    b.HasIndex("UsersId");
+                    b.HasIndex("UserId");
 
                     b.ToTable("DemandeEmplois");
                 });
 
             modelBuilder.Entity("bds_site_web_version7_.Models.DemandeStage", b =>
                 {
-                    b.Property<string>("StagesId")
+                    b.Property<string>("StageId")
                         .HasColumnType("varchar(255)");
 
-                    b.Property<string>("UsersId")
+                    b.Property<string>("UserId")
                         .HasColumnType("varchar(255)");
 
                     b.Property<DateTime?>("DateEnvoiDemandeStage")
@@ -364,9 +328,9 @@ namespace bds_site_web_version7_.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.HasKey("StagesId", "UsersId");
+                    b.HasKey("StageId", "UserId");
 
-                    b.HasIndex("UsersId");
+                    b.HasIndex("UserId");
 
                     b.ToTable("DemandeStages");
                 });
@@ -421,16 +385,14 @@ namespace bds_site_web_version7_.Migrations
                         .HasColumnType("varchar(255)")
                         .HasColumnName("id_Emploi");
 
-                    b.Property<string>("DemandeEmploiEmploisId")
-                        .HasColumnType("varchar(255)");
-
-                    b.Property<string>("DemandeEmploiUsersId")
-                        .HasColumnType("varchar(255)");
-
                     b.Property<string>("DomaineEmploi")
-                        .HasMaxLength(20)
-                        .HasColumnType("varchar(20)")
-                        .HasColumnName("domaine_emploi");
+                        .HasMaxLength(255)
+                        .HasColumnType("varchar(255)")
+                        .HasColumnName("domaine_Emploi");
+
+                    b.Property<string>("IdTypeEmploi")
+                        .IsRequired()
+                        .HasColumnType("varchar(255)");
 
                     b.Property<string>("TypeEmploi")
                         .IsRequired()
@@ -441,9 +403,9 @@ namespace bds_site_web_version7_.Migrations
                     b.HasKey("Id")
                         .HasName("PRIMARY");
 
-                    b.HasIndex("DemandeEmploiEmploisId", "DemandeEmploiUsersId");
+                    b.HasIndex("IdTypeEmploi");
 
-                    b.ToTable("emploi", (string)null);
+                    b.ToTable("Emploi", (string)null);
                 });
 
             modelBuilder.Entity("bds_site_web_version7_.Models.FormationTermine", b =>
@@ -973,6 +935,26 @@ namespace bds_site_web_version7_.Migrations
                     b.ToTable("temoignage", (string)null);
                 });
 
+            modelBuilder.Entity("bds_site_web_version7_.Models.TypeEmploi", b =>
+                {
+                    b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasMaxLength(255)
+                        .HasColumnType("varchar(255)")
+                        .HasColumnName("id_TypeEmploi");
+
+                    b.Property<string>("LibelleTypeEmploi")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("varchar(255)")
+                        .HasColumnName("Libelelle_TypeEmploi");
+
+                    b.HasKey("Id")
+                        .HasName("PRIMARY");
+
+                    b.ToTable("TypeEmploi", (string)null);
+                });
+
             modelBuilder.Entity("bds_site_web_version7_.Models.TypeStage", b =>
                 {
                     b.Property<string>("Id")
@@ -1004,12 +986,6 @@ namespace bds_site_web_version7_.Migrations
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("longtext");
-
-                    b.Property<string>("DemandeEmploiEmploisId")
-                        .HasColumnType("varchar(255)");
-
-                    b.Property<string>("DemandeEmploiUsersId")
-                        .HasColumnType("varchar(255)");
 
                     b.Property<string>("Email")
                         .HasMaxLength(256)
@@ -1071,8 +1047,6 @@ namespace bds_site_web_version7_.Migrations
                     b.HasIndex("NormalizedUserName")
                         .IsUnique()
                         .HasDatabaseName("UserNameIndex");
-
-                    b.HasIndex("DemandeEmploiEmploisId", "DemandeEmploiUsersId");
 
                     b.ToTable("AspNetUsers", (string)null);
                 });
@@ -1147,36 +1121,6 @@ namespace bds_site_web_version7_.Migrations
                     b.ToTable("video", (string)null);
                 });
 
-            modelBuilder.Entity("DemandeStageStage", b =>
-                {
-                    b.HasOne("bds_site_web_version7_.Models.Stage", null)
-                        .WithMany()
-                        .HasForeignKey("StagesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("bds_site_web_version7_.Models.DemandeStage", null)
-                        .WithMany()
-                        .HasForeignKey("DemandeStagesStagesId", "DemandeStagesUsersId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("DemandeStageUser", b =>
-                {
-                    b.HasOne("bds_site_web_version7_.Models.User", null)
-                        .WithMany()
-                        .HasForeignKey("UsersId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("bds_site_web_version7_.Models.DemandeStage", null)
-                        .WithMany()
-                        .HasForeignKey("DemandeStagesStagesId", "DemandeStagesUsersId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -1247,13 +1191,13 @@ namespace bds_site_web_version7_.Migrations
                 {
                     b.HasOne("bds_site_web_version7_.Models.Emploi", null)
                         .WithMany()
-                        .HasForeignKey("EmploisId")
+                        .HasForeignKey("EmploiId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("bds_site_web_version7_.Models.User", null)
                         .WithMany()
-                        .HasForeignKey("UsersId")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -1262,22 +1206,26 @@ namespace bds_site_web_version7_.Migrations
                 {
                     b.HasOne("bds_site_web_version7_.Models.Stage", null)
                         .WithMany()
-                        .HasForeignKey("StagesId")
+                        .HasForeignKey("StageId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("bds_site_web_version7_.Models.User", null)
                         .WithMany()
-                        .HasForeignKey("UsersId")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
             modelBuilder.Entity("bds_site_web_version7_.Models.Emploi", b =>
                 {
-                    b.HasOne("bds_site_web_version7_.Models.DemandeEmploi", null)
+                    b.HasOne("bds_site_web_version7_.Models.TypeEmploi", "typeEmploi")
                         .WithMany("Emplois")
-                        .HasForeignKey("DemandeEmploiEmploisId", "DemandeEmploiUsersId");
+                        .HasForeignKey("IdTypeEmploi")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("typeEmploi");
                 });
 
             modelBuilder.Entity("bds_site_web_version7_.Models.Message", b =>
@@ -1332,13 +1280,6 @@ namespace bds_site_web_version7_.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("bds_site_web_version7_.Models.User", b =>
-                {
-                    b.HasOne("bds_site_web_version7_.Models.DemandeEmploi", null)
-                        .WithMany("Users")
-                        .HasForeignKey("DemandeEmploiEmploisId", "DemandeEmploiUsersId");
-                });
-
             modelBuilder.Entity("bds_site_web_version7_.Models.UserToNewsLetter", b =>
                 {
                     b.HasOne("bds_site_web_version7_.Models.Newsletter", null)
@@ -1354,11 +1295,9 @@ namespace bds_site_web_version7_.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("bds_site_web_version7_.Models.DemandeEmploi", b =>
+            modelBuilder.Entity("bds_site_web_version7_.Models.TypeEmploi", b =>
                 {
                     b.Navigation("Emplois");
-
-                    b.Navigation("Users");
                 });
 
             modelBuilder.Entity("bds_site_web_version7_.Models.TypeStage", b =>

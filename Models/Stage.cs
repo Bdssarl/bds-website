@@ -15,5 +15,4 @@ public partial class Stage
     public string IdTypeStage { get; set; } = null!;
     public virtual TypeStage typestage { get; set; } = null!;
     public virtual ICollection<User> Users { get; set; } = new List<User>();
-    public virtual ICollection<DemandeStage> DemandeStages { get; set; } = new List<DemandeStage>();
 }
