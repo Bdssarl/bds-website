@@ -1,0 +1,25 @@
+﻿body {
+}
+
+/* styles.css */
+
+@keyframes defilementSecondes {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(0%);
+    }
+}
+
+.defile-secondes {
+    display: inline-block;
+    animation: defilementSecondes 1s linear infinite;
+    font-weight:bold;
+}
+.dateHeure{
+    font-family:'Bodoni MT';
+    font-weight: bold;
+    color: #fff;
+}

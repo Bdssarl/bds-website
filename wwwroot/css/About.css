@@ -1,0 +1,167 @@
+﻿/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&display=swap'); */
+/***************
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+.about-us {
+    height: auto%;
+    width: 100%;
+    padding: 90px 0;
+    background: #ddd;
+}
+
+.pic {
+    height: auto;
+    width: 302px;
+}
+
+.about {
+    width: 1130px;
+    max-width: 85%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.text {
+    width: 540px;
+}
+
+    .text h2 {
+        font-size: 90px;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+
+    .text h5 {
+        font-size: 22px;
+        font-weight: 500;
+        margin-bottom: 20px;
+    }
+
+span {
+    color: #4070f4;
+}
+
+.text p {
+    font-size: 18px;
+    line-height: 25px;
+    letter-spacing: 1px;
+}
+
+.data {
+    margin-top: 30px;
+}
+
+.hire {
+    font-size: 18px;
+    background: #4070f4;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    padding: 8px 25px;
+    border-radius: 6px;
+    transition: 0.5s;
+}
+
+    .hire:hover {
+        background: #000;
+        border: 1px solid #4070f4;
+    }
+
+-->********/
+
+/********************************************************************/
+/***   2e css  ****************************************************/
+
+* {
+    }
+body {
+    
+    font-family: 'open sans' sans-serif;
+    background-color: #ddd ;
+    height: auto;
+    width: 100%;
+    background: #ddd;
+}
+
+.about-body{
+}
+.about-1 {
+    
+}
+.about-1 h1{
+    text-align: center;
+    color: black;
+    font-weight: bold;
+}
+.about-1 p{
+    text-align: center;
+    padding: 3px;
+   margin: 30px;
+}
+.about-item {
+    margin-bottom: auto;
+    margin-top: 10px;
+    background-color: #fff;
+    padding: 20%;
+    box-shadow: 0 0 4px rgba(0,o,0.6);
+    z-index: 3;
+}
+.container-fluid, .row, .col-md-4, .about-item {
+    width: auto;
+}
+.about-item i {
+    font-size: 43px;
+    margin: 0;
+}
+.about-item h3{
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+.about-item hr{
+    width: 46px;
+    height: 3px;
+    background-color: #5fbff9;
+    margin: 0 auto;
+    border: none; 
+    text-align: justify;
+    margin-bottom:10%;
+}
+.about-item p{
+    margin-top: 20px;
+}
+.about-item:hover{
+    background-color: #5fbff9;
+}
+.about-item:hover i,
+.about-item:hover h3,
+.about-item:hover p{
+    color: #fff;
+}
+.about-item:hover hr{
+    background-color: #fff;
+}
+.about-item:hover i{
+    transform: translateY(-20px);
+}
+.about-item:hover i,
+.about-item:hover h3,
+.about-item:hover hr{
+}
+
+ul.fa-ul1 li {
+    margin-bottom: 10px; /* Ajustez la valeur selon vos préférences */
+    
+}
+
+.fa-ul1{
+margin-left: 20%;
+    margin-right: auto;
+}

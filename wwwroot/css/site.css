@@ -93,17 +93,21 @@
     color: white;
     display: grid;
     grid-template-columns: 500px 1fr 1fr;
-    margin-bottom: -1000px;
-    background-color: rgba(20, 37, 65, 1);
-    background-color: #3c4043;
     background-color: #3c4043;
     box-shadow: 2px 2px #dcdcdc;
     margin: auto;
-    margin-top:40px;
-    z-index: 11;
+    margin-top: 40px;
     grid-gap: 10px;
     color: white;
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 1;
+    margin-top: 50%;
 }
+
+
 .form_Contact {
     padding: 10px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
