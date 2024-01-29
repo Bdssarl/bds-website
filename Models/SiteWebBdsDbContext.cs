@@ -66,7 +66,7 @@ namespace bds_site_web_version7_.Models
     public virtual DbSet<Chiffre> Chiffres { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-            => optionsBuilder.UseMySQL("server=localhost;database=site_web_bds_db;port=3306;user=root;password=faquira5379");
+            => optionsBuilder.UseMySQL("server=localhost;database= site_web_bds_db ;port=3306;user=root;password=");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
