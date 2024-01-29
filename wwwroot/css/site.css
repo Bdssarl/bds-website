@@ -90,7 +90,7 @@
 }
 .footer {
     padding: 20px;
-    color: white;
+    color: black;
     display: grid;
     grid-template-columns: 500px 1fr 1fr;
     background-color: #3c4043;

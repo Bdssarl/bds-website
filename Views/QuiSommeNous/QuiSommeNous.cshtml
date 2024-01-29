@@ -1,6 +1,5 @@
 ﻿@{
     ViewData["Title"] = "About Us";
-      Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <!DOCTYPE html>
@@ -11,6 +10,17 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Balises méta pour le référencement -->
+    <meta name="description" content="Bienvenue sur le site officiel du Cabinet Business Development Services (BDS).
+Découvrez nos services de conseil, d'ingénierie d'affaires et de formation continue pour les PME et les particuliers. 
+Nous sommes spécialisés dans les études de marché, les conseils stratégiques, le marketing et bien plus encore.">
+    <meta name="keywords" content="Cabinet Business Development Services, BDS Sarl, 
+Études de marché, Conseil, Ingénierie d'affaires,
+Formation continue, PME, Particuliers, Accompagnement personnalisé,
+Approche agile, Valeurs, Collaboration, Responsabilité, Qualité, Vision, Missions">
+    <meta name="author" content="Business Development Services, BDS Sarl">
+
     <!--title-->
     <title>About Us</title>
 
@@ -23,7 +33,15 @@
 
     <!--Linking the css file to html-->
     <link rel="stylesheet" href="~/css/About.css">
-   
+    @* Ajoutez le code de suivi Google Analytics ci-dessous *@
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-H0780BXQ4N"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-H0780BXQ4N');
+    </script>
+    @* Fin du code de suivi Google Analytics *@
    
 </head>
 
