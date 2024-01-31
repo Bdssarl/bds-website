@@ -17,6 +17,39 @@
     border-bottom-color: #f3a7a7;
     background-color: #3f51b5;
 }
+
+.social-link {
+    background-color: none;
+
+}
+/* Style par défaut */
+.social-icons a {
+    color: #333; /* Couleur par défaut */
+    text-decoration: none; /* Supprime le soulignement du lien */
+    margin: 0 10px; /* Marge entre les icônes */
+    transition: color 0.3s; /* Ajoute une transition fluide à la couleur */
+}
+
+    /* Style au survol */
+    .social-icons a:hover {
+        color: #007bff; /* Couleur au survol par défaut */
+    }
+
+    /* Style après le clic pour Facebook */
+    .social-icons a[href*="facebook.com"] {
+        color: #1877f2; /* Couleur bleue pour Facebook */
+    }
+
+    /* Style après le clic pour WhatsApp */
+    .social-icons a[href*="wa.me"] {
+        color: #25d366; /* Couleur verte pour WhatsApp */
+    }
+
+    /* Style après le clic pour LinkedIn */
+    .social-icons a[href*="linkedin.com"] {
+        color: #0a66c2; /* Couleur bleue pour LinkedIn */
+    }
+
  a:hover {
     border: 4px solid;
     border-color:white;
