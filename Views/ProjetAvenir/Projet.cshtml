@@ -8,15 +8,30 @@
 }
 @model IEnumerable<ProjetAVenir>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Des projets initiés par le Cabinet BDS Sarl sont en cours de finalisation et devraient démarrer au cours du 1er semestre 2024. Ce sont des projets à haute valeur ajoutée qui sont planifiées et financés sur fonds propres par le Cabinet BDS Sarl." />
+    <meta name="keywords" content="BDS Sarl, projets, haute valeur ajoutée, planification, financement, fonds propres" />
+
     <title>@ViewData["Title"]</title>
     <!--<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />-->
     <!--- <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />-->
     <link rel="stylesheet" href="~/css/Projets.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Bds_site_web.styles.css" asp-append-version="true" />
+
+
+    @* Ajoutez le code de suivi Google Analytics ci-dessous *@
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XRF3WKRQHH"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-XRF3WKRQHH');
+    </script>
+    @* Fin du code de suivi Google Analytics *@
+
 </head>
 <body>
     <!----<div class="container">-->
@@ -25,7 +40,6 @@
             Ce sont des projets à haute valeur ajoutée qui sont planifiées et financés sur fonds propres par le Cabinet BDS Sarl
         </div>
         <div class="list-projet-A">
-        @await Component.InvokeAsync("ProjetAvenirList")
         </div>
     <!--</div>-->
     

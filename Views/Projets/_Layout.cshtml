@@ -45,25 +45,51 @@
 
                 @RenderBody()
         </div>
-    
+
+
     <footer class="footer" id="footer">
 
         <div class="form_Contact">
-            <form class="form">
+            <form class="form" onsubmit="ajouterIndicatif(); sendMessage();">
                 <div class="name-group">
-                    <div class="form_lastname"> <label asp-for="LastName">Prenom</label><input class="input-button" type="text" required asp-for="LastName" placeholder="entrer votre prenom" id="prenom" /></div>
-                    <div class="form_firstname"><label asp-for="FirstName">Nom</label><input type="text" required class="input-button" asp-for="FirstName" placeholder="entrer votre nom" id="nom" /></div>
+                    <div class="form_lastname">
+                        <label asp-for="LastName">Prenom</label>
+                        <input class="input-button" type="text" required asp-for="LastName" placeholder="entrer votre prenom" id="prenom" />
+                    </div>
+                    <div class="form_firstname">
+                        <label asp-for="FirstName">Nom</label>
+                        <input type="text" required class="input-button" asp-for="FirstName" placeholder="entrer votre nom" id="nom" />
+                    </div>
                 </div>
                 <div class="name-group">
-                    <div class="form_email"><label asp-for="Email">Email</label><input type="email" required class="input-button" asp-for="Email" placeholder="entrez votre email" id="email" /></div>
-                    <div class="form_number"><label asp-for="PhoneNumber">Telephone</label><input type="tel" required class="input-button" asp-for="PhoneNumber" placeholder="entrez votre numéro de téléphone" id="telephone" /></div>
+                    <div class="form_email">
+                        <label asp-for="Email">Email</label>
+                        <input type="email" required class="input-button" asp-for="Email" placeholder="entrez votre email" id="email" />
+                    </div>
+                    <div class="form_number">
+                        <label asp-for="PhoneNumber">Telephone</label>
+                        <input id="phone" type="tel" required class="input-button" asp-for="PhoneNumber" placeholder="entrez votre numéro de téléphone" id="telephone" />
+                    </div>
                 </div>
-                <div class="form_civilite"><label asp-for="civilite">civilite</label><select required class="input-button" asp-for="civilite"><option>Monsieur</option><option>Madame</option></select></div>
+                <div class="form_civilite">
+                    <label asp-for="civilite">civilite</label>
+                    <select required class="input-button" asp-for="civilite">
+                        <option>Monsieur</option>
+                        <option>Madame</option>
+                    </select>
+                </div>
                 <div class="message-group">
-                    <div class="form_objetMessage"><label asp-for="ObjetMesage">objet message</label><input type="text" required class="input-button" asp-for="ObjetMesage" placeholder="ex:renseignement" id="obj" /></div>
-                    <div class="form_descriptionMessage"><textarea asp-for="DescriptionMessage" rows="10" placeholder="description(1000 caractères)" id="mess">message</textarea></div>
+                    <div class="form_objetMessage">
+                        <label asp-for="ObjetMesage">objet message</label>
+                        <input type="text" required class="input-button" asp-for="ObjetMesage" placeholder="ex:renseignement" id="obj" />
+                    </div>
+                    <div class="form_descriptionMessage">
+                        <textarea asp-for="DescriptionMessage" rows="10" placeholder="description(1000 caractères)" id="mess">message</textarea>
+                    </div>
                 </div>
-                <div class="form_submit"> <button class="submit-button" onclick="sendMessage()">soumettre</button></div>
+                <div class="form_submit">
+                    <button class="submit-button">soumettre</button>
+                </div>
             </form>
         </div>
         <div class="adress">
@@ -71,19 +97,66 @@
             <p>680820001/677690738/699648787</p>
             <p>Email</p>
             <p>bds@gmail.com</p>
-            <p>Localisation</p>
-            <p>Descente avenue germaine</p>
+            <i class="fab fa fa-location "></i>
+            <p>
+                <i class="fab fa fa-flag "></i>  Descente avenue germaine
+            </p>
+            <h3><i class="fab fa fa-clock "></i> Nos heures d'ouverture</h3>
+            <p>Nous sommes ouverts de :</p>
+            <p><i class="fab fa fa-calendar-alt"></i> Lundi-Vendredi (9h-17h)</p>
+            <p><i class="fab fa fa-calendar-alt"></i> Samedi (9h-16h)</p>
 
+            <div class="social-link">
+                <!-- Icônes de réseaux sociaux avec Font Awesome -->
+                <div class="social-icons">
+                    <a href="https://web.facebook.com/profile.php?id=100076104466099" target="_blank"><i class="fab fa fa-facebook fa-3x"></i></a>
+                    <a href="https://wa.me/237699648787" target="_blank"><i class="fab fa fa-whatsapp fa-3x"></i></a>
+                    <a href="https://www.linkedin.com/company/77578443/admin/feed/posts/" target="_blank"><i class="fab fa fa-linkedin fa-3x"></i></a>
+                    <!-- Ajoutez d'autres icônes pour d'autres réseaux sociaux -->
+                </div>
+            </div>
         </div>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d9467.847619295175!2d11.521740872301836!3d3.8659541076658677!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sfr!2scm!4v1706108021589!5m2!1sfr!2scm" width="700" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d9467.847619295175!2d11.521740872301836!3d3.8659541076658677!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sfr!2scm!4v1706108021589!5m2!1sfr!2scm" width="400" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         <div class="copyright">&copy; 2024 - BdsSarl</div>
     </footer>
-    
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="/js/heure.js"></script>
+    <script src="https://rawgit.com/googlei18n/libphonenumber/master/dist/libphonenumber.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script type="text/javascript">
+        function sendMessage() {
+            /* let nom=document.getElementById('nom').value;
+             let prenom = document.getElementById('prenom').value;
+             let email = document.getElementById('email').value;
+             let obj = document.querySelector('obj').textContent*/
+            let url = "Message/Message";
+            let form = document.querySelector('form');
+            let formData = new FormData(form);
+            formData.append("")
+            fetch(url, {
+                method: 'POST',
+                body: formData
+            })
+                .then(response => response.json())
+                .then(data => alert(data))
+                .catch((error) => console.error('Error:', error));
+        }
+
+    </script>
+
+
     @await RenderSectionAsync("Scripts", required: false)
 </body>
+<script>
+    const phoneInputField = document.querySelector("#phone");
+    const phoneInput = window.intlTelInput(phoneInputField, {
+        utilsScript:
+            "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+    });
+
+</script>
 </html>
 
 
