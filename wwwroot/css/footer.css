@@ -1,0 +1,38 @@
+﻿.header {
+    display: grid;
+    grid-template-columns: 400px 1fr 35px;
+    border: none;
+    border-radius: 4px;
+    padding: 30px 8px 30px 8px;
+    z-index: 10;
+    background-color: rgba(20, 37, 65, 1);
+    position: fixed;
+    top: 0px;
+    left: 4px;
+    right: 4px;
+    box-shadow: 2px 2px #dcdcdc;
+    border-bottom: 4px solid;
+    border-bottom-color: #d93025;
+    border-bottom-color: #d93025a6;
+    border-bottom-color: #f3a7a7;
+    background-color: #3f51b5;
+}
+
+.footer {
+    padding: 20px;
+    color: black;
+    display: grid;
+    grid-template-columns: 500px 1fr 1fr;
+    background-color: #3c4043;
+    box-shadow: 2px 2px #dcdcdc;
+    margin: auto;
+    margin-top: 40px;
+    grid-gap: 10px;
+    color: white;
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 1;
+    margin-top: 50%;
+}
