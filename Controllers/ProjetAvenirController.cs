@@ -167,6 +167,19 @@ namespace bds_site_web_version7_.Controllers
         {
             return (_context.ProjetAVenirs?.Any(e => e.Id == id)).GetValueOrDefault();
         }
+
+        //////projet à réaliser///////
+        ///
+
+        public ActionResult MarketingDeLuxe()
+        {
+            return View();
+        }
+
+        public ActionResult AutoEcole()
+        {
+            return View();
+        }
     }
 }
 
