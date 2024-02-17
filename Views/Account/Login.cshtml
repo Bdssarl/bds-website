@@ -1,0 +1,36 @@
+﻿@model bds_site_web_version7_.Models.Login;
+@{
+    ViewData["Title"] = "Login";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet"href="~/css/Login.css" />
+   <!---<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />-->
+</head>
+<body>
+
+    <div class="login">
+        <h1>Login</h1>
+       <div class="text-danger"asp-validation-summary="All"></div>
+       <form asp-controller="Account" asp-action="Login">
+            <div class="input-group">
+                <label asp-for="Email"> Email</label>
+                <input type="email" asp-for="Email" />
+            </div>
+
+            <div class="input-group">
+
+                <label asp-for="Password"> Mot de passe</label>
+                <input asp-for="Password" type="password" />
+
+            </div>
+            <button class="button" type="submit">se connecter</button>
+       </form>          
+    </div>
+</body>
+</html>

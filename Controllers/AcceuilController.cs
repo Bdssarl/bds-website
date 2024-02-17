@@ -13,7 +13,7 @@ namespace bds_site_web_version7_.Controllers
             _context = context;
         }
         // GET: AcceuilController
-        public async Task< ActionResult> Acceuil()
+        public ActionResult Acceuil()
         {
             ViewData["Title"] = "Acceuil";
             

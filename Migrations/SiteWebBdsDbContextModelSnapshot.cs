@@ -157,21 +157,27 @@ namespace bds_site_web_version7_.Migrations
 
                     b.Property<string>("CheminMediaActualite")
                         .IsRequired()
-                        .HasMaxLength(25)
-                        .HasColumnType("varchar(25)")
+                        .HasMaxLength(255)
+                        .HasColumnType("varchar(255)")
                         .HasColumnName("chemin_media_actualite");
 
                     b.Property<string>("DescriptionActualite")
                         .IsRequired()
-                        .HasMaxLength(25)
-                        .HasColumnType("varchar(25)")
+                        .HasMaxLength(255)
+                        .HasColumnType("varchar(255)")
                         .HasColumnName("description_actualite");
 
                     b.Property<string>("LibelleActualite")
                         .IsRequired()
-                        .HasMaxLength(25)
-                        .HasColumnType("varchar(25)")
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)")
                         .HasColumnName("libelle_actualite");
+
+                    b.Property<string>("NomPageActualite")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)")
+                        .HasColumnName("nompage_Actualite");
 
                     b.Property<DateTime>("dateCreation")
                         .HasColumnType("datetime(6)");
@@ -228,7 +234,8 @@ namespace bds_site_web_version7_.Migrations
 
                     b.Property<string>("NombreEntreprisePartenaires")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
 
                     b.Property<string>("NombreProjetsRealises")
                         .IsRequired()
@@ -394,12 +401,6 @@ namespace bds_site_web_version7_.Migrations
                         .IsRequired()
                         .HasColumnType("varchar(255)");
 
-                    b.Property<string>("TypeEmploi")
-                        .IsRequired()
-                        .HasMaxLength(45)
-                        .HasColumnType("varchar(45)")
-                        .HasColumnName("type_emploi");
-
                     b.HasKey("Id")
                         .HasName("PRIMARY");
 
@@ -441,7 +442,8 @@ namespace bds_site_web_version7_.Migrations
 
                     b.Property<string>("ObjectifVise")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasMaxLength(255)
+                        .HasColumnType("varchar(255)");
 
                     b.Property<string>("PartenaireTechnique")
                         .IsRequired()
@@ -597,6 +599,12 @@ namespace bds_site_web_version7_.Migrations
                         .HasColumnType("varchar(255)")
                         .HasColumnName("Title_Metier");
 
+                    b.Property<string>("nomPageMetier")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)")
+                        .HasColumnName("nom_page");
+
                     b.HasKey("Id")
                         .HasName("PRIMARY");
 
@@ -702,6 +710,12 @@ namespace bds_site_web_version7_.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("varchar(255)")
                         .HasColumnName("Idee");
+
+                    b.Property<string>("Nom_Page")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)")
+                        .HasColumnName("nom_page");
 
                     b.Property<string>("cheminImage")
                         .IsRequired()
@@ -908,25 +922,27 @@ namespace bds_site_web_version7_.Migrations
                         .HasColumnName("id_temoignage");
 
                     b.Property<string>("CheminImageTemoignage")
-                        .HasMaxLength(40)
-                        .HasColumnType("varchar(40)")
+                        .HasMaxLength(255)
+                        .HasColumnType("varchar(255)")
                         .HasColumnName("chemin_image_temoignage");
 
                     b.Property<string>("DescriptionTemoignage")
                         .IsRequired()
-                        .HasMaxLength(45)
-                        .HasColumnType("varchar(45)")
+                        .HasMaxLength(255)
+                        .HasColumnType("varchar(255)")
                         .HasColumnName("description_temoignage");
 
                     b.Property<string>("NomTemoignage")
                         .IsRequired()
-                        .HasMaxLength(45)
-                        .HasColumnType("varchar(45)")
+                        .HasMaxLength(255)
+                        .HasColumnType("varchar(255)")
                         .HasColumnName("nom_temoignage");
 
                     b.Property<string>("RoleTemoignage")
-                        .HasMaxLength(45)
-                        .HasColumnType("varchar(45)")
+                        .ValueGeneratedOnAdd()
+                        .HasMaxLength(25)
+                        .HasColumnType("varchar(25)")
+                        .HasDefaultValue("ddee")
                         .HasColumnName("role_temoignage");
 
                     b.HasKey("Id")
@@ -1089,8 +1105,8 @@ namespace bds_site_web_version7_.Migrations
 
                     b.Property<string>("CheminVideo")
                         .IsRequired()
-                        .HasMaxLength(25)
-                        .HasColumnType("varchar(25)")
+                        .HasMaxLength(255)
+                        .HasColumnType("varchar(255)")
                         .HasColumnName("chemin_video");
 
                     b.Property<DateTime>("DateCreationVideo")
@@ -1099,20 +1115,20 @@ namespace bds_site_web_version7_.Migrations
 
                     b.Property<string>("ExtensionVideo")
                         .IsRequired()
-                        .HasMaxLength(25)
-                        .HasColumnType("varchar(25)")
+                        .HasMaxLength(255)
+                        .HasColumnType("varchar(255)")
                         .HasColumnName("extension_video");
 
                     b.Property<string>("NomVideo")
                         .IsRequired()
-                        .HasMaxLength(25)
-                        .HasColumnType("varchar(25)")
+                        .HasMaxLength(255)
+                        .HasColumnType("varchar(255)")
                         .HasColumnName("nom_video");
 
                     b.Property<string>("TailleVideo")
                         .IsRequired()
-                        .HasMaxLength(25)
-                        .HasColumnType("varchar(25)")
+                        .HasMaxLength(255)
+                        .HasColumnType("varchar(255)")
                         .HasColumnName("taille_video");
 
                     b.HasKey("Id")

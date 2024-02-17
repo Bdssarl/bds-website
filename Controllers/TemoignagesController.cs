@@ -3,9 +3,10 @@ using bds_site_web_version7_.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-
+using Microsoft.AspNetCore.Authorization;
 namespace bds_site_web_version7_.Controllers
 {
+    [Authorize]
     public class TemoignagesController : Controller
     {
         private SiteWebBdsDbContext _context;
@@ -20,10 +21,10 @@ namespace bds_site_web_version7_.Controllers
         {
             return _context.Temoignages != null ?
                         View(await _context.Temoignages.ToListAsync()) :
-                        Problem("Entity set 'SiteWebBdsDbContext.Videos'  is null.");
+                        Problem("Entity set 'SiteWebBdsDbContext.Temoignages'  is null.");
         }
 
-        // GET: Departementecoles/Details/5
+        // GET: Temoignages/Details/5
         public async Task<IActionResult> Details(string? id)
         {
             if (id == null || _context.Temoignages == null)
@@ -41,28 +42,34 @@ namespace bds_site_web_version7_.Controllers
             return View(temoignage);
         }
 
-        // GET: Departementecoles/Create
+        // GET: Temoignages/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Departementecoles/Create
+        // POST: Temoignages/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Temoignage temoignage)
         {
-            var fileName = _fileUpload.uploadimage(temoignage.formfile, "temoignage");
-            temoignage.CheminImageTemoignage = fileName;
-            temoignage.RoleTemoignage = fileName;
+            if (ModelState.IsValid)
+            {
+
+
+                var fileName = _fileUpload.uploadimage(temoignage.formfile, "temoignage");
+                temoignage.CheminImageTemoignage = fileName;
+
                 _context.Add(temoignage);
                 await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
             return View();
         }
 
-        // GET: Departementecoles/Edit/5
+        // GET: Temoignages/Edit/5
         public async Task<IActionResult> Edit(string? id)
         {
             if (id == null || _context.Temoignages == null)
@@ -78,7 +85,7 @@ namespace bds_site_web_version7_.Controllers
             return View(temoignage);
         }
 
-        // POST: Departementecoles/Edit/5
+        // POST: Temoignages/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -113,7 +120,7 @@ namespace bds_site_web_version7_.Controllers
             return View(temoignage);
         }
 
-        // GET: Departementecoles/Delete/5
+        // GET: Temoignages/Delete/5
         public async Task<IActionResult> Delete(string? id)
         {
             if (id == null || _context.Temoignages == null)
@@ -131,7 +138,7 @@ namespace bds_site_web_version7_.Controllers
             return View(temoignage);
         }
 
-        // POST: Departementecoles/Delete/5
+        // POST: Temoignages/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)

@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-
+using Microsoft.AspNetCore.Authorization;
 namespace bds_site_web_version7_.Controllers
 {
     public class ChiffreController : Controller
@@ -24,19 +24,21 @@ namespace bds_site_web_version7_.Controllers
                             Problem("Entity set 'SiteWebBdsDbContext.Chiffres'  is null.");
             }
 
-            // GET: Departementecoles/Details/5
+        // GET: Departementecoles/Details/5
 
 
-            // GET: Departementecoles/Create
+        // GET: Departementecoles/Create
+        [Authorize]
             public IActionResult Create()
             {
                 return View();
             }
 
-            // POST: Departementecoles/Create
-            // To protect from overposting attacks, enable the specific properties you want to bind to.
-            // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-            [HttpPost]
+        // POST: Departementecoles/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
+        [HttpPost]
             [ValidateAntiForgeryToken]
             public async Task<IActionResult> Create(Chiffre chiffre)
             {

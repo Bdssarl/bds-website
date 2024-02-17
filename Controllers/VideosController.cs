@@ -1,12 +1,13 @@
 ﻿using bds_site_web_version7_.Models;
 using bds_site_web_version7_.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace bds_site_web_version7_.Controllers
 {
-
+    [Authorize]
     public class VideosController : Controller
     {
         SiteWebBdsDbContext _context;
@@ -24,7 +25,7 @@ namespace bds_site_web_version7_.Controllers
                         Problem("Entity set 'SiteWebBdsDbContext.Videos'  is null.");
         }
 
-        // GET: Departementecoles/Details/5
+        // GET: Video/Details/5
         public async Task<IActionResult> Details(string? id)
         {
             if (id == null || _context.Videos == null)
@@ -42,29 +43,36 @@ namespace bds_site_web_version7_.Controllers
             return View(video);
         }
 
-        // GET: Departementecoles/Create
+        // GET: Video/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Departementecoles/Create
+        // POST:Video/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Video video)
         {
-           
+            if (ModelState.IsValid)
+            {
                 var fileName = _fileUpload.uploadVideo(video.formFile);
+                video.CheminVideo = fileName;
+                video.NomVideo = fileName;
+                video.TailleVideo = "ddd";
+                video.ExtensionVideo = "dddd";
+                video.TailleVideo = "ddds";
                 _context.Add(video);
                 await _context.SaveChangesAsync();
-                
+                return RedirectToAction(nameof(Index));
+            } 
             
-            return View();
+            return View(video);
         }
 
-        // GET: Departementecoles/Edit/5
+        // GET: Video/Edit/5
         public async Task<IActionResult> Edit(string? id)
         {
             if (id == null || _context.Videos == null)
@@ -80,7 +88,7 @@ namespace bds_site_web_version7_.Controllers
             return View(video);
         }
 
-        // POST: Departementecoles/Edit/5
+        // POST: Video/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -115,7 +123,7 @@ namespace bds_site_web_version7_.Controllers
             return View(video);
         }
 
-        // GET: Departementecoles/Delete/5
+        // GET: Video/Delete/5
         public async Task<IActionResult> Delete(string? id)
         {
             if (id == null || _context.Videos == null)
@@ -133,7 +141,7 @@ namespace bds_site_web_version7_.Controllers
             return View(video);
         }
 
-        // POST: Departementecoles/Delete/5
+        // POST: Video/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)

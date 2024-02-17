@@ -4,9 +4,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using bds_site_web_version7_.Models;
 using bds_site_web_version7_.Services;
+using Microsoft.AspNetCore.Authorization;
 
 namespace bds_site_web_version7_.Controllers
 {
+    
     public class MetiersController : Controller
     {
         SiteWebBdsDbContext _context;
@@ -16,7 +18,7 @@ namespace bds_site_web_version7_.Controllers
             _context = context;
             _fileUpload = fileUpload;
         }
-
+        [Authorize]
         public async Task<IActionResult> Index()
         {
             return _context.Metiers != null ?
@@ -24,7 +26,8 @@ namespace bds_site_web_version7_.Controllers
                         Problem("Entity set 'SiteWebBdsDbContext.Metiers'  is null.");
         }
 
-        // GET: Departementecoles/Details/5
+        // GET: Metiers/Details/5
+        [Authorize]
         public async Task<IActionResult> Details(string? id)
         {
             if (id == null || _context.Metiers == null)
@@ -42,26 +45,31 @@ namespace bds_site_web_version7_.Controllers
             return View(metier);
         }
 
-        // GET: Departementecoles/Create
+        // GET: Metier/Create
+        [Authorize]
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Departementecoles/Create
+        // POST: Metier/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create( Metier metier)
         {
-            
-            
+            if (ModelState.IsValid)
+            {
+
+
                 var fileName = _fileUpload.uploadimage(metier.formFile, "metier");
                 metier.NameImageMetier = fileName;
                 _context.Add(metier);
                 await _context.SaveChangesAsync();
-               
+                return RedirectToAction(nameof(Index));
+            }
             return View();
         }
         public IActionResult Conseil()
@@ -76,7 +84,8 @@ namespace bds_site_web_version7_.Controllers
         {
             return View();
         }
-        // GET: Departementecoles/Edit/5
+        // GET: Metier/Edit/5
+        [Authorize]
         public async Task<IActionResult> Edit(string? id)
         {
             if (id == null || _context.Metiers == null)
@@ -92,9 +101,10 @@ namespace bds_site_web_version7_.Controllers
             return View(metier);
         }
 
-        // POST: Departementecoles/Edit/5
+        // POST: Metier/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(string id,  Metier metier)
@@ -127,7 +137,8 @@ namespace bds_site_web_version7_.Controllers
             return View(metier);
         }
 
-        // GET: Departementecoles/Delete/5
+        // GET: Metier/Delete/5
+        [Authorize]
         public async Task<IActionResult> Delete(string? id)
         {
             if (id == null || _context.Metiers == null)
@@ -145,7 +156,8 @@ namespace bds_site_web_version7_.Controllers
             return View(metier);
         }
 
-        // POST: Departementecoles/Delete/5
+        // POST: Metier/Delete/5
+        [Authorize]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)

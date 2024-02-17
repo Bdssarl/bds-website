@@ -1,4 +1,5 @@
 ﻿using bds_site_web_version7_.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace bds_site_web_version7_.Controllers
@@ -10,17 +11,24 @@ namespace bds_site_web_version7_.Controllers
         {
             _siteWebBdsDbContext = siteWebBdsDbContext;
         }
+        [Authorize]
         public IActionResult Create()
         {
             return View();
         }
+        [Authorize]
         [HttpPost]
         public IActionResult Create(Emploi emploi)
         {
-            _siteWebBdsDbContext.Add(emploi);
-            _siteWebBdsDbContext.SaveChanges();
+            if (ModelState.IsValid)
+            {
+                _siteWebBdsDbContext.Add(emploi);
+                _siteWebBdsDbContext.SaveChanges();
+                return RedirectToAction(nameof(Index));
+            }
+           
 
-            return View();
+            return View(emploi);
         }
     }
 }

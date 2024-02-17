@@ -2,9 +2,10 @@
 using bds_site_web_version7_.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-
+using Microsoft.AspNetCore.Authorization;
 namespace bds_site_web_version7_.Controllers
 {
+   
     public class ProjetEnCourController : Controller
     {
         SiteWebBdsDbContext _context;
@@ -22,7 +23,7 @@ namespace bds_site_web_version7_.Controllers
                         Problem("Entity set 'SiteWebBdsDbContext.ProjetEncours'  is null.");
         }
 
-        // GET: Departementecoles/Details/5
+        // GET: Partenaires/Details/5
         public async Task<IActionResult> Details(string? id)
         {
             if (id == null || _context.ProjetEnCours == null)
@@ -40,7 +41,7 @@ namespace bds_site_web_version7_.Controllers
             return View(projetEnCours);
         }
 
-        // GET: Departementecoles/Create
+        // GET: Partenaires/Create
         public IActionResult Create()
         {
             return View();
@@ -50,9 +51,10 @@ namespace bds_site_web_version7_.Controllers
             return View();
         }
 
-        // POST: Departementecoles/Create
+        // POST: Parteanires/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(ProjetEnCour projetEnCour)
@@ -118,7 +120,7 @@ namespace bds_site_web_version7_.Controllers
             return View(projetEnCour);
         }
 
-        // GET: Departementecoles/Delete/5
+        // GET: Partenaires/Delete/5
         public async Task<IActionResult> Delete(string? id)
         {
             if (id == null || _context.ProjetEnCours == null)
@@ -136,7 +138,7 @@ namespace bds_site_web_version7_.Controllers
             return View(projetEnCour);
         }
 
-        // POST: Departementecoles/Delete/5
+        // POST: Partenaires/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)

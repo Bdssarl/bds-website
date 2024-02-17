@@ -1,2 +1,84 @@
 ﻿@using bds_site_web_version7_.Models;
-@model IEnumerable<User>
+@model IEnumerable<dynamic>
+@foreach(var item in Model){
+    <tr>
+        <td> @item.LastName</td>
+        <td>@item.FirstName</td>
+        <td>@item.Email</td>
+        <td>@item.PhoneNumber</td>
+           <td>@item.ObjetMessage</td>
+
+            <td>@item.DateMessage</td>
+
+            <td><button class="voir" id="show">voir</button></td>
+        
+     </tr>
+   
+        <dialog id="dialog" class="dialog">
+            <button id="hide" class="hide">Fermer la boîte de dialogue</button>
+            <div class="group">
+                <div>Nom</div>
+                <div>@item.LastName</div>
+            </div>
+            <div class="group">
+                <div>Prenom</div>
+                <div>@item.FirstName</div>
+            </div>
+            <div class="group">
+                <div>Email</div>
+                <div>@item.Email</div>
+            </div>
+            <div class="group">
+                <div>Numero de téléphone</div>
+                <div>@item.PhoneNumber</div>
+            </div>
+            <div class="group">
+                <div>civilité</div>
+                <div>@item.civilite</div>
+            </div>
+            <div class="group">
+                <div>Objet Message</div>
+                <div>@item.ObjetMessage</div>
+            </div>
+            <div class="group">
+                <div>Description</div>
+                <div>@item.DescriptionMessage</div>
+            </div>
+            <div class="group">
+                <div>Date envoi</div>
+                <div>@item.DateMessage</div>
+            </div>
+            <a class="repondre" href="mailto: @item.Email?subject=@item.ObjetMessage">repondre</a>
+        </dialog>
+    }
+
+<script type="text/JavaScript">
+   
+    
+        var dialog = document.querySelectorAll('.dialog');
+        var show= document.querySelectorAll('.voir');
+        show.forEach(element=>
+            {
+                element.addEventListener('click',function()
+                {
+                    dialog.forEach(e=>{
+                      e.show();
+                    });
+                } 
+               );
+      }
+        );
+
+    
+    var hide = document.querySelectorAll('.hide');
+    hide.forEach(element =>{
+        element.addEventListener('click', function () {
+            dialog.forEach(e => {
+                e.close();
+            });
+        });
+    }
+    );
+
+       
+</script>

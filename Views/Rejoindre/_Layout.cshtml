@@ -5,31 +5,60 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>@ViewData["Title"] - Bds_site_web</title>
+        <title></title>
         <!--<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />-->
         <link rel="stylesheet" href="~/css/Rsite.css" asp-append-version="true" />
        <link rel="stylesheet" href="~/css/NousRejoindre.css" asp-append-version="true" />
         <link rel="stylesheet" href="~/Bds_site_web.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    @* Ajoutez le code de suivi Google Analytics ci-dessous *@
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XRF3WKRQHH"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-XRF3WKRQHH');
+    </script>
+    @* Fin du code de suivi Google Analytics *@
     </head>
     <body>
     <header class="header" role="navigation">
         <div class="logo">
             <img src="~/Icons/logo.jfif" class="img" alt="logo" />
-            <div class="slogan">Business|Developpement|service</div>
+            <div class="slogan"><div>Business|Developpement|Service</div><div class="contenu-slogon">Promouvoir les MPME et le Savoir faire local</div></div>
         </div>
         <div class="nav-header">
             <a class="link-header" asp-controller="Acceuil" asp-action="Acceuil"> Acceuil </a>
             <a class="link-header" asp-controller="QuiSommeNous" asp-action="QuiSommeNous"> Qui sommes nous ? </a>
             <a class="link-header" asp-controller="Projets" asp-action="Projets">Nos projets </a>
-            <a class="link-header" asp-controller="Formation" asp-action="Formation"> Nos formations  </a>
+            <a class="link-header" asp-controller="FormationTermine" asp-action="FormationTermine"> Nos formations  </a>
             <a class="link-header" asp-controller="Rejoindre" asp-action="Rejoindre">Nous rejoindre </a>
             <a class="link-header">Mediathèque</a>
-            <a class="link-header">Annonces</a>
             <a class="link-header" href="#footer">Nous contacter</a>
+            <a class="link-header active">@DateTime.Now</a>
+
+            <!-- <div id="dateHeure">
+                 <a class="link-header active"><link rel="stylesheet" href="/css/heure.css" /></a>
+             </div>-->
         </div>
+
+        <div class="button-menu"><span class="fa fa-bars"></span></div>
 
 
     </header>
+    <div class="sidebar">
+        <a class="link-header" asp-controller="Acceuil" asp-action="Acceuil"> Acceuil </a>
+        <a class="link-header" asp-controller="QuiSommeNous" asp-action="QuiSommeNous"> Qui sommes nous ? </a>
+        <a class="link-header" asp-controller="Projets" asp-action="Projets">Nos projets </a>
+        <a class="link-header" asp-controller="FormationTermine" asp-action="FormationTermine"> Nos formations  </a>
+        <a class="link-header" asp-controller="Rejoindre" asp-action="Rejoindre">Nous rejoindre </a>
+        <a class="link-header">Mediathèque</a>
+        <a class="link-header">Annonces</a>
+        <a class="link-header" href="#footer">Nous contacter</a>
+    </div>
         
 
 
@@ -66,18 +95,20 @@
     <footer class="footer" id="footer">
 
         <div class="form_Contact">
-            <form class="form">
+            <form class="form" asp-controller="Message" asp-action="Message">
                 <div class="name-group">
-                    <div class="form_lastname"> <label asp-for="LastName">Prenom</label><input class="input-button" type="text" required asp-for="LastName" placeholder="entrer votre prenom" id="prenom" /></div>
+                    <div class="form_lastname"> <label asp-for="LastName">Prénom</label><input class="input-button" type="text" required asp-for="LastName" placeholder="entrer votre prenom" id="prenom" /></div>
                     <div class="form_firstname"><label asp-for="FirstName">Nom</label><input type="text" required class="input-button" asp-for="FirstName" placeholder="entrer votre nom" id="nom" /></div>
                 </div>
                 <div class="name-group">
                     <div class="form_email"><label asp-for="Email">Email</label><input type="email" required class="input-button" asp-for="Email" placeholder="entrez votre email" id="email" /></div>
-                    <div class="form_number"><label asp-for="PhoneNumber">Telephone</label><input type="tel" required class="input-button" asp-for="PhoneNumber" placeholder="entrez votre numéro de téléphone" id="telephone" /></div>
+                    <div class="form_number"><label asp-for="PhoneNumber">Téléphone</label><input id="phone" type="tel" required class="input-button" asp-for="PhoneNumber" placeholder="entrez votre numéro de téléphone" /></div>
+
+
                 </div>
-                <div class="form_civilite"><label asp-for="civilite">civilite</label><select required class="input-button" asp-for="civilite"><option>Monsieur</option><option>Madame</option></select></div>
+                <div class="form_civilite"><label asp-for="civilite">Civilite </label><select required class="input-button" asp-for="civilite"><option>Monsieur</option><option>Madame</option></select></div>
                 <div class="message-group">
-                    <div class="form_objetMessage"><label asp-for="ObjetMesage">objet message</label><input type="text" required class="input-button" asp-for="ObjetMesage" placeholder="ex:renseignement" id="obj" /></div>
+                    <div class="form_objetMessage"><label asp-for="ObjetMesage">Objet message</label><input type="text" required class="input-button" asp-for="ObjetMesage" placeholder="ex:renseignement" id="obj" /></div>
                     <div class="form_descriptionMessage"><textarea asp-for="DescriptionMessage" rows="10" placeholder="description(1000 caractères)" id="mess">message</textarea></div>
                 </div>
                 <div class="form_submit"> <button class="submit-button" onclick="sendMessage()">soumettre</button></div>
@@ -87,24 +118,69 @@
             <p>Contacts</p>
             <p>680820001/677690738/699648787</p>
             <p>Email</p>
-            <p>bds@gmail.com</p>
+            <p>contact@bds-sarl.org</p>
             <p>Localisation</p>
             <p>Descente avenue germaine</p>
+
+            <div class="adress-contact">
+
+                <!-- Icônes de réseaux sociaux avec Font Awesome -->
+
+                <a href="https://web.facebook.com/profile.php?id=100076104466099" target="_blank"><i class="fab fa-facebook"></i> </a>
+                <a href="https://wa.me/237699648787" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="https://www.linkedin.com/company/77578443/admin/feed/posts/" target="_blank"> <i class="fab fa-linkedin"></i></a>
+
+            </div>
+
+            <!-- Ajoutez d'autres icônes pour d'autres réseaux sociaux --
+
+
+            <!-- Ajoutez d'autres icônes pour d'autres réseaux sociaux -->
 
         </div>
         <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d9467.847619295175!2d11.521740872301836!3d3.8659541076658677!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sfr!2scm!4v1706108021589!5m2!1sfr!2scm" width="700" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         <div class="copyright">&copy; 2024 - BdsSarl</div>
     </footer>
-
-
-
-
-
-
-      
         <script src="~/lib/jquery/dist/jquery.min.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
         <script src="~/js/site.js" asp-append-version="true"></script>
+    <script type="text/javascript">
+        function sendMessage() {
+            /* let nom=document.getElementById('nom').value;
+             let prenom = document.getElementById('prenom').value;
+             let email = document.getElementById('email').value;
+             let obj = document.querySelector('obj').textContent*/
+            let url = "Message/Message";
+            let form = document.querySelector('form');
+
+
+            let formData = new FormData(form);
+            formData.append("")
+            fetch(url, {
+                method: 'POST',
+                body: formData
+            })
+                .then(response => response.json())
+                .then(data => alert(data))
+                .catch((error) => console.error('Error:', error));
+        }
+
+        const phoneInputField = document.querySelector("#phone");
+        const phoneInput = window.intlTelInput(phoneInputField, {
+            utilsScript:
+                "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+        });
+
+        let button = document.querySelector('.button-menu>span');
+        let sidebar = document.querySelector('.sidebar');
+        button.addEventListener('click', function () {
+            sidebar.classList.toggle('sidebar-button')
+        }
+        );
+
+    </script>
         @await RenderSectionAsync("Scripts", required: false)
     </body>
 </html>

@@ -1,0 +1,12 @@
+﻿@using bds_site_web_version7_.Models;
+@model IEnumerable<Actualite>
+
+    @foreach (var item in Model)
+    {
+    <div class="Actualite-1">
+        <a asp-controller="Actualite" asp-action="@item.NomPageActualite">@item.LibelleActualite</a>
+        <img src ="~/Images/Actualites/@item.CheminMediaActualite"/>
+        <div class="description"> @item.DescriptionActualite</div>
+        <div class="date"> @item.dateCreation</div>
+    </div>
+    }

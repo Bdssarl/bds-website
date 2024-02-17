@@ -1,0 +1,39 @@
+﻿@using bds_site_web_version7_.Models;
+@model TypeStage
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Departementecole</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="LibelleTypeStage" class="control-label"></label>
+                <input asp-for="LibelleTypeStage" class="form-control" />
+                <span asp-validation-for="LibelleTypeStage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DomaineStage" class="control-label"></label>
+                <input asp-for="DomaineStage" class="form-control" />
+                <span asp-validation-for="DomaineStage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

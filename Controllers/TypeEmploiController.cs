@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using bds_site_web_version7_.Models;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.AspNetCore.Authorization;
 namespace bds_site_web_version7_.Controllers
 {
+    [Authorize]
     public class TypeEmploiController : Controller
     {
 
@@ -21,19 +23,23 @@ namespace bds_site_web_version7_.Controllers
         [HttpPost]
         public IActionResult Create(TypeEmploi typeEmploi)
         {
-            var typeEmplois = new TypeStage
+            if (ModelState.IsValid)
             {
-                LibelleTypeStage = typeEmploi.LibelleTypeEmploi,
-                Stages = new List<Stage>
+                var typeEmplois = new TypeEmploi
                 {
-                    new Stage{
-                    DomaineStage = typeEmploi.DomaineEmploi
+                    LibelleTypeEmploi = typeEmploi.LibelleTypeEmploi,
+                    Emplois = new List<Emploi>
+                {
+                    new Emploi{
+                  DomaineEmploi= typeEmploi.DomaineEmploi
                     }
                 }
-            };
-            _SiteWebBdsDbContext.Add(typeEmplois);
-            _SiteWebBdsDbContext.SaveChanges();
-            return View();
+                };
+                _SiteWebBdsDbContext.Add(typeEmplois);
+                _SiteWebBdsDbContext.SaveChanges();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(typeEmploi);
         }
     }
 }

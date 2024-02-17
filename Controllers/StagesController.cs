@@ -1,8 +1,9 @@
 ﻿using bds_site_web_version7_.Models;
 using Microsoft.AspNetCore.Mvc;
-
+using Microsoft.AspNetCore.Authorization;
 namespace bds_site_web_version7_.Controllers
 {
+    [Authorize]
     public class StagesController : Controller
     {
         SiteWebBdsDbContext _SiteWebBdsDbContext;

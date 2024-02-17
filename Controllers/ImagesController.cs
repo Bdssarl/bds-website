@@ -1,11 +1,13 @@
 ﻿using bds_site_web_version7_.Models;
 using bds_site_web_version7_.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace bds_site_web_version7_.Controllers
 {
+    [Authorize]
     public class ImagesController : Controller
     {
         SiteWebBdsDbContext _context;
@@ -23,7 +25,7 @@ namespace bds_site_web_version7_.Controllers
                         Problem("Entity set 'SiteWebBdsDbContext.Images'  is null.");
         }
 
-        // GET: Departementecoles/Details/5
+        // GET: Images/Details/5
         public async Task<IActionResult> Details(string? id)
         {
             if (id == null || _context.Images == null)
@@ -41,29 +43,33 @@ namespace bds_site_web_version7_.Controllers
             return View(image);
         }
 
-        // GET: Departementecoles/Create
+        // GET: Images/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Departementecoles/Create
+        // POST: Images/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Image image)
         {
-            var fileName = _fileUpload.uploadimage(image.formfile, image.TypeImage);
-            image.CheminImage = fileName;
-            image.NomImage = "image";
-            image.DateCreation = new DateTime();
-            _context.Add(image);
+            if (ModelState.IsValid)
+            {
+                var fileName = _fileUpload.uploadimage(image.formfile, image.TypeImage);
+                image.CheminImage = fileName;
+                image.NomImage = "image";
+                image.DateCreation = new DateTime();
+                _context.Add(image);
                 await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
             return View();
         }
 
-        // GET: Departementecoles/Edit/5
+        // GET: Images/Edit/5
         public async Task<IActionResult> Edit(string? id)
         {
             if (id == null || _context.Images == null)
@@ -79,7 +85,7 @@ namespace bds_site_web_version7_.Controllers
             return View(image);
         }
 
-        // POST: Departementecoles/Edit/5
+        // POST: Images/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -114,7 +120,7 @@ namespace bds_site_web_version7_.Controllers
             return View(image);
         }
 
-        // GET: Departementecoles/Delete/5
+        // GET: Image/Delete/5
         public async Task<IActionResult> Delete(string? id)
         {
             if (id == null || _context.Images == null)
@@ -132,7 +138,7 @@ namespace bds_site_web_version7_.Controllers
             return View(image);
         }
 
-        // POST: Departementecoles/Delete/5
+        // POST: Image/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)

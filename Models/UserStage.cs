@@ -9,20 +9,31 @@ namespace bds_site_web_version7_.Models
     [BindRequired]
     public class UserStage
     {
-        [StringLength(10,ErrorMessage ="la taille ne doit pas dépasser 10 caractères ")]
+        
+        [StringLength(255,ErrorMessage="la taille ne doit pas dépasser 255 caractères")]
         public string FirstName { get; set; }
+        [Required]
+        [StringLength(255, ErrorMessage="la taille ne doit pas dépasser 255 caractères")]
         public string LastName { get; set; }
+        [Required]
+        [StringLength(255, ErrorMessage = "la taille ne doit pas dépasser 255 caractères")]
         public string Email { get; set; }
+        [Required]
+        [StringLength(255, ErrorMessage = "la taille ne doit pas dépasser 255 caractères")]
         public string civilite { get; set; }
+        [Required]
+        [StringLength(45)]
         public string PhoneNumber { get; set; }
+        [Required]
+        [StringLength(45, ErrorMessage = "la taille ne doit pas dépasser 255 caractères")]
         public string ObjetMessage { get; set; }
         public string TypeStage { get; set; }
         public string DomaineStage { get; set; }
         [Required]
         [StringLength(1000)]
         public string DescriptionMessage { get; set; }
-        [UserStageLimitSizeFile(2,ErrorMessage = "$la taille de votre fichier ne doit pas excéder {2}Mo")]
-        [UserStageValidExtension(ErrorMessage = "$veuillez inserez un fichier avec l'une des extensions suivantes:pdf ,txt")]
+        
+       
         public IFormFile formFile { get; set; }
     }
 }

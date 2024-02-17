@@ -1,0 +1,36 @@
+﻿@{
+    Layout = "~/Views/Administration/_Layout.cshtml";
+}
+@model bds_site_web_version7_.Models.Actualite
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Bds_site_web</title>
+    <!--<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />-->
+    <!--- <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />-->
+    <link rel="stylesheet" href="~/css/Create.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Bds_site_web.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="container">
+        <div class="container-title">
+            <h1>Enregistrer une actualité </h1> 
+            @ViewBag.Message
+        </div>
+        
+            <form class="form" asp-controller="Actualite" asp-action="Create" method="post" enctype="multipart/form-data">
+      
+                <div class="form_TitleMetier"> <label asp-for="LibelleActualite">titre de l'actualité</label><input class="input-button" type="text" required asp-for="LibelleActualite" /><span asp-validation-for="LibelleActualite"></span></div>
+            <div class="form_DescriptionMetier"><label asp-for="DescriptionActualite">Description</label><input type="text" required class="input-button" asp-for="DescriptionActualite" /><span asp-validation-for="DescriptionActualite"></span></div>
+            <div class="form_DescriptionMetier"><label asp-for="NomPageActualite">Nom de la page </label><input type="text" required class="input-button" asp-for="NomPageActualite" /><span asp-validation-for="NomPageActualite"></span></div>
+                <div class="cv-file"><input type="file" required class="input-button" asp-for="FormFile" /></div>
+           
+            <div class="form_submit"> <button class="submit-button">Enregistrer</button></div>
+
+           </form>
+        
+    </div>
+</body>
+</html>

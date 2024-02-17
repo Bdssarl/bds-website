@@ -9,6 +9,15 @@
        <!--- <link rel="stylesheet" href="~/css/Rsite.css" asp-append-version="true" />-->
         <link rel="stylesheet" href="~/css/Administration.css" asp-append-version="true" />
         <link rel="stylesheet" href="~/Bds_site_web.styles.css" asp-append-version="true" />
+    @* Ajoutez le code de suivi Google Analytics ci-dessous *@
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XRF3WKRQHH"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-XRF3WKRQHH');
+    </script>
+    @* Fin du code de suivi Google Analytics *@
     </head>
     <body>
         <header class="header"> 
@@ -23,7 +32,7 @@
         <!----<div class="Admin-Container">-->
         <div class="side-bar"> 
                 <a class="nav-link" asp-controller="Statistiques" asp-action="Statistiques">Statistiques</a>
-                <a class="nav-link"> Actualités</a>
+        <a class="nav-link" asp-controller="Actualite" asp-action="Create"> Actualités</a>
         <a class="nav-link" asp-controller="TypeEmploi" asp-action="Create">Emplois</a>
                 <a class="nav-link">Stages</a>
                  <a class="nav-link" asp-controller="Metiers" asp-action="Create">Metiers</a>
@@ -35,7 +44,7 @@
                  <a class="nav-link" asp-controller="Temoignages" asp-action="Create">Temoignages</a>
                 <a class="nav-link" asp-controller="Images" asp-action="Create">Images</a>
                 <a class="nav-link" asp-controller="Videos" asp-action="Create">Videos</a>
-                <a class="nav-link"asp-controller="Stages" asp-action="Create">Stages</a>
+                <a class="nav-link"asp-controller="Banniere" asp-action="Banniere">Banniere</a>
                 <a class="nav-link" asp-controller="TypeStage"asp-action="Create">Type de stage</a>
         <a class="nav-link" asp-controller="Chiffre" asp-action="Create">Nos chiffres</a>
         <a class="nav-link" asp-controller="Interêt" asp-action="Interêt"> interêts</a>
@@ -46,15 +55,24 @@
         @RenderBody()
             
         </div>
-      
 
 
 
 
+   
 
         <script src="~/lib/jquery/dist/jquery.min.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
         <script src="~/js/site.js" asp-append-version="true"></script>
+    <script>
+        let imagelist = document.querySelectorAll(".img");
+        let imageBanner = document.querySelector(".imgbanner");
+        imageList.forEach(element => {
+            element.addEventListener('click', function (e) {
+                imageBanner.src = e.target.src;
+            })
+        });
+    </script>
         @await RenderSectionAsync("Scripts", required: false)
     </body>
 </html>

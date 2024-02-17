@@ -1,5 +1,6 @@
 ﻿using bds_site_web_version7_.Models;
 using bds_site_web_version7_.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -7,7 +8,7 @@ using ZstdSharp.Unsafe;
 
 namespace bds_site_web_version7_.Controllers
 {
-
+    [Authorize]
     public class PartenaireController : Controller
     {
         SiteWebBdsDbContext _context;
@@ -25,7 +26,7 @@ namespace bds_site_web_version7_.Controllers
                         Problem("Entity set 'SiteWebBdsDbContext.Partenaires'  is null.");
         }
 
-        // GET: Departementecoles/Details/5
+        // GET: Partenaires/Details/5
         public async Task<IActionResult> Details(string? id)
         {
             if (id == null || _context.Partenaires == null)
@@ -43,46 +44,48 @@ namespace bds_site_web_version7_.Controllers
             return View(partenaire);
         }
 
-        // GET: Departementecoles/Create
+        // GET: Partenaires/Create
         public IActionResult Create()
         {
             return View();
         }
        
 
-        // POST: Departementecoles/Create
+        // POST: Partenaires/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Partenaire partenaire)
         {
-            var fileName = _fileUpload.uploadimage(partenaire.formFile, "partennaire");
-            partenaire.CheminImageTemoignage = fileName;
-            _context.Add(partenaire);
+            if (ModelState.IsValid)
+            {
+                var fileName = _fileUpload.uploadimage(partenaire.formFile, "partennaire");
+                partenaire.CheminImageTemoignage = fileName;
+                _context.Add(partenaire);
                 await _context.SaveChangesAsync();
-                
-            
-            return View();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(partenaire);
         }
 
-        // GET: Departementecoles/Edit/5
+        // GET: Partenaires/Edit/5
         public async Task<IActionResult> Edit(string? id)
         {
-            if (id == null || _context.Videos == null)
+            if (id == null || _context.Partenaires == null)
             {
                 return NotFound();
             }
 
-            var video = await _context.Videos.FindAsync(id);
-            if (video == null)
+            var formation = await _context.Partenaires.FindAsync(id);
+            if (formation == null)
             {
                 return NotFound();
             }
-            return View(video);
+            return View(formation);
         }
 
-        // POST: Departementecoles/Edit/5
+        // POST: Partenaires/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -117,7 +120,7 @@ namespace bds_site_web_version7_.Controllers
             return View(partenaire);
         }
 
-        // GET: Departementecoles/Delete/5
+        // GET:Partenaires/Delete/5
         public async Task<IActionResult> Delete(string? id)
         {
             if (id == null || _context.Partenaires == null)
@@ -135,7 +138,7 @@ namespace bds_site_web_version7_.Controllers
             return View(partenaire);
         }
 
-            // POST: Departementecoles/Delete/5
+            // POST: Partenaires/Delete/5
             [HttpPost, ActionName("Delete")]
             [ValidateAntiForgeryToken]
             public async Task<IActionResult> DeleteConfirmed(string id)

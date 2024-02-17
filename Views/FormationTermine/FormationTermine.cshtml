@@ -14,18 +14,28 @@
     <!--- <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />-->
     <link rel="stylesheet" href="~/css/formationTermine.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Bds_site_web.styles.css" asp-append-version="true" />
+    @* Ajoutez le code de suivi Google Analytics ci-dessous *@
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XRF3WKRQHH"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-XRF3WKRQHH');
+    </script>
+    @* Fin du code de suivi Google Analytics *@
 </head>
 <body>
+    
     <div class="formation">
-        <div class="description-formation">
-           <div class="slogan-formation">
+             <div class="description-formation">
+                   <div class="slogan-formation">
                 Le cabinet BDS Sarl soutien la quête de performance avec un programme de formation modulaire 
                 ou à la carte adapté aux besoins du marché de l’emploi. La formation est axée sur la pratique
                 professionnelle et est dispensée selon l’approche Learning by doing. C’est pourquoi nos programmes
                 de formations
                 aident l’apprenant à progresser pour atteindre les compétences métiers dont il a besoin
-           </div>
-           <div class="contenu-formation">
+                 </div>
+                 <div class="contenu-formation">
                 L’ingénierie de la formation est une réalité qui se conçoit autour d’une pédagogie spécifique avec le Cabinet BDS Sarl. Nous travaillons sur le parcours de formation lui-même de manière à garantir le transfert de compétence. Nos formations permettent :<br/>
                 <li>L’acquisition des compétences par l’essai et la pratique pendant la formation</li>
                 <li>La participation du participant à l’élaboration des contenus</li>
@@ -50,12 +60,12 @@
                 uis avec l’appui des partenaires internationaux de référence tels que CEGEP GARNEAU, l’International Consulting Canada (ICC) au
                 Canada et l’École supérieure de gestion et de commerce international (ESGCI) de Paris en France
 
+               </div>
            </div>
-        </div>
-        <div class="list-formation">
-        @await Component.InvokeAsync("FormationList")
+          <div class="list-formation">
+            @await Component.InvokeAsync("FormationList")
            
-          </div>
+         </div>
     </div>
    
 </body>

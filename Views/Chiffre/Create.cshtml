@@ -1,5 +1,6 @@
 ﻿@{
     Layout = "~/Views/Administration/_Layout.cshtml";
+    ViewData["Title"] = "chiffre";
 }
 @model bds_site_web_version7_.Models.Chiffre
 <!DOCTYPE html>
@@ -7,7 +8,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Bds_site_web</title>
+    <title>@ViewData["Title"] </title>
     <!--<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />-->
     <!--- <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />-->
     <link rel="stylesheet" href="~/css/Create.css" asp-append-version="true" />
@@ -22,9 +23,9 @@
 
         <form class="form" asp-controller="Chiffre" asp-action="Create" method="post" enctype="multipart/form-data">
 
-            <div class="form_DomaineStage"> <label asp-for="AnneeExperience">Annee d'experience'</label><input class="input-button" type="text" required asp-for="AnneeExperience" /></div>
-            <div class="form_DomaineStage"> <label asp-for="NombreProjetsRealises">nombre de Projets </label><input class="input-button" type="text" required asp-for="NombreProjetsRealises" /></div>
-            <div class="form_DomaineStage"> <label asp-for="NombreEntreprisePartenaires">nombre de Partenaires </label><input class="input-button" type="text" required asp-for="NombreEntreprisePartenaires" /></div>
+            <div class="form_DomaineStage"> <label asp-for="AnneeExperience">Annee d'experience'</label><input class="input-button" type="text" required asp-for="AnneeExperience" /><span asp-validation-for="AnneeExperience"></span></div>
+            <div class="form_DomaineStage"> <label asp-for="NombreProjetsRealises">nombre de Projets </label><input class="input-button" type="text" required asp-for="NombreProjetsRealises" /><span asp-validation-for="NombreProjetsRealises"></span></div>
+            <div class="form_DomaineStage"> <label asp-for="NombreEntreprisePartenaires">nombre de Partenaires </label><input class="input-button" type="text" required asp-for="NombreEntreprisePartenaires" /><span asp-validation-for="NombreEntreprisePartenaires"></span></div>
             <div class="form_submit"> <button class="submit-button">Enregistrer</button></div>
         </form>
 

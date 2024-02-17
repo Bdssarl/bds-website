@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace bds_site_web_version7_.Models
 {
+    
     public class MessageUser
     {
         public string FirstName { get; set; }

@@ -1,0 +1,5 @@
+﻿@using bds_site_web_version7_.Models;
+@model IEnumerable<Video>
+@foreach(var item in Model){
+    <div class="video-1" ><video src="~/Videos/@item.CheminVideo" controls autoplay></video></div>
+}

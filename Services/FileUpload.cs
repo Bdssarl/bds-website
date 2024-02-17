@@ -15,7 +15,7 @@ namespace bds_site_web_version7_.Services
             string path = string.Empty;
             try
             {
-                if (file.Length <= 2097152)
+                if (file.Length >0)
                 {
                     if (typedemande == "emploi")
                     {
@@ -92,6 +92,13 @@ namespace bds_site_web_version7_.Services
                                         if (TypeImage == "partennaire")
                                         {
                                             path = Path.GetFullPath(Path.Combine(_env.WebRootPath, "Images", "Partennaires"));
+                                        }
+                                        else
+                                        {
+                                            if (TypeImage == "actualite")
+                                            {
+                                                path = Path.GetFullPath(Path.Combine(_env.WebRootPath, "Images", "Actualites"));
+                                            }
                                         }
                                     }
                                 }

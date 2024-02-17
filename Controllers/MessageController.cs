@@ -1,5 +1,5 @@
 ﻿using bds_site_web_version7_.Models;
-
+using bds_site_web_version7_.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,9 +7,11 @@ namespace bds_site_web_version7_.Controllers
 {
     public class MessageController : Controller
     {
-        public SiteWebBdsDbContext _siteWebBdsDbContext;
-        public MessageController(SiteWebBdsDbContext siteWebBdsDbContext) {
+        private readonly SiteWebBdsDbContext _siteWebBdsDbContext;
+        private readonly IEmailSender _emailSender;
+        public MessageController(SiteWebBdsDbContext siteWebBdsDbContext,IEmailSender emailSender) {
             _siteWebBdsDbContext = siteWebBdsDbContext;
+            _emailSender = emailSender;
         }
         [HttpGet]
         public IActionResult Message()
@@ -27,9 +29,9 @@ namespace bds_site_web_version7_.Controllers
                  PhoneNumber = messageUser.PhoneNumber,
                  civilite = messageUser.civilite,
 
-                 Messages = new List<Message>
+                 Messages = new List<Models.Message>
                  {
-                    new Message{ ObjetMessage = messageUser.ObjetMesage,
+                    new Models.Message{ ObjetMessage = messageUser.ObjetMesage,
                      DescriptionMessage=messageUser.DescriptionMessage,
                     }
 
@@ -41,8 +43,8 @@ namespace bds_site_web_version7_.Controllers
                 _siteWebBdsDbContext.Add(user);
                  _siteWebBdsDbContext.SaveChanges();
             var responseObj = new { message = "Données reçues avec succès" };
-
-           
+            var message = new Services.Message(new string[] {"vanleroy53@gmail.com"}, "confirmation de la reception de votre  message ", "l'equipe de bds-sarl tient à vous remercier pour.");
+            _emailSender.SendEmail(message);
             return View ();
         }
     }

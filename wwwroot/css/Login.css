@@ -1,0 +1,47 @@
+﻿.login {
+    margin: auto;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    height: 400px;
+    border: none;
+    background-color:white;
+    width:500px;
+    padding:50px;
+    margin-top:100px;
+}
+.login > h1{
+    color:dodgerblue;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight:600;
+}
+label {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
+}
+.input-group {
+    display: grid ;
+        row-gap: 10px;
+        margin-top:5px;
+}
+input {
+    border: 1px solid rgb(118, 118, 118);
+    height: 50px;
+    
+}
+body {
+    background: radial-gradient(circle at 10% 20%, rgb(226, 240, 254) 0%, rgb(255, 247, 228) 90%);
+}
+.button {
+    border: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
+    height: 30px;
+    width: 50%;
+    color: white;
+    background: linear-gradient(to right, rgb(242, 112, 156), rgb(255, 148, 114));
+    margin-top: 20px;
+    height: 50px;
+    font-size:20px;
+}
+.text-danger{
+    background-color:darkred;
+}

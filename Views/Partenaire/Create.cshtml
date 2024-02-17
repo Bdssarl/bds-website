@@ -21,7 +21,7 @@
 
         <form class="form" asp-controller="Partenaire" asp-action="Create" method="post" enctype="multipart/form-data">
 
-            <div class="form_Name_Partenaire"> <label asp-for="NomPartenaire">Nom partenaire</label><input class="input-button" type="text" required asp-for="NomPartenaire" /></div>
+            <div class="form_Name_Partenaire"> <label asp-for="NomPartenaire">Nom partenaire</label><input class="input-button" type="text" required asp-for="NomPartenaire" /><span asp-validation-for="NomPartenaire"></span></div>
 
             <div class="cv-file"><input type="file" required class="input-button" asp-for="formFile" /></div>
 

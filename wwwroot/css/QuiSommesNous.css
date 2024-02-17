@@ -1,0 +1,213 @@
+﻿.container {
+    border: 1px solid rgb(118, 118, 118);
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-top: 140px;
+    padding: 5px;
+    border-radius: 4px;
+    height: 2000px;
+    display: grid;
+    grid-gap: 25px;
+    background-color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+.intro > .intro-title {
+    color: #161616;
+    padding: 5px;
+    font-size: 20px;
+    background: linear-gradient(112.1deg, rgb(32, 38, 57) 11.4%, rgb(63, 76, 119) 70.2%);
+    font-weight: 600;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(112.1deg, rgb(32, 38, 57) 11.4%, rgb(63, 76, 119) 70.2%);
+    background: radial-gradient(circle at 10% 20%, rgb(226, 240, 254) 0%, rgb(255, 247, 228) 90%);
+ 
+  
+}
+.intro > li {
+    font-size: 20px;
+    font-weight: 600;
+    color: #161616;
+    
+    font-weight: 600;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(112.1deg, rgb(32, 38, 57) 11.4%, rgb(63, 76, 119) 70.2%);
+    background: radial-gradient(circle at 10% 20%, rgb(226, 240, 254) 0%, rgb(255, 247, 228) 90%);
+  
+}
+
+.vision > h4, .Mission > h4, .valeur > h4, .activite > h4, .slogann > h4 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to top, #09203f 0%, #537895 100%);
+    font-size: 30px;
+    color: white;
+    height: 100%;
+    margin-top: 0px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+
+    background: radial-gradient(circle at -8.9% 51.2%, rgb(255, 124, 0) 0%, rgb(255, 124, 0) 15.9%, rgb(255, 163, 77) 15.9%, rgb(255, 163, 77) 24.4%, rgb(19, 30, 37) 24.5%, rgb(19, 30, 37) 66%);
+}
+.contenu-vision, .contenu-slogan {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 30px;
+    color: #161616;
+    background-color: rgb(223, 246, 221);
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    background: radial-gradient(circle at 10% 20%, rgb(226, 240, 254) 0%, rgb(255, 247, 228) 90%);
+}
+.contenu-mission, .contenu-valeur, .contenu-activite {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 22px;
+    color: #161616;
+    background-color: rgb(223, 246, 221);
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    background: radial-gradient(circle at 10% 20%, rgb(226, 240, 254) 0%, rgb(255, 247, 228) 90%);
+}
+.intro {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 22px;
+    background: linear-gradient(112.1deg, rgb(32, 38, 57) 11.4%, rgb(63, 76, 119) 70.2%);
+    color: #161616;
+    height: 350px;
+    font-weight: 600;
+    background: radial-gradient(circle at 10% 20%, rgb(226, 240, 254) 0%, rgb(255, 247, 228) 90%);
+   
+}
+.vision {
+    font-weight: 600;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #161616;
+   display:grid;
+   grid-template-columns:1fr 1fr;
+  grid-column-gap:10px;
+   margin-top:-20px;
+    
+}
+.Mission, .activite {
+    font-weight: 600;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #161616;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 10px;
+}
+.valeur {
+    font-weight: 600;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #161616;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 10px;
+}
+.activite {
+    font-weight: 600;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #161616;
+}
+.slogann {
+    font-weight: 600;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+    height: 300px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 10px;
+}
+.contenu-slogan {
+    display: flex;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to right, rgb(242, 112, 156), rgb(255, 148, 114));
+}
+.main{
+    
+}
+@media(max-width:1280px) {
+    .container {
+        border: 1px solid rgb(118, 118, 118);
+        margin:auto;
+        margin-top: 120px;
+        padding: 5px;
+        box-shadow: 4px 4px #dcdcdc;
+        border-radius: 4px;
+        height: 80%;
+        display: grid;
+        background-color: white;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+}
+
+@media(max-width:847px) {
+    .container {
+        border: 1px solid rgb(118, 118, 118);
+        margin: auto;
+        margin-top: 5px;
+        padding: 5px;
+        box-shadow: 4px 4px #dcdcdc;
+        border-radius: 4px;
+        height: 90%;
+        display: grid;
+        background-color: white;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .vision {
+        font-weight: 600;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #161616;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: 10px;
+        margin-top: 80px;
+    }
+}
+
+@media(max-width:676px){
+    .vision {
+        font-weight: 600;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #161616;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: 10px;
+        margin-top: 400px;
+    }
+    .container {
+        border: 1px solid rgb(118, 118, 118);
+        margin: auto;
+        margin-top: 5px;
+        padding: 5px;
+        box-shadow: 4px 4px #dcdcdc;
+        border-radius: 4px;
+        height: 4500px;
+        display: grid;
+        background-color: white;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+}
+   
+
+
+@media(max-width:430px) {
+    
+}
+
+@media(max-width:375px) {
+    
+}
+
+@media(max-width:280px) {
+    
+}

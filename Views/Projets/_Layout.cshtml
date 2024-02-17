@@ -9,13 +9,24 @@
     <!--<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />-->
     <link rel="stylesheet" href="~/css/Projets.css" asp-append-version="true" />
    <!-- <link rel="stylesheet" href="~/css/NousRejoindre.css" asp-append-version="true" />-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+
     <link rel="stylesheet" href="~/Bds_site_web.styles.css" asp-append-version="true" />
+    @* Ajoutez le code de suivi Google Analytics ci-dessous *@
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XRF3WKRQHH"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-XRF3WKRQHH');
+    </script>
+    @* Fin du code de suivi Google Analytics *@
 </head>
 <body>
     <header class="header" role="navigation">
         <div class="logo">
             <img src="~/Icons/logo.jfif" class="img" alt="logo" />
-            <div class="slogan">Business|Developpement|service</div>
+            <div class="slogan"><div>Business|Developpement|Service</div><div class="contenu-slogon">Promouvoir les mpme et le Savoir faire local</div></div>
         </div>
         <div class="nav-header">
             <a class="link-header" asp-controller="Acceuil" asp-action="Acceuil"> Acceuil </a>
@@ -24,12 +35,27 @@
             <a class="link-header" asp-controller="FormationTermine" asp-action="FormationTermine"> Nos formations  </a>
             <a class="link-header" asp-controller="Rejoindre" asp-action="Rejoindre">Nous rejoindre </a>
             <a class="link-header">Mediathèque</a>
-            <a class="link-header">Annonces</a>
+            <a class="link-header active">@DateTime.Now</a>
             <a class="link-header" href="#footer">Nous contacter</a>
+            <!-- <div id="dateHeure">
+                 <a class="link-header active"><link rel="stylesheet" href="/css/heure.css" /></a>
+             </div>-->
         </div>
+
+        <div class="button-menu"><span class="fa fa-bars"></span></div>
 
 
     </header>
+    <div class="sidebar">
+        <a class="link-header" asp-controller="Acceuil" asp-action="Acceuil"> Acceuil </a>
+        <a class="link-header" asp-controller="QuiSommeNous" asp-action="QuiSommeNous"> Qui sommes nous ? </a>
+        <a class="link-header" asp-controller="Projets" asp-action="Projets">Nos projets </a>
+        <a class="link-header" asp-controller="FormationTermine" asp-action="FormationTermine"> Nos formations  </a>
+        <a class="link-header" asp-controller="Rejoindre" asp-action="Rejoindre">Nous rejoindre </a>
+        <a class="link-header">Mediathèque</a>
+        <a class="link-header">Annonces</a>
+        <a class="link-header" href="#footer">Nous contacter</a>
+    </div>
 
 
         <div class="nav-projet">
@@ -82,6 +108,41 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script type="text/javascript">
+        function sendMessage() {
+            /* let nom=document.getElementById('nom').value;
+             let prenom = document.getElementById('prenom').value;
+             let email = document.getElementById('email').value;
+             let obj = document.querySelector('obj').textContent*/
+            let url = "Message/Message";
+            let form = document.querySelector('form');
+
+
+            let formData = new FormData(form);
+            formData.append("")
+            fetch(url, {
+                method: 'POST',
+                body: formData
+            })
+                .then(response => response.json())
+                .then(data => alert(data))
+                .catch((error) => console.error('Error:', error));
+        }
+
+        const phoneInputField = document.querySelector("#phone");
+        const phoneInput = window.intlTelInput(phoneInputField, {
+            utilsScript:
+                "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+        });
+
+        let button = document.querySelector('.button-menu>span');
+        let sidebar = document.querySelector('.sidebar');
+        button.addEventListener('click', function () {
+            sidebar.classList.toggle('sidebar-button')
+        }
+        );
+
+    </script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

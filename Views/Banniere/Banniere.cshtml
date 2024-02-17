@@ -1,0 +1,32 @@
+﻿@{
+    Layout = "~/Views/Administration/_Layout.cshtml";
+    ViewData["Title"] = "Banniere";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <!--<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />-->
+    <!--- <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />-->
+    <link rel="stylesheet" href="~/css/Banniere.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Bds_site_web.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="banniere">
+        <div class="head">
+            <img  class="imgbanner"src="">
+
+        </div>
+        <div class ="list-image">
+
+            @await Component.InvokeAsync("BanniereList")
+
+        </div>
+    </div>
+</body>
+
+</html>
+

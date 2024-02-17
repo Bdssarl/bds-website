@@ -11,6 +11,7 @@ public partial class Emploi
 
 
     public string? DomaineEmploi { get; set; }
+
     [NotMapped]
     public string TypeEmploi { get; set; } = null!;
     public string IdTypeEmploi { get; set; } = null!;

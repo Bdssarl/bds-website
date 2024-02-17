@@ -21,7 +21,7 @@
 
         <form class="form" asp-controller="Temoignages" asp-action="Create" method="post" enctype="multipart/form-data">
 
-            <div class="form_Temoignage"> <label asp-for="NomTemoignage">Nom Temoignage</label><input class="input-button" type="text" required asp-for="NomTemoignage" /></div>
+            <div class="form_Temoignage"> <label asp-for="NomTemoignage">Nom Temoignage</label><input class="input-button" type="text" required asp-for="NomTemoignage" /><span asp-validation-for="NomTemoignage"class="text-danger"></span></div>
             <div class="form_DescriptionTemoignage"><label asp-for="DescriptionTemoignage">Description</label><input type="text" required class="input-button" asp-for="DescriptionTemoignage" /></div>
 
             <div class="cv-file"><input type="file" required class="input-button" asp-for="formfile" /></div>

@@ -1,0 +1,107 @@
+﻿body {
+    font-family: 'Arial', sans-serif, Arial;
+    background-color: #f8f9fa;
+    color: #343a40; 
+    line-height: 1.6;
+
+    padding: 20px;
+   
+}
+
+
+
+.main-container {
+    max-width: 800px;
+    margin: auto;
+    margin-top: 2%;
+}
+
+
+.page-title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.paragraph {
+    margin-bottom: 20px;
+}
+
+.highlight {
+    color: #007bff;
+    font-weight: bold;
+}
+
+.innovation-item {
+    font-weight: bold;
+}
+
+.innovation-description {
+    font-style: italic;
+}
+/*auto ecole*/
+
+/* Reset des styles par défaut */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+   
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+}
+
+h2 {
+    color: #007bff;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h3 {
+    color: #6c757d;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+p {
+    margin-bottom: 20px;
+}
+
+.image {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 20px;
+}
+
+/* FontAwesome icons for lists */
+ul {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 1.5em;
+}
+
+    ul li:before {
+        content: "\f058"; /* FontAwesome bullet icon */
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        display: inline-block;
+        width: 1.3em;
+        margin-left: -1.3em;
+        color: #007bff;
+    }
+
+.custom-style {
+    /* Ajoutez vos styles personnalisés ici */
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #f7f7f7;
+    height:20%
+}

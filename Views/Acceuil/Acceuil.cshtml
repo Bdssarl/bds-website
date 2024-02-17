@@ -7,6 +7,8 @@
     <!--<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />-->
     <link rel="stylesheet" href="~/css/Acceuil.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Bds_site_web.styles.css" asp-append-version="true" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/odometer.js/0.4.8/themes/odometer-theme-default.min.css" rel="stylesheet">
+    <script src="https://github.hubspot.com/odometer/odometer.js"></script>
 </head>
 <body>
     <div class="banner">
@@ -26,11 +28,12 @@
             <button class="arrow"><img src="~/Icons/chevron_right.svg" /></button>
         </div>
     </div>-->
+    <div class="container-title"><div class="title"><h1> Nos metiers</h1></div></div>
     <div class="metier">
-       <div class="container-title"><div class="title"><h1> Nos metiers</h1></div></div>
+      
        <div class="container-metier">
-
-
+            
+            @await Component.InvokeAsync("MetierList")
            <!--- <div class="metier-2">
 
                 <div class="img-2"> 
@@ -56,65 +59,93 @@
             </div>-->
         </div>
     </div>
+    <div class="container-title"><div class="title"><h1> Actualités</h1></div></div>
     <div class="nouvelles">
-        <div class="container-title"><div class="title"><h1> Actualités</h1></div></div>
-        <div class="container-nouvelles">
+        
         <div class="videos">
             <!--<div class="container-title-video"><div class="title-video"><h1>videos</h1></div></div>-->
-              
-            <div class="arrow-left">
-                    <button class="arrow"><img src="~/Icons/chevron_left.svg"/></button>
-            </div>
+             
+           <!---- <div class="arrow-left">
+                    <button class="arrow"><img src="~/Icons/chevron_left.svg"/></button>-->
+            
             <div class="video-container">
-                <div class="video-1"></div>
-                <div class="video-2"></div>
+
+                    @await Component.InvokeAsync("VideoList")
                <!--- <div class="video-3"></div>-->
             </div>
-            <div class="arrow-rigth">
+          <!---- <div class="arrow-rigth">
                     <button class="arrow"><img src="~/Icons/chevron_right.svg" /></button>
-            </div>
+            </div>-->
 
           </div>
-         <div class="Actualites">
-            
-                <!---<div class="container-title-Actualités"><div class="title-Actualite"><h1>Actualités</h1></div></div>-->
-                <div class="Actualites-container">
-                    <div class="Actualite-1"></div>
-                    <div class="Actualite-2"></div>
-                    <div class="Actualite-3"></div>
-            </div>
-         </div>
-         <div class="Temoignages">
-            <!---<div class="container-title-Temoignages"><div class="title-Temoignages"><h1>Temoignages</h1></div></div>-->
-                <div class="arrow-left">
-                    <button class="arrow"><img src="~/Icons/chevron_left.svg"/></button>
-                </div>
-            <div class="Temoignages-container">
-                <div class="Temoignage-1"></div>
-                <div class="Temoignage-2"></div>
-                <!--<div class="Temoignage-3"></div>
-                <div class="Temoignage-4"></div>-->
-         </div>
-                <div class="arrow-rigth">
-                    <button class="arrow"><img src="~/Icons/chevron_right.svg" /></button>
-                </div>
-       </div>
-       </div>
+        
+
+     </div>
+    <div class="Actualites">
+
+        <!---<div class="container-title-Actualités"><div class="title-Actualite"><h1>Actualités</h1></div></div>-->
+        <div class="Actualites-container">          
+         @await Component.InvokeAsync("ActualiteList")
+        </div>
     </div>
-    <div class="nos-chiffres-et-partenaires">
+    <div class="Temoignages">
+        <div class="confiance">Ils parlent de nous ... </div>
+        <!---<div class="arrow-left">
+            <button class="arrow"><img src="~/Icons/chevron_left.svg"/></button>
+        </div>-->
+        <div class="slider-temoignage">
+        <div class="Temoignages-container">
+            
+                @await Component.InvokeAsync("TemoignageList")
+            </div>
+           
+            <!--<div class="Temoignage-3"></div>
+            <div class="Temoignage-4"></div>-->
+        </div>
+        <!----<div class="arrow-rigth">
+            <button class="arrow"><img src="~/Icons/chevron_right.svg" /></button>
+        </div>-->
+    </div>
+    <div class="chiffres">
+
+        <div class="Annee-experience">
+            <h1> experience</h1>
+            <div  class="contenu">
+               + <span class="count-1">10</span>
+            </div>
+            </div>
+        <div class="Projet-Realises">
+            <h1> Projet réalisés</h1>
+            <div class="contenu">
+                + <span class="count-2">62</span>
+            </div>
+        </div>
+        <div class="NPartenaires">
+            <h1> Partenaires</h1>
+            <div class="contenu">
+               + <span class="count-3">165</span>
+            </div>
+            </div>
+        
+    </div>
+        
+    
         <div class="container-partenaire">
+        <div class="confiance">Ils nous font confiance ... </div>
         <!--<div class="arrow-left">
                 <button class="arrow"><img src="~/Icons/chevron_left.svg"/></button>
         </div>-->
-        <div class="confiance">Ils nous font confiance ... </div>
-            @await Component.InvokeAsync("PartenaireList")
-       
+        
+        <div class="caroussel-partenaire">
+        @await Component.InvokeAsync("PartenaireList")
+        </div>
         <!----<div class="arrow-right">
+            
                 <button class="arrow"><img src="~/Icons/chevron_right.svg"/></button>
         </div>-->
      </div>
-     </div>
-     <script type="text/javascript">
+     
+    <script type="text/javascript" >
        /* affichage  de la bannière */ 
         let banner = document.querySelector(".banner>img");
         async function fetchData() {
@@ -122,7 +153,7 @@
             let data = await response.json(); // This line waits for the promise to resolve and gives you the actual data.
             return data;
         }
-        fetchData().then(data=>data[0].cheminImage)
+        fetchData().then(data=>data[1].cheminImage)
                    .then(image=>
                        
                 banner.src=banner.src+image);
@@ -136,6 +167,33 @@
                 ferchData().then(data=>
                 data.forEach())*/
                 
+                 
      </script>
+    <script >
+        let count= document.querySelector('.count-1');
+        let count2 = document.querySelector('.count-2');
+        let count3 = document.querySelector('.count-3');
+        let value=0;
+        let  value2=0;
+        let value3=0;
+        setInterval(function () {
+            value=value+1;
+            value2=value2+1;
+            value3=value3+1;
+            count.textContent=value;
+            count2.textContent=value2;
+            count3.textContent=value3;
+            if (value ==10) {
+                value = 0;
+            }
+            if(value2==62){
+                value2 = 0;
+            }
+            if(value3==165){
+                value3=0;
+            }
+        }, 100);
+      
+        </script>
      </body>
   </html>

@@ -3,16 +3,46 @@ using bds_site_web_version7_.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddTransient<IFileUpload, FileUpload>();
+builder.Services.AddTransient<SignInManager<User>, SignInManager<User>>();
+builder.Services.AddScoped<IEmailSender, EmailSender>();
+var emailConfig = builder.Configuration
+        .GetSection("EmailConfiguration")
+        .Get<EmailConfiguration>();
+builder.Services.AddSingleton(emailConfig);
 
+// Register UserManager
+builder.Services.AddTransient<UserManager<User>, UserManager<User>>();
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+            .AddCookie(options =>
+            {
+                options.LoginPath = "/Account/Login";
+                options.Cookie.Name = ".AspNetCore.Cookies";
+                options.ExpireTimeSpan = TimeSpan.FromMinutes(10);
+                options.SlidingExpiration = true;
+
+            });
+builder.Services.Configure<IdentityOptions>(opts =>
+{
+    opts.Password.RequiredLength = 8;
+    opts.Password.RequireLowercase = true;
+});
+
+builder.Services.AddHttpContextAccessor();
 builder.Services.AddDbContext<SiteWebBdsDbContext>();
+
 builder.Services.AddIdentityCore<User>(option => option.User.RequireUniqueEmail = true)
-    .AddEntityFrameworkStores<SiteWebBdsDbContext>();
-builder.Services.AddTransient < IFileUpload,FileUpload>();
+    .AddEntityFrameworkStores<SiteWebBdsDbContext>().AddDefaultTokenProviders();
+
+builder.Services.AddControllersWithViews();
+
+/*builder.Services.ConfigureApplicationCookie(opts => opts.LoginPath = "/Authenticate/Login");*/
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
@@ -43,6 +73,7 @@ app.UseDefaultFiles();
 app.UseStaticFiles();
 
 app.UseRouting();
+app.UseAuthentication();
 
 app.UseAuthorization();
 

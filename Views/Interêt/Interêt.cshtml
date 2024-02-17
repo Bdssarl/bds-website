@@ -3,29 +3,86 @@
 }
 <!Doctype Html>
 <html>
-    <head>
-        <title>Interêt</title>
+    
+   <head>
+    <title>Interêt</title>
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+       
     </head>
+        
+    
     <body>
         <div class="interêt">
-            <div class="Messages">
-                  <h1>Messages</h1
+              <div class="Messages">
+                  <h1>Messages</h1>
+                 <div class="body">
+                <table class="table table-striped">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">prenom</th>
+                            <th scope="col">nom</th>
+                            <th scope="col">email</th>
+                            <th scope="col">tel</th>
+                            <th scope="col">objet message</th>
+                            <th scope="col">date envoi</th>
+                            <th scope="col">#</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @await Component.InvokeAsync("MessageList")
+                        
+                    </tbody>
+                </table>
+
+                
+                   
+                 </div>
+              </div>
+                <div class="Stages">
+                  <h1>Stages</h1>
+                 <div class="body">
+                <table class="table table-striped">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">prenom</th>
+                            <th scope="col">nom</th>
+                            <th scope="col">email</th>
+                            <th scope="col">tel</th>
+                            <th scope="col">objet message</th>
+                            <th scope="col">date envoi</th>
+                            <th scope="col">#</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @await Component.InvokeAsync("DemandeStageList")
+
+                    </tbody>
+                </table>
+                 </div>
+             </div>
+                <div class="Emplois">
+                  <h1>Emplois</h1>
                <div class="body">
+                <table class="table table-striped">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">prenom</th>
+                            <th scope="col">nom</th>
+                            <th scope="col">email</th>
+                            <th scope="col">tel</th>
+                            <th scope="col">objet message</th>
+                            <th scope="col">date envoi</th>
+                            <th scope="col">#</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @await Component.InvokeAsync("DemandeEmploiList")
 
-            </div>
-        </div>
-        <div class="Emplois">
-          <h1>Emplois</h1
-          <div class="body">
-
-          </div>
+                    </tbody>
+                </table>
+               </div>
+           </div>
        </div>
-       <div class="Stages">
-          <h1>Stages</h1
-          <div class="body">
-
-          </div>
-       </div>
-     </div>
     </body>
 </html>

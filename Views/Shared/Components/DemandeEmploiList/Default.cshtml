@@ -1,17 +1,95 @@
 ﻿@using bds_site_web_version7_.Models;
-@model IEnumerable<Metier>
-@foreach(var item in Model ){
-    <div class="metier-1">
+   @model IEnumerable<dynamic>
+@foreach (var item in Model)
+{
+    <tr>
+        <td> @item.LastName</td>
+        <td>@item.FirstName</td>
+        <td>@item.Email</td>
+        <td>@item.PhoneNumber</td>
 
-        
-            <img src="~/Images/Metier/@item.NameImageMetier"/>
+
+        <td>@item.ObjetMessageEmploi</td>
+
+        <td>@item.DateEnvoiDemandeEmploi</td>
+
+            <td><button class="voir-3" id="show3">voir</button></td>
        
-         <div class="titre-metier">@item.TitleMetier</div>
-        <div class="description-1">
-            @item.DescriptionMetier
-        </div>
-        <div class="voir-plus-1">
-            <a>voire plus</a>
-        </div>
-    </div>
+    </tr>
+  
+        <dialog id="dialog3" class="dialog3">
+            <button id="hide3" class="hide3">Fermer la boîte de dialogue</button>
+            <div class="group">
+                <div>Nom</div>
+                <div>@item.LastName</div>
+            </div>
+            <div class="group">
+                <div>Prenom</div>
+                <div>@item.FirstName</div>
+            </div>
+            <div class="group">
+                <div>Email</div>
+                <div>@item.Email</div>
+            </div>
+            <div class="group">
+                <div>Numero de téléphone</div>
+                <div>@item.PhoneNumber</div>
+            </div>
+            <div class="group">
+                <div>civilité</div>
+                <div>@item.civilite</div>
+            </div>
+            <div class="group">
+                <div>Objet Message</div>
+            <div>@item.ObjetMessageEmploi</div>
+            </div>
+            <div class="group">
+                <div>Description</div>
+            <div>@item.MessageDemandeEmploi</div>
+            </div>
+            <div class="group">
+                <div>Date envoi</div>
+            <div>@item.DateEnvoiDemandeEmploi</div>
+            </div>
+            <div class="group">
+            <div>cv</div>
+            <a href="~/CV/CV_Demande_Emploi/@item.NomCvDemandeEmploi" download>
+                Télécharger le fichier
+            </a>
+           
+            </div>
+        <a class="repondre" href="mailto: @item.Email?subject=@item.ObjetMessageEmploi">repondre</a>
+        </dialog>
+    
 }
+
+
+
+
+<script type="text/JavaScript">
+    
+
+
+            var dialog3 = document.querySelectorAll('.dialog3');
+    var show3 = document.querySelectorAll('.voir-3');
+    show3.forEach(element => {
+        element.addEventListener('click', function () {
+            dialog3.forEach(e => {
+                e.show();
+            });
+        }
+        );
+    }
+    );
+
+
+    var hide3 = document.querySelectorAll('.hide3');
+    hide3.forEach(element => {
+        element.addEventListener('click', function () {
+            dialog3.forEach(e => {
+                e.close();
+            });
+        });
+    }
+    );
+</script>

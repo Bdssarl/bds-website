@@ -1,0 +1,32 @@
+﻿.banniere {
+    margin-top:0px;
+    margin-left:200px;
+    margin-right:200px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    height: 600px;
+    border: none;
+    background-color: white;
+    width:1000px;
+    padding: 50px;
+    display:grid;
+    grid-template-columns:80px;
+    grid-row-gap:15px;
+    
+}
+.head{
+ 
+   width:1000px;
+}
+.list-image{
+   display:grid;
+   grid-template-columns:1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr ;
+   grid-gap:5px;
+   
+}
+.list-image > img 
+{
+    width:200px;
+    height:200px;
+    border-radius:3px;
+
+}

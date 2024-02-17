@@ -1,3 +1,4 @@
+
 .header {
     display: grid;
     grid-template-columns: 400px 1fr 35px;
@@ -11,13 +12,13 @@
     left: 4px;
     right: 4px;
     box-shadow: 2px 2px #dcdcdc;
-    border-bottom: 4px solid;
-    border-bottom-color: #d93025;
-    border-bottom-color: #d93025a6;
-    border-bottom-color: #f3a7a7;
+    border-bottom: 4px solid white;
     background-color: #3f51b5;
+    background: linear-gradient(112.1deg, rgb(32, 38, 57) 11.4%, rgb(63, 76, 119) 70.2%);
+  
+   
 }
- a:hover {
+ .link-header:hover {
     border: 4px solid;
     border-color:white;
     color:white;
@@ -88,6 +89,10 @@
     font-family: Candara;
    
 }
+label {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
+}
 .footer {
     padding: 20px;
     color: white;
@@ -96,15 +101,15 @@
     background-color: #3c4043;
     box-shadow: 2px 2px #dcdcdc;
     margin: auto;
-    margin-top: 40px;
+    margin-top: 30px;
     grid-gap: 10px;
     color: white;
-    position: relative;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    z-index: 1;
-    margin-top: 50%;
+    overflow: hidden;
+    background: linear-gradient(to top, #3c006b, #9948d9);
+    background: linear-gradient(112.1deg, rgb(32, 38, 57) 11.4%, rgb(63, 76, 119) 70.2%);
+    background: radial-gradient(circle at 24.1% 68.8%, rgb(50, 50, 50) 0%, rgb(0, 0, 0) 99.4%);
+    background: linear-gradient(109.6deg, rgba(0, 0, 0, 0.93) 11.2%, rgb(63, 61, 61) 78.9%);
+ 
 }
 
 
@@ -156,37 +161,32 @@
    margin-bottom:5px;
 }
 .submit-button {
-    width: 100%;
-    font-family: Candara;
-    background-color: rgba(52, 168, 83, 1);
-    color: white;
-    font-size: 26px;
     border: none;
-    height: 20px;
-    height: 40px;
-    font-weight: bold;
-    border-radius:5px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
+   
+    width: 100%;
+    color: white;
+    background: linear-gradient(to right, rgb(242, 112, 156), rgb(255, 148, 114));
+    margin-top: 20px;
+    height: 60px;
+    font-size: 20px;
 }
 .main {
     margin-top: 15px;
-    border: 1px solid black;
     background-color: white;
     color: black;
-    height: 1800px;
+    height: 3500px;
     padding: 8px;
-    background-color: #f8f9fa;
+    background: radial-gradient(circle at 10% 20%, rgb(226, 240, 254) 0%, rgb(255, 247, 228) 90%);
 }
 .adress_Contact{
     margin-right:30px;
     display:grid;
 }
 .input-button {
-    border: none;
-    height: 40px;
-    outline-color: deepskyblue;
-    border-radius: 3px;
-    
-    background-color: #e8eaed;
+    border: 1px solid rgb(118, 118, 118);
+    height: 50px;
 }
 button {
     font-family: Candara;
@@ -197,8 +197,8 @@ button {
     height: 20px;
 }
 textarea {
-    background-color: #e8eaed;
-    resize:none;
+    border: 1px solid rgb(118, 118, 118);
+    resize: none;
 }
 .copyright {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -206,6 +206,21 @@ textarea {
     font-weight: 600;
 }
 .sidebar {
+    right: 0;
+    bottom: 0;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 15;
+    top: 0px;
+    width: 0px;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s ;
+    
+}
+.sidebar-button {
     right: 2px;
     bottom: 15px;
     position: fixed;
@@ -218,28 +233,37 @@ textarea {
     box-shadow: 4px 4px #dcdcdc;
     padding-right: 15px;
     border-radius: 4px;
-    width:300px;
-    background-color:#0082e6;
-    display:none;
-}
-@media(max-width:1280px){
+    width: 300px;
+    background-color: #0082e6;
    
+}
+
+a>i{
+    color:white;
+    font-size:50px;
+    margin-right:15px;
+    text-decoration:none;
+}
+
+@media(max-width:1280px) {
     .nav-header {
        display:none;
+    }
+    .container-partenaire{
+        margin-bottom:500px;
     }
     .button-menu {
         display: flex;
         align-items: center;
         justify-content: flex-end;
         float: right;
-        
     }
     .button-menu > span {
         color: white;
         font-size: 30px;
        
     }
-    .sidebar {
+   /* .sidebar {
         right: 2px;
         bottom: 15px;
         position: fixed;
@@ -257,19 +281,46 @@ textarea {
         background-color: #0082e6;
         font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         transition:.5s;
-        display:none;
-    }
+       
+    }*/
 
    
 }
 @media(max-width:1300px) {
-  .footer{
-      display:grid;
-      grid-template-columns:500px 1fr;
-  }
+    .footer {
+        display: flex;
+        flex-direction: column;
+        margin-top: 15px;
+        overflow: hidden;
+    }
+    .main {
+        width: 100%;
+        height: 3800px;
+        
+    }
 }
 
-    @media(max-width:847px) {
+@media(max-width:847px) {
+
+
+    .footer {
+        display: flex;
+        flex-direction: column;
+        margin-top: 15px;
+        overflow: hidden;
+    }
+
+    .form_Contact {
+        width: 100%;
+    }
+
+    .main {
+        width: 100%;
+        height: 4500px;
+        margin-top: 140px;
+    }
+
+    @media(max-width:628px) {
 
 
         .footer {
@@ -285,7 +336,10 @@ textarea {
 
         .main {
             width: 100%;
-            height: 2350px;
+            height: 4500px;
             margin-top: 140px;
         }
     }
+}
+    
+    

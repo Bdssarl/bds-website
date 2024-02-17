@@ -22,8 +22,8 @@
 
         <form class="form" asp-controller="TypeStage" asp-action="Create" method="post" enctype="multipart/form-data">
 
-            <div class="form_LibelleTypeStage"> <label asp-for="LibelleTypeStage">Libelle du type de  Stage</label><input class="input-button" type="text" required asp-for="LibelleTypeStage" /></div>
-            <div class="form_LibelleTypeStage"> <label asp-for="DomaineStage">Domaine Stage</label><input class="input-button" type="text" required asp-for="DomaineStage" /></div>
+            <div class="form_LibelleTypeStage"> <label asp-for="LibelleTypeStage">Libelle du type de  Stage</label><input class="input-button" type="text" required asp-for="LibelleTypeStage"/><span asp-validation-for="LibelleTypeStage"class="text-danger"></span></div>
+            <div class="form_LibelleTypeStage"> <label asp-for="DomaineStage">Domaine Stage</label><input class="input-button" type="text" required asp-for="DomaineStage" /><span asp-validation-for="DomaineStage" class="text-danger"></span></div>
             <div class="form_submit"> <button class="submit-button">Enregistrer</button></div>
         </form>
 

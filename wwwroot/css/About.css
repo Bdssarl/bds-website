@@ -114,6 +114,13 @@ body {
     box-shadow: 0 0 4px rgba(0,o,0.6);
     z-index: 3;
 }
+.content-box-large {
+    max-width: 1200px; /* Ajustez selon vos besoins */
+    margin: 0 auto; /* Centrer horizontalement */
+    padding: 20px; /* Ajoutez un remplissage selon vos besoins */
+    box-sizing: border-box; /* Assurez-vous que le remplissage et la bordure ne dépassent pas la largeur spécifiée */
+}
+
 .container-fluid, .row, .col-md-4, .about-item {
     width: auto;
 }

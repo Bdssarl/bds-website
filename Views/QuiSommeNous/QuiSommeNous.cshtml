@@ -1,177 +1,85 @@
 ﻿@{
-    ViewData["Title"] = "About Us";
-      Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Qui sommes Nous ";
 }
-
+@model bds_site_web_version7_.Models.MessageUser
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <!--important tags-->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--title-->
-    <title>About Us</title>
-
-
-    <!--Linking fontawesome file with html-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <!--Linking bootstrap file to html-->
-    <link rel="stylesheet" href="~/css/bootstrap.css">
-
-    <!--Linking the css file to html-->
-    <link rel="stylesheet" href="~/css/About.css">
-   
-   
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] </title>
+    <!--<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />-->
+    <!--- <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />-->
+    <link rel="stylesheet" href="~/css/QuiSommesNous.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Bds_site_web.styles.css" asp-append-version="true" />
 </head>
+<body>
+    <div class="container">
+        <div class="intro">
+            <div class="intro-title">
+                 Créé en 2013 sous le régime d’établissement, le Cabinet Business Development Services (BDS) devient une SARL en 2021. C’est un Bureau d’Études et d’Analyses, qui exerce des prestations supports utiles aux MPME et aux Particuliers ; notamment les Études & conseils, la (Re)-Ingénierie d’affaires et la (Re)-Ingénierie de la formation continue). En cette qualité, nous nous positionnons comme un réseau de compétences pluridimensionnelles, qui s’appuient sur des approches AGILES.
+            Aujourd’hui, le cabinet BDS Sarl développe ses activités autour de trois (03) métiers complémentaires à savoir :
+            </div>
+           
+            <li>Le Conseil</li>
+            <li>L’Ingénierie d’affaires</li>	 
+            <li>La Formation</li>
+            L’assistance technique et stratégique est donc notre cœur de métier. Elle est exécutée dans le cadre d’un accompagnement personnalisé et une approche agile pour la plus grande satisfaction de nos partenaires et associés. Notre assistance aux PME se traduit par :
+            <li>La réalisation des études de marché </li>
+            <li>Le conseil et l’assistance technique </li>	
+            <li>Des formations continues pour renforcer les capacités des acteurs</li>
+         </div>
+            <div class="vision">
+                <h4>Notre Vision</h4>
+                <div class="contenu-vision">
+                    Conscient des enjeux de développement de la PME africaine, le projet part d’une vision futuriste à savoir
+                    : Bâtir une plateforme de référence de production de services de développement aux entreprises (SDE),
+                    afin de les aider à atteindre leurs objectifs et améliorer leur compétitivité.
+                </div>
+            </div>
+            <div class="Mission">
+                <h4>Notre mission</h4>
+            <div class="contenu-mission">
+            <li>Accompagner les PME (et les TPE) par des services personnalisés </li>
+            <li>Créer une bourse des PME pour répondre à des besoins de sous-traitance à haute intensité de main d’œuvre </li>
+            <li>Réaliser des études sectorielles pour impulser le développement des projets innovants.</li>
 
-<body class="h-100">
+            </div>
+            </div>
+            <div class="valeur">
+                <h4>Nos Valeurs</h4>
+            <div class="contenu-valeur">
+                	<li>La collaboration. Toutes nos missions sont exécutées dans une démarche concertée et participative avec le donneur d’ordre </li>
+                	<li>La responsabilité. Pour toutes les missions, nous garantissons la pleine satisfaction du demandeur </li>
+                	<li>La qualité. Il s’agit pour nous de fournir des services de qualité et conformes aux standards internationaux.</li>
 
-    <section id="about" class="h-100">
-        <article>
-        <div class="about-1 w-100">
-            <h1>About Us</h1>
-            <p></p>
-                Créé en 2013 sous le régime d’établissement,
-                le Cabinet Business Development Services (BDS) devient une SARL en 2021. C’est un Bureau d’Études et d’Analyses, qui exerce des prestations supports utiles aux MPME et aux Particuliers ;
-                notamment les Études & conseils, la (Re)-Ingénierie d’affaires et la (Re)-Ingénierie de la formation continue). En cette qualité,
-                nous nous positionnons comme un réseau de compétences pluridimensionnelles,
-                qui s’appuient sur des approches AGILES.
-            <p>Aujourd’hui, le cabinet BDS Sarl développe ses activités autour de trois (03) métiers complémentaires à savoir :
-            <ul class="fa-ul1" >
-                <!--<i class="fa-li fa fa-check-square"></i>>
-                <li><i class="fa-li fa fa-spinner fa-spin"></i>List icons</li>-->
-                <li>
-                    <i class="fa-li fa fa-arrow-right"></i><b>Le Conseil</b></li>
-                    <li><i class="fa-li fa fa-arrow-right"></i><b>L’Ingénierie d’affaires</b></li>
-                    <li><i class="fa-li fa fa-arrow-right"></i><b>La Formation</b></li>
-            </ul>
-            </p>
-            <p>
-                L’assistance technique et stratégique est donc notre cœur de métier. Elle est exécutée dans le cadre d’un accompagnement personnalisé et une approche agile pour la plus grande satisfaction de nos partenaires et associés. Notre assistance aux PME se traduit par :
-                <ul class="fa-ul1">
-                    <!--
-                    <li><i class="fa-li fa fa-spinner fa-spin"></i>List icons</li>-->
-                    <li>
-                        <i class="fa-li fa fa-check-square"></i> La réalisation des études de marché
-                    </li>
-                    <li>
-                        <i class="fa-li fa fa-check-square"></i>Le conseil et l’assistance technique
-                    </li>
-                    <li>
-                        <i class="fa-li fa fa-check-square"></i>Des formations continues pour renforcer les capacités des acteurs.
-                    </li>
+            </div>
+            </div>
+            <div class="activite">
+                <h4>Nos Activités </h4>
+            <div class="contenu-activite">
+                Le cabinet BDS SARL développe ses activités autour de trois métiers complémentaires à savoir : <bold>le Conseil</bold>  <bold>l’Ingénierie d’affaires</bold>  et  <bold>la Formation continue</bold>.
+                Pour accompagner nos partenaires, nos activités concernent :
+                	<li>Les études de marché </li>
+                	<li>Les études d’impact (études de danger, impact environnemental, etc.) </li>
+                	<li>Les avis consultatifs (notes d’analyses stratégiques, notes d’évaluations, études diagnostiques ; plan de mise à niveau, etc.) </li>
+                	<li>L’assistance à la rédaction des plans d’affaires (Business plan/model, Plan marketing, etc.) </li>
+                	<li>L’intermédiation d’affaires & négoce </li>
+                	<li>Les formations continues </li>
+                	<li>Le coaching, les motivations & le développement personnel </li>
+                	<li>Le placement des jeunes cadres (Compétences RH, etc.)</li>
 
-                </ul>
-            </p>
-
-                 
+            </div>
+            </div>
+            <div class="slogann">
+                <h4>Notre Slogan</h4>
+                <div class="contenu-slogan">
+                « Promouvoir la PME et le savoir-faire local»
+                </div>
+            </div>
         </div>
-        <div class="about-1 ">
-            <div class="content-box-large">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div class="about-item text-center">
-                                <i class="fa fa-book"></i>
-                                <h3>  VISION</h3>
-                                <hr />
-                                <p>
-                                    Conscient des enjeux de développement de la PME africaine, le projet part d’une vision futuriste à savoir :</br></br>
-                                    Bâtir une plateforme de référence de production de services de développement aux entreprises (SDE),
-                                    afin de les aider à atteindre leurs objectifs et améliorer leur compétitivité.
-                                    </p><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-                            </div>
-                        </div>
-
-
-                        <div class="col-sm-6">
-                            <div class="about-item text-center">
-                                <i class="fa fa-book"></i>
-                                <h3>Nos activités</h3>
-                                <hr />
-                                <p>Le cabinet BDS SARL développe ses activités autour de trois métiers complémentaires à savoir : (i) le Conseil, (ii) l’Ingénierie d’affaires et (iii) la Formation continue.</p>
-                                <ul class="fa-ul">
-                                    <li>Les études de marché ;</li>
-                                    <li>Les études d’impact (études de danger, impact environnemental, etc.) ;</li>
-                                    <li>Les avis consultatifs (notes d’analyses stratégiques, notes d’évaluations, études diagnostiques ; plan de mise à niveau, etc.) ;</li>
-                                    <li>L’assistance à la rédaction des plans d’affaires (Business plan/model, Plan marketing, etc.) ;</li>
-                                    <li>L’intermédiation d’affaires & négoce ;</li>
-                                    <li>Les formations continues ;</li>
-                                    <li>Le coaching, les motivations & le développement personnel ;</li>
-                                    <li>Le placement des jeunes cadres (Compétences RH, etc.)</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="col-sm-6">
-                            <div class="about-item text-center">
-                                <i class="fa fa-globe"></i>
-                                <h3>MISSIONS</h3>
-                                <hr />
-                                    <p>
-                                        <br /><br />
-<!--                                    Nous poursuivons trois principales missions:-->
-                                    <ul class="fa-ul">
-                                        <!--
-                                        <li><i class="fa-li fa fa-spinner fa-spin"></i>List icons</li>-->
-                                        <li>
-                                            <!-- <i class="fa-li fa fa-arrow-right">-->Accompagner les PME (et les TPE) par des services personnalisés
-                                        </li><br />
-                                        
-
-                                        <li>
-                                            <!-- <i class="fa-li fa fa-arrow-right">-->Créer une bourse des PME pour répondre à des besoins de sous-traitance à haute intensité de main d’œuvre
-                                            </li>
-                                            <br />
-                                        <li>
-                                           <!-- <i class="fa-li fa fa-arrow-right">--></i>Réaliser des études sectorielles pour impulser le développement des projets innovants.
-                                            </li>
-                                            <br />
-
-                                    </ul>
-                                </p>
-                            </div>
-                        </div>
-
-
-
-                        <div class="col-sm-6">
-                            <div class="about-item text-center">
-                                <i class="fa fa-book"></i>
-                                <h3>Nos valeurs</h3>
-                                <hr />
-                                <p>Les valeurs qui nous caractérisent sont :</p>
-                                <ul class="fa-ul">
-                                    <!--
-                                    <li><i class="fa-li fa fa-spinner fa-spin"></i>List icons</li>-->
-                                    <li>
-                                        <!-- <i class="fa-li fa fa-arrow-right">-->La collaboration. Toutes nos missions sont exécutées dans une démarche concertée et participative avec le donneur d’ordre ;
-                                    </li>
-                                    <br />
-
-                                    <li>
-                                        <!-- <i class="fa-li fa fa-arrow-right">-->La responsabilité. Pour toutes les missions, nous garantissons la pleine satisfaction du demandeur
-                                    </li>
-                                    <br />
-                                    <li>
-                                        <!-- <i class="fa-li fa fa-arrow-right">-->La qualité. Il s’agit pour nous de fournir des services de qualité et conformes aux standards internationaux.
-                                    </li>
-
-                                </ul>
-                            </div>
-                        </div>
-                
-        </div>
+        
+            
     </div>
-</div>
-
-                    </div>
-        </article>
-    </section>
-
-  
 </body>
 </html>

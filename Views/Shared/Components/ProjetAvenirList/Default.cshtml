@@ -4,9 +4,13 @@
 {
                <div class="item-A">
 
-                    <img src=""/>
+                    <img src="~/Images/Projet/@item.cheminImage"/>
 
-                <div>idée:@item.Idee</div>
-                <button> voir plus</button>
+                 <div class="idee">@item.Idee</div>
+                 <div class="voir-plus">
+
+                     <a asp-controller="ProjetAvenir"asp-action="@item.Nom_Page"> voir plus</a>
+                 </div>
+               
                </div>
 }

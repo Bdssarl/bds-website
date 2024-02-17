@@ -66,30 +66,33 @@ namespace bds_site_web_version7_.Models
     public virtual DbSet<Chiffre> Chiffres { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-            => optionsBuilder.UseMySQL("server=localhost;database= site_web_bds_db ;port=3306;user=root;password=");
+            => optionsBuilder.UseMySQL("server=localhost;database= site_web_bds_db ;port=3306;user=root;password=faquira5379");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
             base.OnModelCreating(modelBuilder);
-        modelBuilder.Entity<Actualite>(entity =>
-        {
-            entity.HasKey(e => e.Id).HasName("PRIMARY");
+            modelBuilder.Entity<Actualite>(entity =>
+            {
+                entity.HasKey(e => e.Id).HasName("PRIMARY");
 
-            entity.ToTable("actualite");
+                entity.ToTable("actualite");
 
-            entity.Property(e => e.Id)
-                .HasMaxLength(255)
-                .HasColumnName("id_Actualite");
-            entity.Property(e => e.CheminMediaActualite)
-                .HasMaxLength(25)
-                .HasColumnName("chemin_media_actualite");
-            entity.Property(e => e.DescriptionActualite)
-                .HasMaxLength(25)
-                .HasColumnName("description_actualite");
-            entity.Property(e => e.LibelleActualite)
-                .HasMaxLength(25)
-                .HasColumnName("libelle_actualite");
-        });
+                entity.Property(e => e.Id)
+                    .HasMaxLength(255)
+                    .HasColumnName("id_Actualite");
+                entity.Property(e => e.CheminMediaActualite)
+                    .HasMaxLength(255)
+                    .HasColumnName("chemin_media_actualite");
+                entity.Property(e => e.DescriptionActualite)
+                    .HasMaxLength(255)
+                    .HasColumnName("description_actualite");
+                entity.Property(e => e.LibelleActualite)
+                    .HasMaxLength(100)
+                    .HasColumnName("libelle_actualite");
+                entity.Property(e => e.NomPageActualite)
+                .HasColumnName("nompage_Actualite")
+                .HasMaxLength(100);
+            });
 
         modelBuilder.Entity<AnnonceRecrutement>(entity =>
         {
@@ -172,22 +175,7 @@ namespace bds_site_web_version7_.Models
                 .HasColumnName("taille_Ebook");
         });
 
-        modelBuilder.Entity<Emploi>(entity =>
-        {
-            entity.HasKey(e => e.Id).HasName("PRIMARY");
-
-            entity.ToTable("emploi");
-
-            entity.Property(e => e.Id)
-                .HasMaxLength(255)
-                .HasColumnName("id_Emploi");
-            entity.Property(e => e.DomaineEmploi)
-                .HasMaxLength(20)
-                .HasColumnName("domaine_emploi");
-            entity.Property(e => e.TypeEmploi)
-                .HasMaxLength(45)
-                .HasColumnName("type_emploi");
-        });
+       
 
         modelBuilder.Entity<FormationTermine>(entity =>
         {
@@ -363,6 +351,9 @@ namespace bds_site_web_version7_.Models
             entity.Property(e => e.cheminImage)
                 .HasMaxLength(255)
                 .HasColumnName("CheminImage");
+            entity.Property(e => e.Nom_Page)
+            .HasMaxLength(100)
+            .HasColumnName("nom_page");
         });
 
         modelBuilder.Entity<ProjetEnCour>(entity =>
@@ -519,17 +510,18 @@ namespace bds_site_web_version7_.Models
                 .HasMaxLength(255)
                 .HasColumnName("id_temoignage");
             entity.Property(e => e.CheminImageTemoignage)
-                .HasMaxLength(40)
+                .HasMaxLength(255)
                 .HasColumnName("chemin_image_temoignage");
             entity.Property(e => e.DescriptionTemoignage)
-                .HasMaxLength(45)
+                .HasMaxLength(255)
                 .HasColumnName("description_temoignage");
             entity.Property(e => e.NomTemoignage)
-                .HasMaxLength(45)
+                .HasMaxLength(255)
                 .HasColumnName("nom_temoignage");
             entity.Property(e => e.RoleTemoignage)
-                .HasMaxLength(45)
-                .HasColumnName("role_temoignage");
+                .HasMaxLength(25)
+                .HasColumnName("role_temoignage")
+                .HasDefaultValue("ddee");
         });
 
         modelBuilder.Entity<Video>(entity =>
@@ -542,19 +534,19 @@ namespace bds_site_web_version7_.Models
                 .HasMaxLength(255)
                 .HasColumnName("id_Video");
             entity.Property(e => e.CheminVideo)
-                .HasMaxLength(25)
+                .HasMaxLength(255)
                 .HasColumnName("chemin_video");
             entity.Property(e => e.DateCreationVideo)
                 .HasColumnType("date")
                 .HasColumnName("date_creation_video");
             entity.Property(e => e.ExtensionVideo)
-                .HasMaxLength(25)
+                .HasMaxLength(255)
                 .HasColumnName("extension_video");
             entity.Property(e => e.NomVideo)
-                .HasMaxLength(25)
+                .HasMaxLength(255)
                 .HasColumnName("nom_video");
             entity.Property(e => e.TailleVideo)
-                .HasMaxLength(25)
+                .HasMaxLength(255)
                 .HasColumnName("taille_video");
         });
             modelBuilder.Entity<User>()
@@ -580,6 +572,9 @@ namespace bds_site_web_version7_.Models
                 entity.Property(e => e.DescriptionMetier)
                    .HasMaxLength(255)
                    .HasColumnName("Decription_Metier");
+                entity.Property(e => e.nomPageMetier)
+                .HasColumnName("nom_page")
+                .HasMaxLength(100);
             });
             modelBuilder.Entity<UserNewsletter>(entity =>
             {

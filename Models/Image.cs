@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 
@@ -10,7 +11,7 @@ namespace bds_site_web_version7_.Models
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public string Id { get; set; } =null!;
-
+       
         public string NomImage { get; set; } =null!;
 
         public string TailleImage { get; set; } =null;

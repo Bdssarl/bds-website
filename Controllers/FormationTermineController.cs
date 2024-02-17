@@ -1,10 +1,12 @@
 ﻿using bds_site_web_version7_.Models;
 using bds_site_web_version7_.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace bds_site_web_version7_.Controllers
 {
+    
     public class FormationTermineController : Controller
     {
             SiteWebBdsDbContext _context;
@@ -14,9 +16,17 @@ namespace bds_site_web_version7_.Controllers
             {
                 _context = context;
                 _fileUpload = fileUpload;
-            i = i + 1;
+            i = _context.FormationTermines.Count();
+            if (i == 0)
+            {
+                i = 1;
             }
-
+            else
+            {
+                i = i + 1;
+            }
+        }
+        //GET:FormationTermine
             public async Task<IActionResult> Index()
             {
                 return _context.Videos != null ?
@@ -24,7 +34,7 @@ namespace bds_site_web_version7_.Controllers
                             Problem("Entity set 'SiteWebBdsDbContext.FormationTermines'  is null.");
             }
 
-            // GET: Departementecoles/Details/5
+            // GET: FormationTermine/Details/5
             public async Task<IActionResult> Details(string? id)
             {
                 if (id == null || _context.FormationTermines == null)
@@ -42,28 +52,34 @@ namespace bds_site_web_version7_.Controllers
                 return View(formation);
             }
 
-            // GET: Departementecoles/Create
+            // GET: FormationTermine/Create
             public IActionResult Create()
             {
+            
             var formation = new FormationTermine();
                 formation.Id = $"ft{DateTime.Now.Year}{i}";
             
             return View(formation);
             }
 
-            // POST: Departementecoles/Create
-            // To protect from overposting attacks, enable the specific properties you want to bind to.
-            // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-            [HttpPost]
+        // POST: FormationTermine/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
+        [HttpPost]
             [ValidateAntiForgeryToken]
             public async Task<IActionResult> Create(FormationTermine formation)
             {
-
-                var fileName = _fileUpload.uploadimage(formation.FormFile,"formation");
-            formation.CheminImage = fileName;
+            if (ModelState.IsValid)
+            {
+                var fileName = _fileUpload.uploadimage(formation.FormFile, "formation");
+                formation.CheminImage = fileName;
                 _context.Add(formation);
+
                 await _context.SaveChangesAsync();
-                return View();
+                return RedirectToAction(nameof(Index));
+            }
+                return View(formation);
             }
         public async Task<IActionResult> FormationTermine()
         {
@@ -71,7 +87,7 @@ namespace bds_site_web_version7_.Controllers
             return View();
         }
 
-            // GET: Departementecoles/Edit/5
+            // GET: FormationTermine/Edit/5
             public async Task<IActionResult> Edit(string? id)
             {
                 if (id == null || _context.FormationTermines == null)
@@ -87,7 +103,7 @@ namespace bds_site_web_version7_.Controllers
                 return View(formation);
             }
 
-            // POST: Departementecoles/Edit/5
+            // POST: FormationTermine/Edit/5
             // To protect from overposting attacks, enable the specific properties you want to bind to.
             // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
             [HttpPost]
@@ -122,7 +138,7 @@ namespace bds_site_web_version7_.Controllers
                 return View(formation);
             }
 
-            // GET: Departementecoles/Delete/5
+            // GET: FormationTermine/Delete/5
             public async Task<IActionResult> Delete(string? id)
             {
                 if (id == null || _context.FormationTermines == null)
@@ -140,7 +156,7 @@ namespace bds_site_web_version7_.Controllers
                 return View(formation);
             }
 
-            // POST: Departementecoles/Delete/5
+            // POST: FormationTermine/Delete/5
             [HttpPost, ActionName("Delete")]
             [ValidateAntiForgeryToken]
             public async Task<IActionResult> DeleteConfirmed(string id)

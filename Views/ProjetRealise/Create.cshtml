@@ -1,5 +1,6 @@
 ﻿@{
     Layout = "~/Views/Administration/_Layout.cshtml";
+    ViewData["Title"] = "projet réalisé";
 }
 @model bds_site_web_version7_.Models.ProjetRealise
 <!DOCTYPE html>
@@ -7,7 +8,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Bds_site_web</title>
+    <title>@ViewData["Title"] </title>
     <!--<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />-->
     <!--- <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />-->
     <link rel="stylesheet" href="~/css/Create.css" asp-append-version="true" />
@@ -22,12 +23,12 @@
 
         <form class="form-projet-realise" asp-controller="ProjetRealise" asp-action="Create" method="post" enctype="multipart/form-data">
             <div class="form_DateDebutProjetRealise"><label asp-for="Id">Id</label><input type="text" required class="input-button" asp-for="Id" readonly /></div>
-            <div class="form_DateDebutProjetRealise"><label asp-for="Intitule_Projet">Intitule du Projet</label><input type="text" required class="input-button" asp-for="Intitule_Projet" /></div>
-            <div class="form_DateFinProjetAVenir"><label asp-for="Donneur_Ordre">Donneur Ordre</label><input type="text" required class="input-button" asp-for="Donneur_Ordre" /></div>
-            <div class="form_DateFinProjetAVenir"><label asp-for=" TacheExecute"> TacheExecute</label><input type="text" required class="input-button" asp-for="TacheExecute" /></div>
-            <div class="form_DateFinProjetAVenir"><label asp-for="Duree"> Durée </label><input type="text" required class="input-button" asp-for="Duree" /></div>
+            <div class="form_DateDebutProjetRealise"><label asp-for="Intitule_Projet">Intitule du Projet</label><input type="text" required class="input-button" asp-for="Intitule_Projet"/><span asp-validation-for="Intitule_Projet"class="text-danger"></span></div>
+            <div class="form_DateFinProjetAVenir"><label asp-for="Donneur_Ordre">Donneur Ordre</label><input type="text" required class="input-button" asp-for="Donneur_Ordre" /> <span asp-validation-for="Donneur_Ordre" class="text-danger"></span></div>
+            <div class="form_DateFinProjetAVenir"><label asp-for=" TacheExecute"> TacheExecute</label><input type="text" required class="input-button" asp-for="TacheExecute" /><span asp-validation-for="TacheExecute" class="text-danger"></span></div>
+            <div class="form_DateFinProjetAVenir"><label asp-for="Duree"> Durée </label><input type="text" required class="input-button" asp-for="Duree" /><span asp-validation-for="Duree" class="text-danger"></span></div>
        
-            <div class="form_DateFinProjetAVenir"><label asp-for="Annee"> Annee </label><input type="text" required class="input-button" asp-for="Annee" /></div>
+            <div class="form_DateFinProjetAVenir"><label asp-for="Annee"> Annee </label><input type="text" required class="input-button" asp-for="Annee" /><span asp-validation-for="Annee" class="text-danger"></span></div>
 
             <div class="cv-file"><input type="file" required class="input-button" asp-for="FormFile"/></div>
 

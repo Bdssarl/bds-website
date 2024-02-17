@@ -21,8 +21,8 @@
 
         <form class="form" asp-controller="TypeEmploi" asp-action="Create" method="post" enctype="multipart/form-data">
 
-            <div class="form_LibelleTypeStage"> <label asp-for="LibelleTypeEmploi">Libelle du type de  Stage</label><input class="input-button" type="text" required asp-for="LibelleTypeEmploi" /></div>
-            <div class="form_LibelleTypeStage"> <label asp-for="DomaineEmploi">Domaine Stage</label><input class="input-button" type="text" required asp-for="DomaineEmploi" /></div>
+            <div class="form_LibelleTypeStage"> <label asp-for="LibelleTypeEmploi">Libelle du type d'emploi</label><input class="input-button" type="text" required asp-for="LibelleTypeEmploi" /><span asp-validation-for="LibelleTypeEmploi"></span></div>
+            <div class="form_LibelleTypeStage"> <label asp-for="DomaineEmploi">Domaine d'emploi'</label><input class="input-button" type="text" required asp-for="DomaineEmploi" /><span asp-validation-for="DomaineEmploi"></span></div>
             <div class="form_submit"> <button class="submit-button">Enregistrer</button></div>
         </form>
 

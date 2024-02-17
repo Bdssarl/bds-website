@@ -1,0 +1,9 @@
+﻿@using bds_site_web_version7_.Models;
+@model IEnumerable<Temoignage>
+@foreach(var item in Model){
+    <div class="Temoignage-1">
+        <img src="~/Images/Temoignage/@item.CheminImageTemoignage"/>
+        <div style="font-style:italic;font-size:10px;display:flex; justify-content:center;align-items:center">@item.DescriptionTemoignage</div>
+        <div style="font-style:normal;color:#161616;font-weight:600">@item.NomTemoignage</div>
+    </div>
+}

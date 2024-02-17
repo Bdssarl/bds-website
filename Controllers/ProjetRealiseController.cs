@@ -2,9 +2,12 @@
 using bds_site_web_version7_.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
+using bds_site_web_version7_.Migrations;
 
 namespace bds_site_web_version7_.Controllers
 {
+    
     public class ProjetRealiseController : Controller
     {
         SiteWebBdsDbContext _context;
@@ -14,7 +17,11 @@ namespace bds_site_web_version7_.Controllers
         {
             _context = context;
             _fileUpload = fileUpload;
-            i = i + 1;
+            i = _context.ProjetRealises.Count();
+            if (i == 0)
+            {
+                i = 1;
+            }
         }
 
         public async Task<IActionResult> Index()
@@ -61,17 +68,24 @@ namespace bds_site_web_version7_.Controllers
         // POST: Departementecoles/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(ProjetRealise projetRealise)
         {
-            var fileName = _fileUpload.uploadimage(projetRealise.FormFile, "projet");
-            projetRealise.ChemImageProjetRealise = fileName;
-            _context.Add(projetRealise);
+            if (ModelState.IsValid)
+            {
+
+
+                var fileName = _fileUpload.uploadimage(projetRealise.FormFile, "projet");
+                projetRealise.ChemImageProjetRealise = fileName;
+                _context.Add(projetRealise);
                 await _context.SaveChangesAsync();
 
-            ViewBag.Message = "Enregistrer avec succès";
-            return View();
+                ViewBag.Message = "Enregistrer avec succès";
+                return RedirectToAction(nameof(Index));
+            }
+            return View(projetRealise);
         }
 
         // GET: Departementecoles/Edit/5

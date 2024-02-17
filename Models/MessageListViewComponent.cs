@@ -13,8 +13,12 @@ namespace bds_site_web_version7_.Models
         }
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var messages = await _context.Users.Include(e => e.Messages).OrderDescending().ToListAsync();      
-            return View(messages);
+            var Users =  await _context.Users.ToListAsync();
+            var Messages= await _context.Messages.ToListAsync();
+            var listMessages =  from user in Users
+                               join message in Messages on user.Id equals message.Id
+                               select new {user.LastName, user.FirstName,user.Email,user.PhoneNumber,message.ObjetMessage,message.DateMessage};
+            return View(listMessages);
         }
 
     }
